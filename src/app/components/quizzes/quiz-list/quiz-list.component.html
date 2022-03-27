@@ -1,1 +1,5 @@
-<p>quiz-list works!</p>
+<div class="quiz" *ngFor="let quiz of quizList">
+  <!--Inputs & Output allow communication between parent & child components.-->
+  <!--More information: https://angular.io/guide/component-interaction-->
+  <app-quiz [quiz]="quiz" (quizSelected)="quizSelected($event)"></app-quiz>
+</div>

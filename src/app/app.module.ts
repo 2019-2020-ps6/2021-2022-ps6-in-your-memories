@@ -7,6 +7,9 @@ import { QuizFormComponent } from './components/quizzes/quiz-form/quiz-form.comp
 import { QuizListComponent } from './components/quizzes/quiz-list/quiz-list.component';
 import { AppRoutingModule } from './app.routing.module';
 import { QuizComponent } from './components/quizzes/quiz/quiz.component';
+import {AnswerComponent} from "./components/quizzes/answer/answer.component";
+import {HeaderComponent} from "./components/header/header.component";
+import {QuestionnaireComponent} from "./components/quizzes/questionnaire/questionnaire.component";
 
 @NgModule({
   declarations: [
@@ -14,7 +17,10 @@ import { QuizComponent } from './components/quizzes/quiz/quiz.component';
     QuizEditComponent,
     QuizFormComponent,
     QuizListComponent,
-    QuizComponent
+    QuizComponent,
+    AnswerComponent,
+    QuestionnaireComponent,
+    HeaderComponent
   ],
   imports: [
     AppRoutingModule,

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Quiz} from "../../../../models/quiz.model";
+import {Router} from "@angular/router";
+import {QuizService} from "../../../../services/quiz.service";
 
 @Component({
   selector: 'app-quiz-list',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuizListComponent implements OnInit {
 
-  constructor() { }
+  public quizList: Quiz[] = [];
+
+  constructor(private router: Router, public quizService: QuizService) {
+    this.quizService.quizzes$.subscribe((quizzes: Quiz[]) => {
+      this.quizList = quizzes;
+    });
+  }
 
   ngOnInit(): void {
+  }
+
+  quizSelected(quiz: Quiz): void {
+    this.router.navigate(['/questionnaire/' + quiz.name]);
   }
 
 }
