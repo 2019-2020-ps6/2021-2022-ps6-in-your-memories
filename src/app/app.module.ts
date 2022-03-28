@@ -12,6 +12,7 @@ import {HeaderComponent} from "./components/header/header.component";
 import {QuestionnaireComponent} from "./components/quizzes/questionnaire/questionnaire.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {QuestionsFormComponent} from "./components/quizzes/questions-form/questions-form.component";
+import {HomeComponent} from "./components/home/home/home.component";
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {QuestionsFormComponent} from "./components/quizzes/questions-form/questi
     HeaderComponent,
     QuestionsFormComponent,
     QuizFormComponent,
+    HomeComponent,
   ],
     imports: [
         AppRoutingModule,

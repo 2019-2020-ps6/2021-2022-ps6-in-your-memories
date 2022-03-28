@@ -1,57 +1,59 @@
 <app-header></app-header>
-<div class="card">
-  <h2>Create a new question</h2>
-  <form class="quiz-form" [formGroup]="questionForm">
-    <label for="label">
-      Question
-      <input class="input-custom" type="text" id="label" [formControlName]="'label'">
-    </label>
-    <div class="questions" formArrayName="questions">
-
-      <br>
-      <label>
-        Answer 1
-        <input type="text" [formControlName]="'value'">
-        Correct
-        <input type="checkbox" [formControlName]="'isCorrect'">
+<div class="container">
+  <div class="card">
+    <h2>Create a new question</h2>
+    <form class="quiz-form" [formGroup]="questionForm">
+      <label for="label">
+        Question
+        <input class="input-custom" type="text" id="label" [formControlName]="'label'">
       </label>
+      <div class="questions" formArrayName="questions">
 
-      <br>
-      <label>
-        Answer 2
-        <input type="text" [formControlName]="'value'">
-        Correct
-        <input type="checkbox" [formControlName]="'isCorrect'">
-      </label>
+        <br>
+        <label>
+          Answer 1
+          <input type="text" [formControlName]="'value'">
+          Correct
+          <input type="checkbox" [formControlName]="'isCorrect'">
+        </label>
 
-      <br>
-      <label>
-        Answer 3
-        <input type="text" [formControlName]="'value'">
-        Correct
-        <input type="checkbox" [formControlName]="'isCorrect'">
-      </label>
+        <br>
+        <label>
+          Answer 2
+          <input type="text" [formControlName]="'value'">
+          Correct
+          <input type="checkbox" [formControlName]="'isCorrect'">
+        </label>
 
-      <br>
-      <label>
-        Answer 4
-        <input type="text" [formControlName]="'value'">
-        Correct
-        <input type="checkbox" [formControlName]="'isCorrect'">
-      </label>
+        <br>
+        <label>
+          Answer 3
+          <input type="text" [formControlName]="'value'">
+          Correct
+          <input type="checkbox" [formControlName]="'isCorrect'">
+        </label>
 
-      <br>
-      <br>
-      <label>
-        Clue
-        <input type="text" [formControlName]="'value'">
+        <br>
+        <label>
+          Answer 4
+          <input type="text" [formControlName]="'value'">
+          Correct
+          <input type="checkbox" [formControlName]="'isCorrect'">
+        </label>
 
-      </label>
+        <br>
+        <br>
+        <label>
+          Clue
+          <input type="text" [formControlName]="'value'">
 
-      <br>
-      <br>
-      <br>
-    </div>
-    <button type="submit" class="button-card" (click)="addQuestion()">Create</button>
-  </form>
+        </label>
+
+        <br>
+        <br>
+        <br>
+      </div>
+      <button type="submit" class="button-card" (click)="addQuestion()">Create</button>
+    </form>
+  </div>
 </div>
