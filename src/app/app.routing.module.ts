@@ -4,6 +4,8 @@ import {QuizListComponent} from './components/quizzes/quiz-list/quiz-list.compon
 import {QuizEditComponent} from './components/quizzes/quiz-edit/quiz-edit.component';
 import {AnswerComponent} from "./components/quizzes/answer/answer.component";
 import {QuestionnaireComponent} from "./components/quizzes/questionnaire/questionnaire.component";
+import {UserListComponent} from "./components/user/user-list/user-list.component";
+import {UserFormComponent} from "./components/user/user-form/user-form.component";
 
 const routes: Routes = [
   {path: 'quiz-list', component: QuizListComponent},
@@ -11,6 +13,8 @@ const routes: Routes = [
   {path: 'questionnaire/:id', component: QuestionnaireComponent},
   {path: 'anwser', component: AnswerComponent},
   { path: '', redirectTo: '/quiz-list', pathMatch: 'full' },
+  {path: 'user-list', component: UserListComponent},
+  {path: 'user-form', component: UserFormComponent},
 ];
 
 @NgModule({

@@ -10,6 +10,9 @@ import { QuizComponent } from './components/quizzes/quiz/quiz.component';
 import {AnswerComponent} from "./components/quizzes/answer/answer.component";
 import {HeaderComponent} from "./components/header/header.component";
 import {QuestionnaireComponent} from "./components/quizzes/questionnaire/questionnaire.component";
+import {UserComponent} from "./components/user/user/user.component";
+import {UserListComponent} from "./components/user/user-list/user-list.component";
+import {UserFormComponent} from "./components/user/user-form/user-form.component";
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import {QuestionnaireComponent} from "./components/quizzes/questionnaire/questio
     QuizComponent,
     AnswerComponent,
     QuestionnaireComponent,
-    HeaderComponent
+    HeaderComponent,
+    UserComponent,
+    UserListComponent,
+    UserFormComponent,
   ],
   imports: [
     AppRoutingModule,

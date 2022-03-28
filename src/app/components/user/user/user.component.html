@@ -1,0 +1,15 @@
+<app-header></app-header>
+
+<div class="card">
+  <h2>
+    <i class="fab fa-profile"></i>
+    {{user.firstName}} {{user.lastName}}
+    <button>Voir la fiche patient</button>
+    <button class="navigation" [routerLink]="['/quiz-list']">Faire des quiz</button>
+  </h2>
+  <!-- <button class="button-card" (click)="ajoutUser()">Ajouter un patient</button> -->
+</div>
+
+<div>
+  <button class="button-newU" routerLink="/user-form">Ajouter un patient</button>
+</div>

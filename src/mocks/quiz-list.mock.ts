@@ -29,3 +29,4 @@ export const QUIZ_LIST: Quiz[] = [
     questions: [QUESTION_PHYSIQUE],
   }
 ];
+
