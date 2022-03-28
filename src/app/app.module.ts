@@ -10,6 +10,8 @@ import { QuizComponent } from './components/quizzes/quiz/quiz.component';
 import {AnswerComponent} from "./components/quizzes/answer/answer.component";
 import {HeaderComponent} from "./components/header/header.component";
 import {QuestionnaireComponent} from "./components/quizzes/questionnaire/questionnaire.component";
+import {ReactiveFormsModule} from "@angular/forms";
+import {QuestionsFormComponent} from "./components/quizzes/questions-form/questions-form.component";
 
 @NgModule({
   declarations: [
@@ -20,12 +22,15 @@ import {QuestionnaireComponent} from "./components/quizzes/questionnaire/questio
     QuizComponent,
     AnswerComponent,
     QuestionnaireComponent,
-    HeaderComponent
+    HeaderComponent,
+    QuestionsFormComponent,
+    QuizFormComponent,
   ],
-  imports: [
-    AppRoutingModule,
-    BrowserModule
-  ],
+    imports: [
+        AppRoutingModule,
+        BrowserModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

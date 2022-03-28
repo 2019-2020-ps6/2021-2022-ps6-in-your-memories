@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Quiz} from "../../../../models/quiz.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-quiz',
@@ -18,8 +19,9 @@ export class QuizComponent implements OnInit {
 
   @Output()
   quizSelected: EventEmitter<Quiz> = new EventEmitter<Quiz>();
+  quizCreated: EventEmitter<Quiz> = new EventEmitter<Quiz>();
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -28,4 +30,8 @@ export class QuizComponent implements OnInit {
     this.quizSelected.emit(this.quiz);
   }
 
+  createQuiz() {
+    this.quizCreated.emit(this.quiz);
+    this.router.navigate(["quiz-form"]);
+  }
 }
