@@ -34,10 +34,16 @@
 
 .Question {
   grid-area: Question;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
 
+.IndiceDiv{
+  text-align: center;
+}
+
+.Indice {
+  display: inline-block;
 }
 
 .Réponse {
