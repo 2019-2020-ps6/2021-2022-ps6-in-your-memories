@@ -14,6 +14,8 @@ export class UserComponent implements OnInit {
     id: '',
     firstName: '',
     lastName: '',
+    pathologie: '',
+    age: 0,
   }
 
   @Output()

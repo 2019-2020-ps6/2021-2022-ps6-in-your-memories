@@ -2,6 +2,31 @@
 
 <h1>Ajouter un patient</h1>
 
-<div class="form">
-  <h2>Nom : </h2>
+<div class="container">
+  <div class="card">
+    <br>
+    <form class="user-form" [formGroup]="userForm">
+      <label for="firstName">
+        First name
+        <input class="input-custom" type="text" id="firstName" [formControlName]="'first name'">
+      </label>
+      <br>
+      <label for="lastName">
+        Last name
+        <input class="input-custom" type="text" id="lastName" [formControlName]="'last name'">
+      </label>
+      <br>
+      <label for="pathologie">
+        Pathologie
+        <input class="input-custom" type="text" id="pathologie" [formControlName]="'pathologie'">
+      </label>
+      <br>
+      <label for="age">
+        Age
+        <input class="input-custom" type="number" id="age" [formControlName]="'age'">
+      </label>
+      <br>
+      <button type="submit" class="button-card" click="addUser()">Add</button>
+    </form>
+  </div>
 </div>
