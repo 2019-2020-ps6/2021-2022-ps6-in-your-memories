@@ -1,3 +1,6 @@
+.quiz{
+  display: inline-block;
+}
 button {
   background-color: #eee;
   border: 1px solid #eee;

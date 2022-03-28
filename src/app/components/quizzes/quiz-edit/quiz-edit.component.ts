@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Quiz} from "../../../../models/quiz.model";
 
 @Component({
   selector: 'app-quiz-edit',

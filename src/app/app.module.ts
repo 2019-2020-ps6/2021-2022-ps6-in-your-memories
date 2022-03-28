@@ -13,6 +13,9 @@ import {QuestionnaireComponent} from "./components/quizzes/questionnaire/questio
 import {UserComponent} from "./components/user/user/user.component";
 import {UserListComponent} from "./components/user/user-list/user-list.component";
 import {UserFormComponent} from "./components/user/user-form/user-form.component";
+import {QuestionsFormComponent} from "./components/quizzes/questions-form/questions-form.component";
+import {HomeComponent} from "./components/home/home/home.component";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -27,10 +30,16 @@ import {UserFormComponent} from "./components/user/user-form/user-form.component
     UserComponent,
     UserListComponent,
     UserFormComponent,
+    QuestionsFormComponent,
+    QuizFormComponent,
+    HomeComponent,
   ],
   imports: [
     AppRoutingModule,
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    BrowserModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
