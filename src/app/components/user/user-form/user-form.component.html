@@ -26,7 +26,8 @@
         <input class="input-custom" type="number" id="age" [formControlName]="'age'">
       </label>
       <br>
-      <button type="submit" class="button-card" click="addUser()">Add</button>
+      <br>
+      <button type="submit" class="button-card" (click)="addUser()" [routerLink]="['/user-list']">Add</button>
     </form>
   </div>
 </div>

@@ -1,5 +1,27 @@
 <app-header></app-header>
 <div class="container">
+  <br>
+  <!--<label for="search">
+    <input type="text" [formControlName]="'search'" placeholder="Rechercher">
+  </label>-->
+  <br>
+  <br>
+  <div class="list-themes">
+    <h2>Themes</h2>
+    <div class="themes" *ngFor="let quiz of quizList">
+      {{quiz.theme}}
+      <br>
+    </div>
+  </div>
+  <br>
+  <br>
+  <div class="list-quiz">
+    <h2>Top Quiz</h2>
+    <div class="quiz" *ngFor="let quiz of quizList">
+      <app-quiz [quiz]="quiz" (quizSelected)="quizSelected($event)"></app-quiz>
+    </div>
+  </div>
+<!--
   <div class="card">
     <button class="button-card" [routerLink]="['/quiz-list']">List Quiz</button>
   </div>
@@ -9,5 +31,6 @@
   <div class="card">
     <button class="button-card" [routerLink]="['/user-list']">Patients</button>
   </div>
+-->
 </div>
 

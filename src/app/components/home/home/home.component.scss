@@ -32,3 +32,22 @@ a:link
   cursor: pointer;
 }
 
+h2 {
+  color: darkseagreen;
+  text-decoration: underline;
+}
+.list-themes{
+  border : 3px solid black;
+}
+
+.themes {
+  display: inline-block;
+  margin-bottom: 10px;
+  border: 2px solid darkseagreen;
+  border-radius: 50px;
+  padding: 10px;
+}
+
+.list-quiz{
+  border : 3px solid black;
+}

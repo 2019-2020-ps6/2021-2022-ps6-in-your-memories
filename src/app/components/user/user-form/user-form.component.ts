@@ -17,6 +17,8 @@ export class UserFormComponent implements OnInit{
     this.userForm = this.formBuilder.group({
       firstName: [''],
       lastName: [''],
+      pathologie: [''],
+      age:[],
     });
   }
 
@@ -25,6 +27,7 @@ export class UserFormComponent implements OnInit{
 
   addUser(): void {
     const userToCreate: User = this.userForm.getRawValue() as User;
+    this.userService.addUser(userToCreate);
   }
 
 }

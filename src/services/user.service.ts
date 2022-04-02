@@ -13,4 +13,12 @@ export class UserService{
 
   constructor() {
   }
+
+  addUser(user: User): void{
+    this.users.push(user);
+    this.users$.subscribe(users => {
+      this.users=users;
+      this.users$.next(this.users);
+    });
+  }
 }

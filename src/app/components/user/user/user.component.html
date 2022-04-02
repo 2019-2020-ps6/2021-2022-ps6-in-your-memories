@@ -1,16 +1,11 @@
-<app-header></app-header>
-<div class="container">
+
+<div class="container" *ngIf="user">
   <div class="card">
     <h2>
-      <i class="fab fa-profile"></i>
+      <i class="fas fa-profile"></i>
       {{user.firstName}} {{user.lastName}}
       <button class="button-card">Voir la fiche patient</button>
       <button class="button-card" [routerLink]="['/quiz-list']">Faire des quiz</button>
     </h2>
-    <!-- <button class="button-card" (click)="ajoutUser()">Ajouter un patient</button> -->
-  </div>
-
-  <div>
-    <button class="button-card" routerLink="/user-form">Ajouter un patient</button>
   </div>
 </div>
