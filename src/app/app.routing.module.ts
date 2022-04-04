@@ -10,6 +10,7 @@ import {QuizFormComponent} from "./components/quizzes/quiz-form/quiz-form.compon
 import {QuestionsFormComponent} from "./components/quizzes/questions-form/questions-form.component";
 import {HomeComponent} from "./components/home/home/home.component";
 import {ConnexionComponent} from "./components/connexion/connexion.component";
+import {QuizEndComponent} from "./components/quizzes/quiz-end/quiz-end.component";
 
 const routes: Routes = [
   {path: 'quiz-list', component: QuizListComponent},
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: 'user-list', component: UserListComponent},
   {path: 'user-form', component: UserFormComponent},
   {path: 'quiz-form', component: QuizFormComponent},
+  {path: 'quiz-end', component: QuizEndComponent},
   {path: 'questions-form', component: QuestionsFormComponent},
   {path: 'home', component: HomeComponent},
   {path: 'connexion', component: ConnexionComponent},

@@ -111,12 +111,21 @@ export class QuestionnaireComponent implements OnInit {
       this.majQuestion()
       return;
     }
+    //dernier
     this.router.navigate(['quiz-list']);
   }
 
   majQuestion() {
     this.actualQuestion = this.quiz.questions[this.numQuestion-1];
   }
+
+  endQuestion(){
+
+  }
+
+
+
+
 
 
 

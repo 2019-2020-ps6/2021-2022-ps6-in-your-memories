@@ -17,6 +17,8 @@ import {QuestionsFormComponent} from "./components/quizzes/questions-form/questi
 import {HomeComponent} from "./components/home/home/home.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {ConnexionComponent} from "./components/connexion/connexion.component";
+import {QuizEndComponent} from "./components/quizzes/quiz-end/quiz-end.component"
+
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import {ConnexionComponent} from "./components/connexion/connexion.component";
     QuizFormComponent,
     HomeComponent,
     ConnexionComponent,
+    QuizEndComponent,
   ],
   imports: [
     AppRoutingModule,
