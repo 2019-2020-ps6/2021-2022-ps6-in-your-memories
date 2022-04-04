@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {QuizService} from "../../../../services/quiz.service";
 import {Router} from "@angular/router";
 import {Question} from "../../../../models/question.model";
@@ -13,27 +13,53 @@ import {Quiz} from "../../../../models/quiz.model";
 })
 export class QuestionsFormComponent implements OnInit {
 
-  public questionForm: FormGroup;
+  quiz!: Quiz;
+
+  public questionForm!: FormGroup;
+  public quizForm: FormGroup;
 
   constructor(public formBuilder: FormBuilder, private router: Router, public quizService: QuizService) {
-    this.questionForm = this.formBuilder.group({
-      question: [''],
-      answer1: [''],
-      answer1IsCorrect : [''],
-      answer2: [''],
-      answer2IsCorrect : [''],
-      answer3: [''],
-      answer3IsCorrect : [''],
-      answer4: [''],
-      answer4IsCorrect : [''],
-      clue: ['']
+    this.quizForm = this.formBuilder.group({
+      name: [''],
+      theme: ['']
     });
+    this.initializeQuestionForm();
   }
 
   ngOnInit(): void {
   }
 
-  addQuestion() {
+  private initializeQuestionForm(): void {
+    this.questionForm = this.formBuilder.group({
+      question: [''],
+      answers: this.formBuilder.array([]),
+      clue: ['']
+    });
+  }
 
+  get answers(): FormArray {
+    return this.questionForm.get('answers') as FormArray;
+  }
+
+  private createAnswer(): FormGroup {
+    return this.formBuilder.group({
+      value: '',
+      isCorrect: false,
+    });
+  }
+
+  addQuestion() {
+    this.answers.push(this.createAnswer());
+    if (this.questionForm.valid) {
+      const question = this.questionForm.getRawValue() as Question;
+      this.quizService.addQuestion(this.quiz, question);
+    }
+    this.initializeQuestionForm();
+  }
+
+  addQuiz(){
+    const quizToCreate: Quiz = this.quizForm.getRawValue() as Quiz;
+    this.quizService.addQuiz(quizToCreate);
+    this.router.navigate(['home']);
   }
 }

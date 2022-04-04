@@ -18,6 +18,7 @@ import {UserFormComponent} from "./components/user/user-form/user-form.component
 import {QuestionsFormComponent} from "./components/quizzes/questions-form/questions-form.component";
 import {HomeComponent} from "./components/home/home/home.component";
 import {ReactiveFormsModule} from "@angular/forms";
+
 import {
   QuestionnaireAlzheimerComponent
 } from "./components/quizzes/questionnaire/questionnaireAlzheimer/questionnaireAlzheimer.component";
@@ -25,6 +26,8 @@ import {QuestionnaireComponent} from "./components/quizzes/questionnaire/questio
 import {
   QuestionnaireAVCComponent
 } from "./components/quizzes/questionnaire/questionnaireAVC/questionnaireAVC.component";
+import {ConnexionComponent} from "./components/connexion/connexion.component";
+
 
 @NgModule({
   declarations: [
@@ -45,6 +48,7 @@ import {
     QuestionnaireAlzheimerComponent,
     QuestionnaireComponent,
     QuestionnaireAVCComponent,
+    ConnexionComponent,
   ],
   imports: [
     AppRoutingModule,
