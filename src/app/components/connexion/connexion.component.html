@@ -1,0 +1,26 @@
+<app-header></app-header>
+<div class="container">
+  <div class="card">
+    <h2>Se connecter</h2>
+    <br>
+    <form class="quiz-form" [formGroup]="connexionForm">
+
+        <br>
+        <label>
+          Email
+          <input type="text" [formControlName]="'email'">
+        </label>
+
+        <br>
+        <label>
+          Mot de passe
+          <input type="text" [formControlName]="'mdp'">
+        </label>
+
+        <br>
+        <br>
+        <br>
+      <button class="bouton" [routerLink]="['/home']">Se connecter</button>
+    </form>
+  </div>
+</div>

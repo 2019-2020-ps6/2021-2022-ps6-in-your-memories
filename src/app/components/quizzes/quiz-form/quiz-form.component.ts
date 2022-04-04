@@ -24,10 +24,6 @@ export class QuizFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addQuiz(): void {
-    const quizToCreate: Quiz = this.quizForm.getRawValue() as Quiz;
-  }
-
   addQuestion() {
     this.router.navigate(["questions-form"]);
   }

@@ -16,6 +16,7 @@ import {UserFormComponent} from "./components/user/user-form/user-form.component
 import {QuestionsFormComponent} from "./components/quizzes/questions-form/questions-form.component";
 import {HomeComponent} from "./components/home/home/home.component";
 import {ReactiveFormsModule} from "@angular/forms";
+import {ConnexionComponent} from "./components/connexion/connexion.component";
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import {ReactiveFormsModule} from "@angular/forms";
     QuestionsFormComponent,
     QuizFormComponent,
     HomeComponent,
+    ConnexionComponent,
   ],
   imports: [
     AppRoutingModule,
