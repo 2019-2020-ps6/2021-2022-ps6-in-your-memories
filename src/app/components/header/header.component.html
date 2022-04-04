@@ -1,6 +1,7 @@
 <div class="header">
   <a class="navigation" [routerLink]="['/home']">POLYQUIZ</a>
 
+  <!--<div *ngIf="alreadyConnected">-->
   <div class="menu">
     <button class="boutonM"><i class="fas fa-solid fa-user"></i>Menu</button>
     <div class="sous-menu">
@@ -10,10 +11,14 @@
       <button class="bouton" >Deconnexion</button>
     </div>
   </div>
+  </div>
+
+  <!--<div *ngIf="!alreadyConnected">
   <div class="bouton">
   <button class="bouton" [routerLink]="['/connexion']">Se connecter</button>
   </div>
+  </div>-->
 
-</div>
+<!--</div>-->
 
 

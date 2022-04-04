@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {FormBuilder, FormGroup} from "@angular/forms";
 
@@ -9,6 +9,9 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 })
 export class ConnexionComponent implements OnInit {
   public connexionForm: FormGroup;
+
+  @Input()
+  public alreadyConnected!: boolean;
 
   constructor(private router: Router, public formBuilder: FormBuilder) {
     this.connexionForm = this.formBuilder.group({
@@ -21,6 +24,7 @@ export class ConnexionComponent implements OnInit {
   }
 
   SeConnecter() {
+    this.alreadyConnected=true;
     this.router.navigate(['/home'])
   }
 }
