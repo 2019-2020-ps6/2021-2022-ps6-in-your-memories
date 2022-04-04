@@ -15,22 +15,26 @@ export class QuestionsFormComponent implements OnInit {
 
   quiz!: Quiz;
 
-  public questionForm: FormGroup;
+  public questionForm!: FormGroup;
   public quizForm: FormGroup;
 
   constructor(public formBuilder: FormBuilder, private router: Router, public quizService: QuizService) {
+    this.quizForm = this.formBuilder.group({
+      name: [''],
+      theme: ['']
+    });
+    this.initializeQuestionForm();
+  }
+
+  ngOnInit(): void {
+  }
+
+  private initializeQuestionForm(): void {
     this.questionForm = this.formBuilder.group({
       question: [''],
       answers: this.formBuilder.array([]),
       clue: ['']
     });
-    this.quizForm = this.formBuilder.group({
-      name: [''],
-      theme: ['']
-    });
-  }
-
-  ngOnInit(): void {
   }
 
   get answers(): FormArray {
@@ -50,6 +54,7 @@ export class QuestionsFormComponent implements OnInit {
       const question = this.questionForm.getRawValue() as Question;
       this.quizService.addQuestion(this.quiz, question);
     }
+    this.initializeQuestionForm();
   }
 
   addQuiz(){
