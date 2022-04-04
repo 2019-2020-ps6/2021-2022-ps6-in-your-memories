@@ -1,22 +1,11 @@
 <app-header></app-header>
 <div class="container">
-  <div class="QuizInfo">
-    <h2>{{quiz.name}}</h2>
-    <h3>Categorie: {{quiz.theme}}</h3>
-  </div>
-  <div class="NumQuestion">
-    <h3>Question {{numQuestion}}/{{quiz.questions.length}}</h3>
-  </div>
-  <div class="Quiz">
-    <div class="Question">
-      <h2>{{actualQuestion.label}}</h2>
-      <div class="IndiceDiv" [style.visibility]="indiceVisibility ? 'visible' : 'hidden'">
-        <h3 class="Indice">Indice : {{actualQuestion.indice}}</h3>
-      </div>
+  <div class="card">
+    <div>
+      <h2>{{quiz.name}}</h2>
+      <h3>Categorie: {{quiz.theme}}</h3>
     </div>
-
-    <div class="Réponse">
-      <app-answer [anwserList]="actualQuestion.answers" (awnserSelected)="answerSelected($event)"></app-answer>
-    </div>
+    <button class="button-card" [routerLink]="['/questionnaireAgnosie/' + quiz.name]">Agnosie</button>
+    <button class="button-card" [routerLink]="['/questionnaireAlzheimer/' + quiz.name]">Alzheimer</button>
   </div>
 </div>

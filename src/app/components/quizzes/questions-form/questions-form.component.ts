@@ -19,9 +19,13 @@ export class QuestionsFormComponent implements OnInit {
     this.questionForm = this.formBuilder.group({
       question: [''],
       answer1: [''],
+      answer1IsCorrect : [''],
       answer2: [''],
+      answer2IsCorrect : [''],
       answer3: [''],
+      answer3IsCorrect : [''],
       answer4: [''],
+      answer4IsCorrect : [''],
       clue: ['']
     });
   }

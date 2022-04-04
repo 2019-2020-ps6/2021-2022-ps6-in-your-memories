@@ -35,7 +35,7 @@ export const QUESTION_CHUTE: Question = {
       isCorrect: false,
     },
     {
-      value: 'Energie potentiel',
+      value: 'Energie potentielle',
       isCorrect: false,
     }
 

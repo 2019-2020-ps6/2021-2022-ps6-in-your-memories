@@ -1,59 +1,32 @@
-.container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 0.5fr 2fr 0.5fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "QuizInfo . NumQuestion"
-    "Quiz Quiz Quiz"
-    ". . .";
+a:link
+{
+  text-decoration:none;
 }
 
-.QuizInfo {
-  grid-area: QuizInfo;
-  text-align: start;
-}
-
-.NumQuestion {
-  grid-area: NumQuestion;
-  text-align: end;
-}
-
-.Quiz {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 0.5fr 1fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "Question"
-    "Réponse";
-  grid-area: Quiz;
-}
-
-.Question {
-  grid-area: Question;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.IndiceDiv{
+.container{
   text-align: center;
 }
 
-.Indice {
+.card {
+  background: white;
+  border-radius: 2px;
   display: inline-block;
+  margin: 2rem;
+  position: relative;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+  padding: 1em 1em 1em 1em;
+
 }
 
-.Réponse {
-  grid-area: Réponse;
-  text-align: center;
+.button-card {
+  background-color: white;
+  border: solid 1px darkseagreen;
+  color: darkseagreen;
+  font-weight: bold;
+  padding: 0.5em 1em;
+  margin: 1em;
 }
 
-
-html, body, .container {
-  height: 100%;
-  margin: 0;
+.button-card:hover {
+  cursor: pointer;
 }
-
