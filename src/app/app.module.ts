@@ -27,6 +27,8 @@ import {
   QuestionnaireAVCComponent
 } from "./components/quizzes/questionnaire/questionnaireAVC/questionnaireAVC.component";
 import {ConnexionComponent} from "./components/connexion/connexion.component";
+import {QuizEndComponent} from "./components/quizzes/quiz-end/quiz-end.component"
+
 
 
 @NgModule({
@@ -49,6 +51,7 @@ import {ConnexionComponent} from "./components/connexion/connexion.component";
     QuestionnaireComponent,
     QuestionnaireAVCComponent,
     ConnexionComponent,
+    QuizEndComponent,
   ],
   imports: [
     AppRoutingModule,
