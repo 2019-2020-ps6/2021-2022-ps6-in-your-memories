@@ -12,9 +12,9 @@ import {HeaderComponent} from "./components/header/header.component";
 import {
   QuestionnaireAgnosieComponent
 } from "./components/quizzes/questionnaire/questionnaireAgnosie/questionnaireAgnosie.component";
-import {UserComponent} from "./components/user/user/user.component";
-import {UserListComponent} from "./components/user/user-list/user-list.component";
-import {UserFormComponent} from "./components/user/user-form/user-form.component";
+import {PatientComponent} from "./components/user/patient/patient.component";
+import {PatientListComponent} from "./components/user/patient-list/patient-list.component";
+import {PatientFormComponent} from "./components/user/patient-form/patient-form.component";
 import {QuestionsFormComponent} from "./components/quizzes/questions-form/questions-form.component";
 import {HomeComponent} from "./components/home/home/home.component";
 import {ReactiveFormsModule} from "@angular/forms";
@@ -41,9 +41,9 @@ import {QuizEndComponent} from "./components/quizzes/quiz-end/quiz-end.component
     AnswerComponent,
     QuestionnaireAgnosieComponent,
     HeaderComponent,
-    UserComponent,
-    UserListComponent,
-    UserFormComponent,
+    PatientComponent,
+    PatientListComponent,
+    PatientFormComponent,
     QuestionsFormComponent,
     QuizFormComponent,
     HomeComponent,

@@ -4,8 +4,8 @@ import {QuizListComponent} from './components/quizzes/quiz-list/quiz-list.compon
 import {QuizEditComponent} from './components/quizzes/quiz-edit/quiz-edit.component';
 import {AnswerComponent} from "./components/quizzes/answer/answer.component";
 import {QuestionnaireAgnosieComponent} from "./components/quizzes/questionnaire/questionnaireAgnosie/questionnaireAgnosie.component";
-import {UserListComponent} from "./components/user/user-list/user-list.component";
-import {UserFormComponent} from "./components/user/user-form/user-form.component";
+import {PatientListComponent} from "./components/user/patient-list/patient-list.component";
+import {PatientFormComponent} from "./components/user/patient-form/patient-form.component";
 import {QuizFormComponent} from "./components/quizzes/quiz-form/quiz-form.component";
 import {QuestionsFormComponent} from "./components/quizzes/questions-form/questions-form.component";
 import {HomeComponent} from "./components/home/home/home.component";
@@ -26,8 +26,8 @@ const routes: Routes = [
   {path: 'questionnaireAlzheimer/:id', component: QuestionnaireAlzheimerComponent},
   {path: 'questionnaireAVC/:id', component: QuestionnaireAVCComponent},
   {path: 'anwser', component: AnswerComponent},
-  {path: 'user-list', component: UserListComponent},
-  {path: 'user-form', component: UserFormComponent},
+  {path: 'patient-list', component: PatientListComponent},
+  {path: 'patient-form', component: PatientFormComponent},
   {path: 'quiz-form', component: QuizFormComponent},
   {path: 'quiz-end', component: QuizEndComponent},
   {path: 'questions-form', component: QuestionsFormComponent},

@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="container">
   <br>
-  <form class="user-form" [formGroup]="searchForm">
+  <form class="patient-form" [formGroup]="searchForm">
     <label for="search">
       <input type="text" [formControlName]="'search'" placeholder="Rechercher">
     </label>
@@ -31,7 +31,7 @@
     <button class="button-card" [routerLink]="['/quiz-form']">Créer un nouveau quiz</button>
   </div>
   <div class="card">
-    <button class="button-card" [routerLink]="['/user-list']">Liste des patients</button>
+    <button class="button-card" [routerLink]="['/patient-list']">Liste des patients</button>
   </div>
 -->
 </div>

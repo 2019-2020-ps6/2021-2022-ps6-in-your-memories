@@ -5,7 +5,7 @@
 <div class="container">
   <div class="card">
     <br>
-    <form class="user-form" [formGroup]="userForm">
+    <form class="patient-form" [formGroup]="patientForm">
       <label for="firstName">
         First name
         <input class="input-custom" type="text" id="firstName" [formControlName]="'firstName'">
@@ -27,7 +27,7 @@
       </label>
       <br>
       <br>
-      <button type="submit" class="button-card" (click)="addUser()" [routerLink]="['/user-list']">Add</button>
+      <button type="submit" class="button-card" (click)="addPatient()" [routerLink]="['/patient-list']">Add</button>
     </form>
   </div>
 </div>

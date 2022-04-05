@@ -1,9 +1,9 @@
 
-<div class="container" *ngIf="user">
+<div class="container" *ngIf="patient">
   <div class="card">
     <h2>
       <i class="fas fa-profile"></i>
-      {{user.firstName}} {{user.lastName}}
+      {{patient.firstName}} {{patient.lastName}}
       <button class="button-card">Voir la fiche patient</button>
       <button class="button-card" [routerLink]="['/quiz-list']">Faire des quiz</button>
     </h2>
