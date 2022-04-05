@@ -20,6 +20,7 @@
   color: #3f51b5;
   font-weight: bold;
   padding: 0.5em 1em;
+  margin-top: 50px;
 }
 
 .button-card:hover {
@@ -30,13 +31,17 @@ h2{
   font-size:250%;
 }
 
-h3{
+.quiz{
   font-size: 160%;
+
 }
 
-.value{
-  font-size: 200%
+.answer{
+  font-size: 120%;
+  text-decoration : underline;
 }
+
+
 
 
 

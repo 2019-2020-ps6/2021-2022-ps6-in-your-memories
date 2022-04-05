@@ -7,7 +7,7 @@
   <div class="quiz" *ngFor="let question of quiz.questions">
     <hr/>
     <h3>{{question.id}}/{{quiz.questions.length}} - {{question.label}}</h3>
-    <div class="quiz" *ngFor="let answer of question.answers">
+    <div class="answer" *ngFor="let answer of question.answers">
        <ng-container *ngIf="answer.isCorrect">{{answer.value}}</ng-container>
     </div>
 
