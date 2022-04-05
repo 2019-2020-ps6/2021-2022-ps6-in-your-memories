@@ -17,10 +17,7 @@ export class QuizService {
 
   addQuiz(quiz: Quiz){
     this.quizzes.push(quiz);
-    this.quizzes$.subscribe(quizzes => {
-      this.quizzes=quizzes;
-      this.quizzes$.next(this.quizzes);
-    });
+    this.quizzes$.next(this.quizzes);
   }
 
   addQuestion(quiz: Quiz, question: Question) {

@@ -16,9 +16,6 @@ export class UserService{
 
   addUser(user: User): void{
     this.users.push(user);
-    this.users$.subscribe(users => {
-      this.users=users;
-      this.users$.next(this.users);
-    });
+    this.users$.next(this.users);
   }
 }
