@@ -1,9 +1,11 @@
 <app-header></app-header>
 <div class="container">
   <br>
-  <!--<label for="search">
-    <input type="text" [formControlName]="'search'" placeholder="Rechercher">
-  </label>-->
+  <form class="user-form" [formGroup]="searchForm">
+    <label for="search">
+      <input type="text" [formControlName]="'search'" placeholder="Rechercher">
+    </label>
+  </form>
   <br>
   <br>
   <div class="list-themes">
