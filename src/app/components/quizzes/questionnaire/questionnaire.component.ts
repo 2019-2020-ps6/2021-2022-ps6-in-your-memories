@@ -29,5 +29,5 @@ export class QuestionnaireComponent implements OnInit {
   ngOnInit(): void {
     this.quiz = this.quizService.quizzes[0];
   }
-  
+
 }

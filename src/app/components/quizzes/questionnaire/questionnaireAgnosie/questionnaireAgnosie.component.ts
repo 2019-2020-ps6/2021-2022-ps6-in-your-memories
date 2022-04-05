@@ -13,7 +13,6 @@ import {QUESTION_BAD_FIN, QUESTION_BAD_INTER} from "../../../../../mocks/quiz-ba
   styleUrls: ['./questionnaireAgnosie.component.css']
 })
 export class QuestionnaireAgnosieComponent implements OnInit {
-
   @Input()
   quiz: Quiz = {
     id: '',
@@ -29,6 +28,8 @@ export class QuestionnaireAgnosieComponent implements OnInit {
     indice: ""
   }
 
+  badAnswerIndice: boolean = false;
+  nextAnswer: boolean = false
   numQuestion: number = 1;
   indiceVisibility: boolean = false;
 
@@ -37,33 +38,37 @@ export class QuestionnaireAgnosieComponent implements OnInit {
 
   ngOnInit(): void {
     this.quiz = this.quizService.quizzes[0];
-    Object.assign(this.actualQuestion, this.quiz.questions[this.numQuestion - 1]);
+    this.majQuestion();
   }
 
   answerSelected(answer: Answer) {
-    if (this.actualQuestion == QUESTION_INDICE) {
-      this.badAnswerIndice(answer);
-      return;
-    } else if (this.mustChangeQuestion()) {
-      this.questionSuivante();
-      return;
-    } else if (!this.indiceVisibility && !answer.isCorrect) {
-      this.actualQuestion = QUESTION_INDICE;
-      return;
-    } else if (this.indiceVisibility && !answer.isCorrect) {
-      this.badAnwser();
+    if (this.badAnswerIndice) {
+      this.badAnswerIndiceChoice(answer);
       return;
     }
-    this.goodAnswer();
+    if (this.nextAnswer) {
+      this.questionSuivante()
+      return;
+    }
+    if (answer.isCorrect) {
+      this.goodAnswer();
+      return;
+    } else if (!answer.isCorrect) {
+      this.badAnwser()
+      return;
+    }
   }
 
-  badAnswerIndice(answer: Answer) {
+  badAnswerIndiceChoice(answer: Answer) {
     if (answer.isCorrect) {
-      this.actualQuestion = this.quiz.questions[this.numQuestion - 1];
+      this.majQuestion();
       this.indiceVisibility = true;
+      this.badAnswerIndice = false;
+      this.nextAnswer = false;
       return;
+    } else {
+      this.questionSuivante();
     }
-    this.questionSuivante();
   }
 
   goodAnswer() {
@@ -73,34 +78,40 @@ export class QuestionnaireAgnosieComponent implements OnInit {
       this.actualQuestion = QUESTION_CORRECT_FIN;
     }
     this.indiceVisibility = false;
+    this.badAnswerIndice = false;
+    this.nextAnswer = true;
   }
 
   badAnwser() {
-    if (this.quiz.questions.length > this.numQuestion) {
-      this.actualQuestion = QUESTION_BAD_INTER;
+    if (this.indiceVisibility) {
+      if (this.quiz.questions.length > this.numQuestion) {
+        this.actualQuestion = QUESTION_BAD_INTER;
+      } else {
+        this.actualQuestion = QUESTION_BAD_FIN;
+      }
+      this.indiceVisibility = false;
+      this.badAnswerIndice = false;
+      this.nextAnswer = true;
     } else {
-      this.actualQuestion = QUESTION_BAD_FIN;
+      this.actualQuestion = QUESTION_INDICE;
+      this.indiceVisibility = false;
+      this.badAnswerIndice = true;
+      this.nextAnswer = false;
     }
-    this.indiceVisibility = false;
   }
-
 
   questionSuivante() {
     this.indiceVisibility = false;
+    this.badAnswerIndice = false;
+    this.nextAnswer = false;
     if (this.quiz.questions.length > (this.numQuestion += 1) - 1) {
-      Object.assign(this.actualQuestion, this.quiz.questions[this.numQuestion - 1]);
+      this.majQuestion()
       return;
     }
-    //dernier
-    this.router.navigate(['quiz-list']);
+    this.router.navigate(['quiz-end']);
   }
 
-  mustChangeQuestion() {
-    return this.actualQuestion == QUESTION_BAD_INTER ||
-      this.actualQuestion == QUESTION_BAD_FIN ||
-      this.actualQuestion == QUESTION_CORRECT_INTER ||
-      this.actualQuestion == QUESTION_CORRECT_FIN;
+  majQuestion() {
+    this.actualQuestion = this.quiz.questions[this.numQuestion - 1];
   }
-
-
 }
