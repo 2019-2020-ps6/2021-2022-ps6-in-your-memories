@@ -65,6 +65,6 @@ export class QuestionnaireAlzheimerComponent implements OnInit {
       return;
     }
     //dernier
-    this.router.navigate(['quiz-list']);
+    this.router.navigate(['quiz-end']);
   }
 }
