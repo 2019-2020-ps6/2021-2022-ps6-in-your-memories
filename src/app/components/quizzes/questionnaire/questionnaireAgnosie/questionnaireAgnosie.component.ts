@@ -28,8 +28,7 @@ export class QuestionnaireAgnosieComponent implements OnInit {
     indice: ""
   }
 
-  badAnswerIndice: boolean = false;
-  nextAnswer: boolean = false
+  addIndices : boolean = true;
   numQuestion: number = 1;
   indiceVisibility: boolean = false;
 
@@ -41,69 +40,31 @@ export class QuestionnaireAgnosieComponent implements OnInit {
     this.majQuestion();
   }
 
-  answerSelected(answer: Answer) {
-    if (this.badAnswerIndice) {
-      this.badAnswerIndiceChoice(answer);
-      return;
-    }
-    if (this.nextAnswer) {
-      this.questionSuivante()
-      return;
-    }
-    if (answer.isCorrect) {
-      this.goodAnswer();
-      return;
-    } else if (!answer.isCorrect) {
-      this.badAnwser()
-      return;
-    }
-  }
-
-  badAnswerIndiceChoice(answer: Answer) {
-    if (answer.isCorrect) {
-      this.majQuestion();
-      this.indiceVisibility = true;
-      this.badAnswerIndice = false;
-      this.nextAnswer = false;
-      return;
-    } else {
-      this.questionSuivante();
-    }
-  }
 
   goodAnswer() {
-    if (this.quiz.questions.length > this.numQuestion) {
+    if (this.quiz.questions.length > this.numQuestion)
       this.actualQuestion = QUESTION_CORRECT_INTER;
-    } else {
+    else
       this.actualQuestion = QUESTION_CORRECT_FIN;
-    }
     this.indiceVisibility = false;
-    this.badAnswerIndice = false;
-    this.nextAnswer = true;
   }
 
   badAnwser() {
-    if (this.indiceVisibility) {
-      if (this.quiz.questions.length > this.numQuestion) {
+    if (this.indiceVisibility || !this.addIndices) {
+      if (this.quiz.questions.length > this.numQuestion)
         this.actualQuestion = QUESTION_BAD_INTER;
-      } else {
+      else
         this.actualQuestion = QUESTION_BAD_FIN;
-      }
       this.indiceVisibility = false;
-      this.badAnswerIndice = false;
-      this.nextAnswer = true;
     } else {
-      this.actualQuestion = QUESTION_INDICE;
-      this.indiceVisibility = false;
-      this.badAnswerIndice = true;
-      this.nextAnswer = false;
+        this.indiceVisibility = true;
+        this.majQuestion();
     }
+
   }
 
   questionSuivante() {
     this.indiceVisibility = false;
-    this.badAnswerIndice = false;
-    this.nextAnswer = false;
     if (this.quiz.questions.length > (this.numQuestion += 1) - 1) {
       this.majQuestion()
       return;
@@ -113,5 +74,24 @@ export class QuestionnaireAgnosieComponent implements OnInit {
 
   majQuestion() {
     this.actualQuestion = this.quiz.questions[this.numQuestion - 1];
+  }
+
+  answerSelected(answer: Answer) {
+    if (this.changeQuestion(answer.isCorrect)) {
+      this.questionSuivante();
+      return;
+    } else if (answer.isCorrect) {
+      this.goodAnswer();
+      return;
+    }
+    this.badAnwser()
+  }
+
+  changeQuestion(b: boolean) {
+    return this.actualQuestion == QUESTION_BAD_INTER ||
+      this.actualQuestion == QUESTION_BAD_FIN ||
+      this.actualQuestion == QUESTION_CORRECT_FIN ||
+      this.actualQuestion == QUESTION_CORRECT_INTER;
+
   }
 }

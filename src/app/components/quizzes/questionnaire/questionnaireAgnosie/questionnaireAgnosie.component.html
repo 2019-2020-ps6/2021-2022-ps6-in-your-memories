@@ -3,6 +3,12 @@
   <div class="QuizInfo">
     <h2>{{quiz.name}}</h2>
     <h3>Categorie: {{quiz.theme}}</h3>
+    <h3>Indices:
+      <label class="switch">
+        <input [(ngModel)]="addIndices" type="checkbox" checked>
+        <span class="slider round"></span>
+      </label>
+    </h3>
   </div>
   <div class="NumQuestion">
     <h3>Question {{numQuestion}}/{{quiz.questions.length}}</h3>

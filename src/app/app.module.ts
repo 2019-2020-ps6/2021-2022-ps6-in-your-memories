@@ -17,7 +17,7 @@ import {PatientListComponent} from "./components/user/patient-list/patient-list.
 import {PatientFormComponent} from "./components/user/patient-form/patient-form.component";
 import {QuestionsFormComponent} from "./components/quizzes/questions-form/questions-form.component";
 import {HomeComponent} from "./components/home/home/home.component";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 import {
   QuestionnaireAlzheimerComponent
@@ -53,13 +53,14 @@ import {QuizEndComponent} from "./components/quizzes/quiz-end/quiz-end.component
     ConnexionComponent,
     QuizEndComponent,
   ],
-  imports: [
-    AppRoutingModule,
-    BrowserModule,
-    AppRoutingModule,
-    BrowserModule,
-    ReactiveFormsModule,
-  ],
+    imports: [
+        AppRoutingModule,
+        BrowserModule,
+        AppRoutingModule,
+        BrowserModule,
+        ReactiveFormsModule,
+        FormsModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
