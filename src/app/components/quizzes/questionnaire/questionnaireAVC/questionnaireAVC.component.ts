@@ -13,7 +13,6 @@ import {QUESTION_BAD_FIN, QUESTION_BAD_INTER} from "../../../../../mocks/quiz-ba
   styleUrls: ['./questionnaireAVC.component.css']
 })
 export class QuestionnaireAVCComponent implements OnInit {
-
   @Input()
   quiz: Quiz = {
     id: '',
@@ -29,78 +28,79 @@ export class QuestionnaireAVCComponent implements OnInit {
     indice: ""
   }
 
+  activeSecondChance : boolean = true;
   numQuestion: number = 1;
-  indiceVisibility: boolean = false;
+  lessQuestion: boolean = false;
 
   constructor(private router: Router, private quizService: QuizService) {
   }
 
   ngOnInit(): void {
     this.quiz = this.quizService.quizzes[0];
+    this.majQuestion();
+  }
+
+
+  goodAnswer() {
+    if (this.quiz.questions.length > this.numQuestion)
+      this.actualQuestion = QUESTION_CORRECT_INTER;
+    else
+      this.actualQuestion = QUESTION_CORRECT_FIN;
+    this.lessQuestion = false;
+  }
+
+  badAnwser(answer: Answer) {
+    if (this.lessQuestion || !this.activeSecondChance) {
+      if (this.quiz.questions.length > this.numQuestion)
+        this.actualQuestion = QUESTION_BAD_INTER;
+      else
+        this.actualQuestion = QUESTION_BAD_FIN;
+      this.lessQuestion = false;
+    } else {
+      let newQuestion = JSON.parse(JSON.stringify(this.actualQuestion));
+      for(let i = 0; i<newQuestion.answers.length; i++){
+        let tempAnswer = newQuestion.answers[i];
+        if(answer.value === tempAnswer.value){
+          newQuestion.answers.splice(i, 1);
+        }
+      }
+      console.log( newQuestion.answers.length)
+      this.lessQuestion = true;
+      this.actualQuestion = newQuestion;
+    }
+
+  }
+
+  questionSuivante() {
+    this.lessQuestion = false;
+    if (this.quiz.questions.length > (this.numQuestion += 1) - 1) {
+      this.majQuestion()
+      return;
+    }
+    this.router.navigate(['quiz-end']);
+  }
+
+  majQuestion() {
     this.actualQuestion = this.quiz.questions[this.numQuestion - 1];
   }
 
   answerSelected(answer: Answer) {
-    if (this.actualQuestion == QUESTION_INDICE) {
-      this.badAnswerIndice(answer);
-      return;
-    } else if (this.mustChangeQuestion()) {
+    if (this.changeQuestion(answer.isCorrect)) {
       this.questionSuivante();
       return;
-    } else if (!this.indiceVisibility && !answer.isCorrect) {
-      this.actualQuestion = QUESTION_INDICE;
-      return;
-    } else if (this.indiceVisibility && !answer.isCorrect) {
-      this.badAnwser();
+    } else if (answer.isCorrect) {
+      this.goodAnswer();
       return;
     }
-    this.goodAnswer();
+    this.badAnwser(answer)
   }
 
-  badAnswerIndice(answer: Answer) {
-    if (answer.isCorrect) {
-      this.actualQuestion = this.quiz.questions[this.numQuestion - 1];
-      this.indiceVisibility = true;
-      return;
-    }
-    this.questionSuivante();
-  }
-
-  goodAnswer() {
-    if (this.quiz.questions.length > this.numQuestion) {
-      this.actualQuestion = QUESTION_CORRECT_INTER;
-    } else {
-      this.actualQuestion = QUESTION_CORRECT_FIN;
-    }
-    this.indiceVisibility = false;
-  }
-
-  badAnwser() {
-    if (this.quiz.questions.length > this.numQuestion) {
-      this.actualQuestion = QUESTION_BAD_INTER;
-    } else {
-      this.actualQuestion = QUESTION_BAD_FIN;
-    }
-    this.indiceVisibility = false;
-  }
-
-
-  questionSuivante() {
-    this.indiceVisibility = false;
-    if (this.quiz.questions.length > (this.numQuestion += 1) - 1) {
-      this.actualQuestion = this.quiz.questions[this.numQuestion - 1];
-      return;
-    }
-    //dernier
-    this.router.navigate(['quiz-list']);
-  }
-
-  mustChangeQuestion() {
+  changeQuestion(b: boolean) {
     return this.actualQuestion == QUESTION_BAD_INTER ||
       this.actualQuestion == QUESTION_BAD_FIN ||
-      this.actualQuestion == QUESTION_CORRECT_INTER ||
-      this.actualQuestion == QUESTION_CORRECT_FIN;
-  }
+      this.actualQuestion == QUESTION_CORRECT_FIN ||
+      this.actualQuestion == QUESTION_CORRECT_INTER;
 
+  }
 
 }
