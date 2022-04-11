@@ -18,7 +18,7 @@ export class PatientListComponent {
   }
 
 
-  ajoutPatientSelected(patient: Patient): void {
+  patientSelected(patient: Patient): void {
     this.router.navigate(['/patient/' + patient.id]);
   }
 

@@ -4,8 +4,8 @@ import {QuizListComponent} from './components/quizzes/quiz-list/quiz-list.compon
 import {QuizEditComponent} from './components/quizzes/quiz-edit/quiz-edit.component';
 import {AnswerComponent} from "./components/quizzes/answer/answer.component";
 import {QuestionnaireAgnosieComponent} from "./components/quizzes/questionnaire/questionnaireAgnosie/questionnaireAgnosie.component";
-import {PatientListComponent} from "./components/user/patient-list/patient-list.component";
-import {PatientFormComponent} from "./components/user/patient-form/patient-form.component";
+import {PatientListComponent} from "./components/patient/patient-list/patient-list.component";
+import {PatientFormComponent} from "./components/patient/patient-form/patient-form.component";
 import {QuizFormComponent} from "./components/quizzes/quiz-form/quiz-form.component";
 import {QuestionsFormComponent} from "./components/quizzes/questions-form/questions-form.component";
 import {HomeComponent} from "./components/home/home/home.component";

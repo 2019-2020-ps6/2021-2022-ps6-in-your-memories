@@ -19,7 +19,7 @@ export class PatientComponent implements OnInit {
   }
 
   @Output()
-  ajoutPatientSelected: EventEmitter<Patient> = new EventEmitter<Patient>();
+  patientSelected: EventEmitter<Patient> = new EventEmitter<Patient>();
 
   constructor() {
   }
@@ -27,7 +27,7 @@ export class PatientComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  ajoutPatient(): void{
-    this.ajoutPatientSelected.emit(this.patient);
+  selectPatient(): void{
+    this.patientSelected.emit(this.patient);
   }
 }

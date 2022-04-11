@@ -12,9 +12,9 @@ import {HeaderComponent} from "./components/header/header.component";
 import {
   QuestionnaireAgnosieComponent
 } from "./components/quizzes/questionnaire/questionnaireAgnosie/questionnaireAgnosie.component";
-import {PatientComponent} from "./components/user/patient/patient.component";
-import {PatientListComponent} from "./components/user/patient-list/patient-list.component";
-import {PatientFormComponent} from "./components/user/patient-form/patient-form.component";
+import {PatientComponent} from "./components/patient/patient/patient.component";
+import {PatientListComponent} from "./components/patient/patient-list/patient-list.component";
+import {PatientFormComponent} from "./components/patient/patient-form/patient-form.component";
 import {QuestionsFormComponent} from "./components/quizzes/questions-form/questions-form.component";
 import {HomeComponent} from "./components/home/home/home.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
