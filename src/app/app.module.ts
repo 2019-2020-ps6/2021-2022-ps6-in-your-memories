@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-
+import {HttpClientModule} from "@angular/common/http";
 import {AppComponent} from './app.component';
 import {QuizEditComponent} from './components/quizzes/quiz-edit/quiz-edit.component';
 import {QuizFormComponent} from './components/quizzes/quiz-form/quiz-form.component';
@@ -28,7 +28,7 @@ import {
 } from "./components/quizzes/questionnaire/questionnaireAVC/questionnaireAVC.component";
 import {ConnexionComponent} from "./components/connexion/connexion.component";
 import {QuizEndComponent} from "./components/quizzes/quiz-end/quiz-end.component"
-
+import {PagePatientComponent} from "./components/patient/page-patient/page-patient.component";
 
 
 @NgModule({
@@ -44,6 +44,7 @@ import {QuizEndComponent} from "./components/quizzes/quiz-end/quiz-end.component
     PatientComponent,
     PatientListComponent,
     PatientFormComponent,
+    PagePatientComponent,
     QuestionsFormComponent,
     QuizFormComponent,
     HomeComponent,
@@ -60,6 +61,7 @@ import {QuizEndComponent} from "./components/quizzes/quiz-end/quiz-end.component
         BrowserModule,
         ReactiveFormsModule,
         FormsModule,
+        HttpClientModule,
     ],
   providers: [],
   bootstrap: [AppComponent]

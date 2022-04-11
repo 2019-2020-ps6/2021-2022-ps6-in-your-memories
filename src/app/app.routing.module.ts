@@ -17,6 +17,7 @@ import {
 
 import {ConnexionComponent} from "./components/connexion/connexion.component";
 import {QuizEndComponent} from "./components/quizzes/quiz-end/quiz-end.component";
+import {PagePatientComponent} from "./components/patient/page-patient/page-patient.component";
 
 const routes: Routes = [
   {path: 'quiz-list', component: QuizListComponent},
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path: 'anwser', component: AnswerComponent},
   {path: 'patient-list', component: PatientListComponent},
   {path: 'patient-form', component: PatientFormComponent},
+  {path: 'page-patient/:id', component: PagePatientComponent},
   {path: 'quiz-form', component: QuizFormComponent},
   {path: 'quiz-end', component: QuizEndComponent},
   {path: 'questions-form', component: QuestionsFormComponent},
