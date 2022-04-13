@@ -29,6 +29,7 @@ import {
 import {ConnexionComponent} from "./components/connexion/connexion.component";
 import {QuizEndComponent} from "./components/quizzes/quiz-end/quiz-end.component"
 import {PagePatientComponent} from "./components/patient/page-patient/page-patient.component";
+import {InscriptionComponent} from "./components/inscription/inscription.component";
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import {PagePatientComponent} from "./components/patient/page-patient/page-patie
     QuestionnaireComponent,
     QuestionnaireAVCComponent,
     ConnexionComponent,
+    InscriptionComponent,
     QuizEndComponent,
   ],
     imports: [

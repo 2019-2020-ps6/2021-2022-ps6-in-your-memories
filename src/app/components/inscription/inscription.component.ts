@@ -3,11 +3,11 @@ import {Router} from "@angular/router";
 import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
-  selector: 'app-connexion',
-  templateUrl: './connexion.component.html',
-  styleUrls: ['./connexion.component.scss']
+  selector: 'app-inscription',
+  templateUrl: './inscription.component.html',
+  styleUrls: ['./inscription.component.scss']
 })
-export class ConnexionComponent implements OnInit {
+export class InscriptionComponent implements OnInit {
   public connexionForm: FormGroup;
 
   @Input()
@@ -23,12 +23,13 @@ export class ConnexionComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  SeConnecter() {
+  Sinscrire() {
     this.alreadyConnected=true;
     this.router.navigate(['/home'])
   }
 
-  GoInscription(){
-    this.router.navigate(['/inscription'])
+  GoConnexion(){
+    this.router.navigate(['/connexion'])
   }
+
 }

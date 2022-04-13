@@ -18,6 +18,7 @@ import {
 import {ConnexionComponent} from "./components/connexion/connexion.component";
 import {QuizEndComponent} from "./components/quizzes/quiz-end/quiz-end.component";
 import {PagePatientComponent} from "./components/patient/page-patient/page-patient.component";
+import {InscriptionComponent} from "./components/inscription/inscription.component";
 
 const routes: Routes = [
   {path: 'quiz-list', component: QuizListComponent},
@@ -35,6 +36,7 @@ const routes: Routes = [
   {path: 'questions-form', component: QuestionsFormComponent},
   {path: 'home', component: HomeComponent},
   {path: 'connexion', component: ConnexionComponent},
+  {path: 'inscription', component: InscriptionComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 
