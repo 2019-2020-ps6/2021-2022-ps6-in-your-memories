@@ -13,16 +13,21 @@ import {Quiz} from "../../../../models/quiz.model";
 })
 export class QuestionsFormComponent implements OnInit {
 
-  quiz!: Quiz;
+  @Input()
+  quiz: Quiz = {
+    id: '',
+    name: '',
+    theme: '',
+    questions: []
+  }
 
-  public questionForm!: FormGroup;
-  public quizForm: FormGroup;
+  public questionForm: FormGroup = this.formBuilder.group({
+    question: [''],
+    answers: this.formBuilder.array([]),
+    clue: ['']
+  });
 
   constructor(public formBuilder: FormBuilder, private router: Router, public quizService: QuizService) {
-    this.quizForm = this.formBuilder.group({
-      name: [''],
-      theme: ['']
-    });
     this.initializeQuestionForm();
   }
 
@@ -49,17 +54,22 @@ export class QuestionsFormComponent implements OnInit {
   }
 
   addQuestion() {
-    this.answers.push(this.createAnswer());
     if (this.questionForm.valid) {
       const question = this.questionForm.getRawValue() as Question;
-      this.quizService.addQuestion(this.quiz, question);
+      this.quizService.addQuestion(question, this.quiz);
     }
     this.initializeQuestionForm();
   }
 
-  addQuiz(){
-    const quizToCreate: Quiz = this.quizForm.getRawValue() as Quiz;
-    this.quizService.addQuiz(quizToCreate);
+  addAnswer(): void {
+    this.answers.push(this.createAnswer());
+  }
+
+  addLastQuestion() {
+    if (this.questionForm.valid) {
+      const question = this.questionForm.getRawValue() as Question;
+      this.quizService.addQuestion(question, this.quiz);
+    }
     this.router.navigate(['home']);
   }
 }

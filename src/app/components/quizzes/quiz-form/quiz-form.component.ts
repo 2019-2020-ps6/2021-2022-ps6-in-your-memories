@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { QuizService } from '../../../../services/quiz.service';
 import { Quiz } from '../../../../models/quiz.model';
 import {Router} from "@angular/router";
+import {Patient} from "../../../../models/patient.model";
 
 @Component({
   selector: 'app-quiz-form',
@@ -17,7 +18,8 @@ export class QuizFormComponent implements OnInit {
   constructor(public formBuilder: FormBuilder, public quizService: QuizService, private router: Router) {
     this.quizForm = this.formBuilder.group({
       name: [''],
-      theme: ['']
+      theme: [''],
+      questions: this.formBuilder.array([]),
     });
   }
 
@@ -25,6 +27,8 @@ export class QuizFormComponent implements OnInit {
   }
 
   addQuestion() {
-    this.router.navigate(["questions-form"]);
+    const quizToCreate: Quiz = this.quizForm.getRawValue() as Quiz;
+    this.quizService.addQuiz(quizToCreate);
+    this.router.navigate(['questions-form']);
   }
 }

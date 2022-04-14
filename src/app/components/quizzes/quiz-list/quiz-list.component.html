@@ -1,10 +1,8 @@
 <app-header></app-header>
 <div class="quiz" *ngFor="let quiz of quizList">
-  <!--Inputs & Output allow communication between parent & child components.-->
-  <!--More information: https://angular.io/guide/component-interaction-->
   <app-quiz [quiz]="quiz" (quizSelected)="quizSelected($event)"></app-quiz>
 </div>
 <div class="card">
-  <button class="button-card" [routerLink]="['/quiz-form']">Create a new quiz</button>
+  <button class="button-card" [routerLink]="['/quiz-form']">Créer un nouveau quiz</button>
 </div>
 

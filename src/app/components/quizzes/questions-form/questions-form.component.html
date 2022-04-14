@@ -1,61 +1,33 @@
 <app-header></app-header>
 <div class="container">
   <div class="card">
-    <h2>Créer un nouveau quiz</h2>
+    <h2>Créer une nouvelle question</h2>
     <form class="quiz-form" [formGroup]="questionForm">
-      <label for="label">
+      <label for="question">
         Question
-        <input class="input-custom" type="text" id="label" [formControlName]="'question'">
+        <input class="input-custom" type="text" id="question" [formControlName]="'question'">
       </label>
-      <div class="questions">
-
-        <br>
-        <label>
-          Réponse 1
-          <input type="text" [formControlName]="'answer1'">
-          Correct
-          <input type="checkbox" [formControlName]="'answer1IsCorrect'">
-        </label>
-
-        <br>
-        <label>
-          Réponse 2
-          <input type="text" [formControlName]="'answer2'">
-          Correct
-          <input type="checkbox" [formControlName]="'answer2IsCorrect'">
-        </label>
-
-        <br>
-        <label>
-          Réponse 3
-          <input type="text" [formControlName]="'answer3'">
-          Correct
-          <input type="checkbox" [formControlName]="'answer3IsCorrect'">
-        </label>
-
-        <br>
-        <label>
-          Réponse 4
-          <input type="text" [formControlName]="'answer4'">
-          Correct
-          <input type="checkbox" [formControlName]="'answer4IsCorrect'">
-        </label>
-
-        <br>
-        <br>
-        <label>
-          Indice
-          <input type="text" [formControlName]="'clue'">
-
-        </label>
-
-        <br>
-        <br>
-        <br>
+      <br>
+      <br>
+      <button class="button-card" (click)="addAnswer()">Ajouter des réponses</button>
+      <div class="answer" formArrayName="answers">
+        <div *ngFor="let address of answers.controls; let i=index">
+          <div class="answer-form" [formGroupName]="i">
+            <label>
+              Réponse {{i + 1}}
+              <input type="text" [formControlName]="'value'">
+              <br>
+              Vrai ?
+              <input type="checkbox" [formControlName]="'isCorrect'">
+            </label>
+          </div>
+        </div>
       </div>
-      <button type="submit" class="button-card" (click)="addQuiz()">Create</button>
-      <button type="submit" class="button-card" (click)="addQuestion()">Add a question</button>
-
+      <br>
+      <br>
+      <br>
+      <button type="submit" class="button-card" (click)="addQuestion()">Ajouter une nouvelle question</button>
+      <button type="submit" class="button-card" (click)="addLastQuestion()">Fin</button>
     </form>
   </div>
 </div>

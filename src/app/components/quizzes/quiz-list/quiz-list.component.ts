@@ -22,7 +22,7 @@ export class QuizListComponent implements OnInit {
   }
 
   quizSelected(quiz: Quiz): void {
-    this.router.navigate(['/questionnaire/' + quiz.name]);
+    this.router.navigate(['/questionnaire/' + quiz.id]);
   }
 
 }
