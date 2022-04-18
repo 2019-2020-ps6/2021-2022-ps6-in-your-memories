@@ -56,7 +56,7 @@ export class QuestionsFormComponent implements OnInit {
   addQuestion() {
     if (this.questionForm.valid) {
       const question = this.questionForm.getRawValue() as Question;
-      this.quizService.addQuestion(question, this.quiz);
+      this.quizService.addQuestion(this.quiz, question);
     }
     this.initializeQuestionForm();
   }
@@ -68,7 +68,7 @@ export class QuestionsFormComponent implements OnInit {
   addLastQuestion() {
     if (this.questionForm.valid) {
       const question = this.questionForm.getRawValue() as Question;
-      this.quizService.addQuestion(question, this.quiz);
+      this.quizService.addQuestion(this.quiz, question);
     }
     this.router.navigate(['home']);
   }
