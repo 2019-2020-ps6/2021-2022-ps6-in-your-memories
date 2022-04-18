@@ -44,6 +44,12 @@
           "indice": "E=mc^2"
         }
       ]
+    },
+    {
+      "name": "Test",
+      "theme": "Test",
+      "questions": [],
+      "id": 2
     }
   ]
 }
