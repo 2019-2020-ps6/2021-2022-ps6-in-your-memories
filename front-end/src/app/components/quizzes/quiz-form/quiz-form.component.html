@@ -1,0 +1,23 @@
+<app-header></app-header>
+<div class="container">
+  <div class="card">
+    <h2>Créer un nouveau quiz</h2>
+    <br>
+    <form class="quiz-form" [formGroup]="quizForm">
+      <label for="name">
+        Nom du quiz
+        <input class="input-custom" type="text" id="name" [formControlName]="'name'">
+      </label>
+      <br>
+      <br>
+      <label for="theme">
+        Theme
+        <input class="input-custom" type="text" id="theme" [formControlName]="'theme'">
+      </label>
+      <br>
+      <br>
+      <br>
+      <button type="submit" class="button-card" (click)="addQuestion()">Ajouter une question</button>
+    </form>
+  </div>
+</div>

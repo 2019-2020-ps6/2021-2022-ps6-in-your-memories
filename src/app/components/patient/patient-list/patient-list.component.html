@@ -1,7 +1,0 @@
-<app-header></app-header>
-<div class = "patient" *ngFor="let patient of patientList">
-  <app-patient [patient]="patient" (patientSelected)="patientSelected($event)"></app-patient>
-</div>
-<div>
-  <button class="button-card" routerLink="/patient-form">Ajouter un patient</button>
-</div>

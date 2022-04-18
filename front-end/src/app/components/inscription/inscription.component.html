@@ -1,0 +1,53 @@
+<app-header></app-header>
+<div class="container">
+  <div class="card">
+    <h2>S'inscrire</h2>
+    <br>
+    <form class="quiz-form" [formGroup]="connexionForm">
+
+      <br>
+      <label>
+        Nom
+        <input type="text" [formControlName]="'nom'">
+      </label>
+
+      <br>
+      <label>
+        Prénom
+        <input type="text" [formControlName]="'prénom'">
+      </label>
+
+      <br>
+      <label>
+        Email
+        <input type="text" [formControlName]="'email'">
+      </label>
+
+      <br>
+      <label>
+        Mot de passe
+        <input type="text" [formControlName]="'mdp'">
+      </label>
+
+      <br>
+      <label>
+        Confirmation du mot de passe
+        <input type="text" [formControlName]="'confirmationMdp'">
+      </label>
+
+      <br>
+      <br>
+      <br>
+
+      <button type="submit" class="button-card" (click)="Sinscrire()">S'inscrire</button>
+
+      <br>
+      <br>
+      <label>
+        Vous avez déjà un compte ?
+        <button type="submit" class="button-card" (click)="GoConnexion()">Se connecter</button>
+      </label>
+    </form>
+  </div>
+</div>
+
