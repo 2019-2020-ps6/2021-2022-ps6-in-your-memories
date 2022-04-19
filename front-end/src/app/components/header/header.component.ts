@@ -1,4 +1,6 @@
-import {Component, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
+import {ConnexionComponent} from "../connexion/connexion.component";
+import {ConnexionService} from "../../../services/connexion.service";
 
 @Component({
   selector: 'app-header',
@@ -8,12 +10,21 @@ import {Component, OnInit, Output} from '@angular/core';
 
 export class HeaderComponent implements OnInit {
 
-  @Output()
-  public alreadyConnected: boolean = false;
+  public alreadyConnected: boolean=false;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(public connexionService: ConnexionService) {
   }
 
+  ngOnInit() {
+    this.alreadyConnected = this.connexionService.alreadyConnected;
+    this.connexionService.alreadyConnected$.subscribe((bool) => {
+      this.alreadyConnected = bool;
+      console.log('boolean', this.alreadyConnected);
+    });
+  }
+
+  SeDeconnecter() {
+    this.alreadyConnected=false;
+    this.connexionService.setAlreadyConnected(this.alreadyConnected);
+  }
 }

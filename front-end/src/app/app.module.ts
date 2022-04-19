@@ -9,9 +9,7 @@ import {AppRoutingModule} from './app.routing.module';
 import {QuizComponent} from './components/quizzes/quiz/quiz.component';
 import {AnswerComponent} from "./components/quizzes/answer/answer.component";
 import {HeaderComponent} from "./components/header/header.component";
-import {
-  QuestionnaireAgnosieComponent
-} from "./components/quizzes/questionnaire/questionnaireAgnosie/questionnaireAgnosie.component";
+import {QuestionnaireAgnosieComponent} from "./components/quizzes/questionnaire/questionnaireAgnosie/questionnaireAgnosie.component";
 import {PatientComponent} from "./components/patient/patient/patient.component";
 import {PatientListComponent} from "./components/patient/patient-list/patient-list.component";
 import {PatientFormComponent} from "./components/patient/patient-form/patient-form.component";
@@ -19,17 +17,14 @@ import {QuestionsFormComponent} from "./components/quizzes/questions-form/questi
 import {HomeComponent} from "./components/home/home/home.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
-import {
-  QuestionnaireAlzheimerComponent
-} from "./components/quizzes/questionnaire/questionnaireAlzheimer/questionnaireAlzheimer.component";
+import {QuestionnaireAlzheimerComponent} from "./components/quizzes/questionnaire/questionnaireAlzheimer/questionnaireAlzheimer.component";
 import {QuestionnaireComponent} from "./components/quizzes/questionnaire/questionnaire.component";
-import {
-  QuestionnaireAVCComponent
-} from "./components/quizzes/questionnaire/questionnaireAVC/questionnaireAVC.component";
+import {QuestionnaireAVCComponent} from "./components/quizzes/questionnaire/questionnaireAVC/questionnaireAVC.component";
 import {ConnexionComponent} from "./components/connexion/connexion.component";
 import {QuizEndComponent} from "./components/quizzes/quiz-end/quiz-end.component"
 import {PagePatientComponent} from "./components/patient/page-patient/page-patient.component";
 import {InscriptionComponent} from "./components/inscription/inscription.component";
+import {ProfilComponent} from "./components/profil/profil.component";
 
 
 @NgModule({
@@ -55,6 +50,7 @@ import {InscriptionComponent} from "./components/inscription/inscription.compone
     ConnexionComponent,
     InscriptionComponent,
     QuizEndComponent,
+    ProfilComponent,
   ],
     imports: [
         AppRoutingModule,
