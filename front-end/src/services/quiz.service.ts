@@ -1,7 +1,5 @@
-import {Injectable} from '@angular/core'
-import {Patient} from '../models/patient.model'
+import {Injectable} from '@angular/core';
 import {BehaviorSubject, Subject} from "rxjs";
-import {PATIENT_LIST} from "../mocks/patient-list.mock";
 import {httpOptionsBase, serverUrl} from "../configs/server.config";
 import {HttpClient} from '@angular/common/http'
 import {QUIZ_LIST} from "../mocks/quiz-list.mock";
@@ -23,7 +21,8 @@ export class QuizService {
   public quizzes$: BehaviorSubject<Quiz[]> = new BehaviorSubject(this.quizzes);
   public quizSelected$: BehaviorSubject<Quiz> = new BehaviorSubject(this.actualQuiz);
 
-  private quizUrl = serverUrl;
+  private quizUrl = serverUrl + '/quiz';
+  private questionsPath = 'questions';
   private httpOptions = httpOptionsBase;
 
   constructor(private http: HttpClient) {
@@ -42,18 +41,16 @@ export class QuizService {
   }
 
   setSelectedQuiz(quizId: String): void {
-    /*
     const urlWithId = this.quizUrl + '/' + quizId;
     this.http.get<Quiz>(urlWithId).subscribe((quiz) => {
       this.quizSelected$.next(quiz);
     })
-*/
-    for (let q in this.quizzes) {
+    /**for (let q in this.quizzes) {
       if (this.quizzes[q].id == quizId) {
         this.actualQuiz = this.quizzes[q];
         this.quizSelected$.next(this.actualQuiz);
       }
-    }
+    }*/
   }
 
   deleteQuiz(quiz: Quiz): void {
@@ -61,7 +58,8 @@ export class QuizService {
     this.http.delete<Quiz>(urlWithId, this.httpOptions).subscribe(() => this.retrieveQuiz());
   }
 
-  addQuestion(question: Question, quiz: Quiz): void{
-    quiz.questions.push(question);
+  addQuestion(question: Question, quiz: Quiz): void {
+    const questionUrl = this.quizUrl + '/' + quiz.id + '/' + this.questionsPath;
+    this.http.post<Question>(questionUrl, question, this.httpOptions).subscribe(() => this.setSelectedQuiz(quiz.id));
   }
 }

@@ -24,12 +24,11 @@ export class QuestionnaireComponent implements OnInit {
 
 
   constructor(private router: Router, private quizService: QuizService) {
-    this.quizService.quizSelected$.subscribe((quizze: Quiz) => {
-      this.quiz = quizze;
-    });
   }
 
   ngOnInit(): void {
+    var index = Number(this.quiz.id);
+    this.quiz = this.quizService.quizzes[index];
   }
 
 }
