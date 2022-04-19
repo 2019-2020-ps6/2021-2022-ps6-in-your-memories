@@ -11,14 +11,13 @@ import {QuestionsFormComponent} from "./components/quizzes/questions-form/questi
 import {HomeComponent} from "./components/home/home/home.component";
 import {QuestionnaireAlzheimerComponent} from "./components/quizzes/questionnaire/questionnaireAlzheimer/questionnaireAlzheimer.component";
 import {QuestionnaireComponent} from "./components/quizzes/questionnaire/questionnaire.component";
-import {
-  QuestionnaireAVCComponent
-} from "./components/quizzes/questionnaire/questionnaireAVC/questionnaireAVC.component";
+import {QuestionnaireAVCComponent} from "./components/quizzes/questionnaire/questionnaireAVC/questionnaireAVC.component";
 
 import {ConnexionComponent} from "./components/connexion/connexion.component";
 import {QuizEndComponent} from "./components/quizzes/quiz-end/quiz-end.component";
 import {PagePatientComponent} from "./components/patient/page-patient/page-patient.component";
 import {InscriptionComponent} from "./components/inscription/inscription.component";
+import {ProfilComponent} from "./components/profil/profil.component";
 
 const routes: Routes = [
   {path: 'quiz-list', component: QuizListComponent},
@@ -37,6 +36,7 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'connexion', component: ConnexionComponent},
   {path: 'inscription', component: InscriptionComponent},
+  {path: 'propfil',component: ProfilComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 
