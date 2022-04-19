@@ -1,6 +1,6 @@
 const { Router } = require('express')
 
-const {Patient } = require('../..models')
+const { Patient } = require('../../models')
 const manageAllErrors = require('../../utils/routes/error-management')
 
 const router = new Router()
