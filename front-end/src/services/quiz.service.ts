@@ -21,12 +21,12 @@ export class QuizService {
   public quizzes$: BehaviorSubject<Quiz[]> = new BehaviorSubject(this.quizzes);
   public quizSelected$: BehaviorSubject<Quiz> = new BehaviorSubject(this.actualQuiz);
 
-  private quizUrl = serverUrl + '/quiz';
+  private quizUrl = serverUrl + '/quizzes';
   private questionsPath = 'questions';
   private httpOptions = httpOptionsBase;
 
   constructor(private http: HttpClient) {
-    this.retrieveQuiz();
+    //this.retrieveQuiz();
   }
 
   retrieveQuiz(): void{
@@ -41,16 +41,18 @@ export class QuizService {
   }
 
   setSelectedQuiz(quizId: String): void {
+    /*
     const urlWithId = this.quizUrl + '/' + quizId;
     this.http.get<Quiz>(urlWithId).subscribe((quiz) => {
       this.quizSelected$.next(quiz);
     })
-    /**for (let q in this.quizzes) {
+     */
+    for (let q in this.quizzes) {
       if (this.quizzes[q].id == quizId) {
         this.actualQuiz = this.quizzes[q];
         this.quizSelected$.next(this.actualQuiz);
       }
-    }*/
+    }
   }
 
   deleteQuiz(quiz: Quiz): void {
