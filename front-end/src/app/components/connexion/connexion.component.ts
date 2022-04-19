@@ -1,7 +1,8 @@
 import {Component, Input, OnInit, Output} from '@angular/core';
 import {Router} from "@angular/router";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ConnexionService} from "../../../services/connexion.service";
+import {User} from "../../../models/user.model";
 
 @Component({
   selector: 'app-connexion',
@@ -15,8 +16,8 @@ export class ConnexionComponent implements OnInit {
 
   constructor(private router: Router, public formBuilder: FormBuilder, public connexionService: ConnexionService) {
     this.connexionForm = this.formBuilder.group({
-      email: [''],
-      mdp: [''],
+      email:['',[Validators.required,Validators.email]],
+      mdp:['',Validators.required],
     });
   }
 
