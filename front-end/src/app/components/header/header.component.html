@@ -8,7 +8,7 @@
         <button class="bouton">Profil</button>
         <button class="bouton" [routerLink]="['/quiz-list']">Mes Quiz</button>
         <button class="bouton" [routerLink]="['/patient-list']">Patients</button>
-        <button class="bouton" [routerLink]="['/connexion']">Deconnexion</button>
+        <button type="submit" class="bouton" [routerLink]="['/home']" (click)="SeDeconnecter()">Deconnexion</button>
       </div>
     </div>
 

@@ -3,6 +3,7 @@ import {Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {User} from "../../../models/user.model";
 import {UserService} from "../../../services/user.service";
+import {ConnexionService} from "../../../services/connexion.service";
 
 @Component({
   selector: 'app-inscription',
@@ -15,7 +16,7 @@ export class InscriptionComponent implements OnInit {
   @Input()
   public alreadyConnected!: boolean;
 
-  constructor(private router: Router, public formBuilder: FormBuilder, private userService : UserService) {
+  constructor(private router: Router, public formBuilder: FormBuilder, private userService : UserService, private connexionService: ConnexionService) {
     this.inscriptionForm = this.formBuilder.group({});
   }
 
@@ -44,6 +45,7 @@ export class InscriptionComponent implements OnInit {
     this.userService.addUser(newUser)
 
     this.alreadyConnected=true;
+    this.connexionService.setAlreadyConnected(this.alreadyConnected);
     this.router.navigate(['/home'])
 
 
