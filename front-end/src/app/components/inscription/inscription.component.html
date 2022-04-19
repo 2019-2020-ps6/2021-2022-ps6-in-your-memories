@@ -2,52 +2,43 @@
 <div class="container">
   <div class="card">
     <h2>S'inscrire</h2>
-    <br>
-    <form class="quiz-form" [formGroup]="connexionForm">
 
-      <br>
-      <label>
-        Nom
-        <input type="text" [formControlName]="'nom'">
-      </label>
+    <form [formGroup]="inscriptionForm" (ngSubmit)="onInscriptionForm()">
+      <div class="form-group">
+        <label for="lastName">Nom</label>
+        <input type="text" class="form-control" id="lastName" formControlName="lastName">
+      </div>
 
-      <br>
-      <label>
-        Prénom
-        <input type="text" [formControlName]="'prénom'">
-      </label>
+      <div class="form-group">
+        <label for="lastName">Prénom</label>
+        <input type="text" class="form-control" id="firstName" formControlName="firstName">
+      </div>
 
-      <br>
-      <label>
-        Email
-        <input type="text" [formControlName]="'email'">
-      </label>
+      <div class="form-group">
+        <label for="lastName">email</label>
+        <input type="text" class="form-control" id="email" formControlName="email">
+      </div>
 
-      <br>
-      <label>
-        Mot de passe
-        <input type="text" [formControlName]="'mdp'">
-      </label>
-
-      <br>
-      <label>
-        Confirmation du mot de passe
-        <input type="text" [formControlName]="'confirmationMdp'">
-      </label>
+      <div class="form-group">
+        <label for="lastName">mdp</label>
+        <input type="text" class="form-control" id="mdp" formControlName="mdp">
+      </div>
 
       <br>
       <br>
+
+      <button type="submit" class="button-card" [disabled]="inscriptionForm.invalid">S'inscrire</button>
+
+      <br>
       <br>
 
-      <button type="submit" class="button-card" (click)="Sinscrire()">S'inscrire</button>
-
-      <br>
-      <br>
-      <label>
-        Vous avez déjà un compte ?
-        <button type="submit" class="button-card" (click)="GoConnexion()">Se connecter</button>
-      </label>
     </form>
+
+    <label>
+      Vous avez déjà un compte ?
+      <button type="submit" class="button-card" (click)="GoConnexion()">Se connecter</button>
+    </label>
+
   </div>
 </div>
 

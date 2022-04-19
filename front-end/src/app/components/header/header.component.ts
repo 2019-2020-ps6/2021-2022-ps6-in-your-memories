@@ -22,6 +22,4 @@ export class HeaderComponent implements OnInit {
       console.log('boolean', this.alreadyConnected);
     });
   }
-
-
 }
