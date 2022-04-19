@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {Router} from "@angular/router";
 import {FormBuilder, FormGroup} from "@angular/forms";
+import {ConnexionService} from "../../../services/connexion.service";
 
 @Component({
   selector: 'app-connexion',
@@ -10,10 +11,9 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 export class ConnexionComponent implements OnInit {
   public connexionForm: FormGroup;
 
-  @Input()
-  public alreadyConnected!: boolean;
+  public alreadyConnected: boolean=false;
 
-  constructor(private router: Router, public formBuilder: FormBuilder) {
+  constructor(private router: Router, public formBuilder: FormBuilder, public connexionService: ConnexionService) {
     this.connexionForm = this.formBuilder.group({
       email: [''],
       mdp: [''],
@@ -25,6 +25,7 @@ export class ConnexionComponent implements OnInit {
 
   SeConnecter() {
     this.alreadyConnected=true;
+    this.connexionService.setAlreadyConnected(this.alreadyConnected);
     this.router.navigate(['/home'])
   }
 

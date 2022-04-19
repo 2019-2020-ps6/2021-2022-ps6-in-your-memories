@@ -1,24 +1,28 @@
 <div class="header">
   <a class="navigation" [routerLink]="['/home']">POLYQUIZ</a>
 
-  <!--<div *ngIf="alreadyConnected">-->
   <div class="menu">
-    <button class="boutonM"><i class="fas fa-user"></i>Menu</button>
-    <div class="sous-menu">
-      <button class="bouton" >Profil</button>
-      <button class="bouton" [routerLink]="['/quiz-list']">Mes Quiz</button>
-      <button class="bouton" [routerLink]="['/patient-list']">Patients</button>
-      <button class="bouton" [routerLink]="['/connexion']">Deconnexion</button>
+    <div *ngIf="alreadyConnected">
+      <button class="boutonM"><i class="fas fa-user"></i>Menu</button>
+      <div class="sous-menu">
+        <button class="bouton">Profil</button>
+        <button class="bouton" [routerLink]="['/quiz-list']">Mes Quiz</button>
+        <button class="bouton" [routerLink]="['/patient-list']">Patients</button>
+        <button class="bouton" [routerLink]="['/connexion']">Deconnexion</button>
+      </div>
     </div>
+
+    <div *ngIf="!alreadyConnected">
+      <div class="boutonM">
+        <button class="bouton" [routerLink]="['/connexion']">Se connecter</button>
+      </div>
+    </div>
+    
   </div>
+
+
 </div>
 
-  <!--<div *ngIf="!alreadyConnected">
-  <div class="bouton">
-  <button class="bouton" [routerLink]="['/connexion']">Se connecter</button>
-  </div>
-  </div>-->
 
-<!--</div>-->
 
 
