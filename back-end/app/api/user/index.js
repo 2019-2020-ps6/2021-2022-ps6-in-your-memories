@@ -14,7 +14,8 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
     try{
-        res.status(200).json(User.getById(req.params.patientId))
+
+        res.status(200).json(User.getById(req.params.id))
     } catch (err) {
         manageAllErrors(res, err)
     }
