@@ -21,14 +21,16 @@ a:link
 
 .button-card {
   background-color: white;
-  border: solid 1px #3f51b5;
-  color: #3f51b5;
+  border: solid 1px darkseagreen;
+  color: darkseagreen;
   font-weight: bold;
   padding: 0.5em 1em;
+  margin: 1em;
 }
 
 .button-card:hover {
   cursor: pointer;
+  background: #C3FBA0;
 }
 
 

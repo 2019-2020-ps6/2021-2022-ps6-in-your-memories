@@ -1,4 +1,5 @@
 <div class="header">
+  <button class="bouton" onclick="history.back()">Retour</button>
   <a class="navigation" [routerLink]="['/home']">POLYQUIZ</a>
 
   <div class="menu">
@@ -13,7 +14,7 @@
     </div>
 
     <div *ngIf="!alreadyConnected">
-      <div class="boutonM">
+      <div class="boutonNotConnected">
         <button class="bouton" [routerLink]="['/connexion']">Se connecter</button>
       </div>
     </div>
