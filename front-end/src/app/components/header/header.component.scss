@@ -41,6 +41,14 @@ a:link {
   cursor: pointer;
 }
 
+.boutonNotConnected {
+  background-color: darkseagreen;
+  color: black;
+  font-size: 1em;
+  border: none;
+  cursor: pointer;
+}
+
 .menu {
   position: absolute;
   right: 5%;
@@ -57,7 +65,7 @@ a:link {
 
 
 .bouton:hover{
-  background-color: mediumseagreen;
+  background-color: darkseagreen;
 }
 
 .sous-menu {
@@ -84,4 +92,8 @@ a:link {
 }
 .menu:hover .boutonM {
   display: none;
+}
+
+.bouton:hover{
+  background-color: mediumseagreen;
 }
