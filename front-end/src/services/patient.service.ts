@@ -60,7 +60,7 @@ export class PatientService {
     }
   }
 
-  deletePatient(patient: Patient): void {
+  deleteSelectedPatient(patient: Patient): void {
     const urlWithId = this.patientUrl + '/' + patient.id;
     this.http.delete<Patient>(urlWithId, this.httpOptions).subscribe(() => this.retrievePatient());
   }

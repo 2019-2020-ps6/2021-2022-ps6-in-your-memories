@@ -6,10 +6,15 @@
   transform: translate(-50%, -50%);
   color: darkseagreen;
   font-weight: bold;
+  margin-top: 2rem;
   padding: 0.5em 1em;
-  margin: 1em;
+
 }
 
 .button-card:hover {
   cursor: pointer;
+}
+
+.patients {
+  padding-top: 2rem;
 }

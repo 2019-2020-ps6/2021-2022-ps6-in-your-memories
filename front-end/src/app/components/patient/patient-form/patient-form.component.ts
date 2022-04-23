@@ -1,8 +1,9 @@
 import {Component, OnInit} from "@angular/core";
-import {Router} from "@angular/router";
+import {FormBuilder, FormGroup} from "@angular/forms";
+
 import {PatientService} from "../../../../services/patient.service";
 import {Patient} from "../../../../models/patient.model";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-patient-form',
@@ -11,6 +12,7 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 })
 
 export class PatientFormComponent implements OnInit{
+
   public patientForm: FormGroup;
 
   constructor(public formBuilder: FormBuilder, public patientService: PatientService, private router: Router) {

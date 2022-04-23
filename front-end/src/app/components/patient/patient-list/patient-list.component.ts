@@ -28,4 +28,8 @@ export class PatientListComponent {
     this.router.navigate(['quiz-list']);
   }
 
+  patientSelectedDelete(patient: Patient): void{
+    this.patientService.deleteSelectedPatient(patient);
+  }
+
 }

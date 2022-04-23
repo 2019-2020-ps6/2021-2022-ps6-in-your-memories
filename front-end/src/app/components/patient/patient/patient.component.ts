@@ -25,6 +25,9 @@ export class PatientComponent implements OnInit {
   @Output()
   patientSelectedQuiz: EventEmitter<Patient> = new EventEmitter<Patient>();
 
+  @Output()
+  patientSelectedDelete: EventEmitter<Patient> = new EventEmitter<Patient>();
+
   constructor() {
   }
 
@@ -37,5 +40,9 @@ export class PatientComponent implements OnInit {
 
   selectPatientQuiz(): void{
     this.patientSelectedQuiz.emit(this.patient);
+  }
+
+  deletePatient(): void{
+    this.patientSelectedDelete.emit(this.patient);
   }
 }
