@@ -20,7 +20,7 @@ export class QuestionnaireAgnosieComponent implements OnInit {
     name: '',
     theme: '',
     questions: []
-  }
+  };
 
   patient: Patient = {
     id: '',
@@ -35,8 +35,8 @@ export class QuestionnaireAgnosieComponent implements OnInit {
     id: "",
     label: "",
     answers: [],
-    indice: ""
-  }
+    indice: "",
+  };
 
   addIndices : boolean = true;
   numQuestion: number = 1;
