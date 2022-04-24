@@ -1,6 +1,4 @@
 const { Quiz } = require('../../models')
-const { filterQuestionsFromQuizz } = require('./questions/manager')
-const { filterAnswersFromQuestion } = require('./questions/answers/manager')
 
 /**
  * Function buildQuizz.
