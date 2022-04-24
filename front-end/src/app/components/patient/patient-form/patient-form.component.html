@@ -1,33 +1,12 @@
 <app-header></app-header>
 
-<h1>Ajouter un accompagné</h1>
-
 <div class="container">
   <div class="card">
-    <br>
-    <form class="patient-form" [formGroup]="patientForm">
-      <label for="firstName">
-        Prénom
-        <input class="input-custom" type="text" id="firstName" [formControlName]="'firstName'">
-      </label>
-      <br>
-      <label for="lastName">
-        Nom de famille
-        <input class="input-custom" type="text" id="lastName" [formControlName]="'lastName'">
-      </label>
-      <br>
-      <label for="pathologie">
-        Pathologie
-        <input class="input-custom" type="text" id="pathologie" [formControlName]="'pathologie'">
-      </label>
-      <br>
-      <label for="age">
-        Age
-        <input class="input-custom" type="number" id="age" [formControlName]="'age'">
-      </label>
-      <br>
-      <br>
-      <button type="button" class="button-card" (click)="addPatient()" [routerLink]="['/patient-list']">Ajouter</button>
-    </form>
+    <h1>Ajouter un accompagné</h1>
+    <app-utils-field-input [title]="'Prenom'" (outText)="setFirstName($event)"></app-utils-field-input>
+    <app-utils-field-input [title]="'Nom'" (outText)="setLastName($event)"></app-utils-field-input>
+    <app-utils-field-input [title]="'Pathologie'" (outText)="setPathologie($event)"></app-utils-field-input>
+    <app-utils-field-input [title]="'Age'" (outText)="setAge($event)"></app-utils-field-input>
+    <button type="button" class="button-card" (click)="addPatient()" [routerLink]="['/patient-list']">Add</button>
   </div>
 </div>

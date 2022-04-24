@@ -5,8 +5,11 @@
       <h2>{{quiz.name}}</h2>
       <h3>Categorie: {{quiz.theme}}</h3>
     </div>
-    <button class="button-card" [routerLink]="['/questionnaireAgnosie']">Agnosie</button>
-    <button class="button-card" [routerLink]="['/questionnaireAlzheimer']">Alzheimer</button>
-    <button class="button-card" [routerLink]="['/questionnaireAVC']">AVC</button>
+    <select *ngIf="bool" name="patholigie" id="patholigie-select">
+      <option value="agnosie">Agnosie</option>
+      <option value="alzheimer">Alzheimer</option>
+      <option value="avc">AVC</option>
+    </select>
+    <button class="button-card" (click)="playQuiz()" >Jouer le quiz</button>
   </div>
 </div>

@@ -2,7 +2,7 @@
 <div class="quiz" *ngFor="let quiz of quizList">
   <app-quiz [quiz]="quiz" (quizSelected)="quizSelected($event)" (editQuiz)="quizEdit($event)"></app-quiz>
 </div>
-<div class="card">
+<div *ngIf="bool" class="card">
   <button class="button-card" [routerLink]="['/quiz-form']">Créer un nouveau quiz</button>
 </div>
 

@@ -1,8 +1,8 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Quiz} from '../../../../../models/quiz.model';
 import {Router} from "@angular/router";
 import {QuizService} from "../../../../../services/quiz.service";
-import {Answer, Question} from "../../../../../models/question.model";
+import {Question} from "../../../../../models/question.model";
 import {QUESTION_CORRECT_FIN, QUESTION_CORRECT_INTER} from "../../../../../mocks/quiz-correct.mock";
 import {Patient} from "../../../../../models/patient.model";
 import {PatientService} from "../../../../../services/patient.service";

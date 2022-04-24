@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core'
 import {Patient} from '../models/patient.model'
-import {BehaviorSubject, Subject} from "rxjs";
+import {BehaviorSubject} from "rxjs";
 import {PATIENT_LIST} from "../mocks/patient-list.mock";
 import {httpOptionsBase, serverUrl} from "../configs/server.config";
 import {HttpClient} from '@angular/common/http'
@@ -27,7 +27,7 @@ export class PatientService {
   private httpOptions = httpOptionsBase;
 
   constructor(private http: HttpClient) {
-    this.retrievePatient();
+    //this.retrievePatient();
   }
 
   retrievePatient(): void {
@@ -52,12 +52,25 @@ export class PatientService {
       this.patientSelected$.next(patient);
     })
     */
+    var bool : Boolean;
+    bool = false;
     for (let p in this.patients) {
       if (this.patients[p].id == patientId) {
         this.actualPatient = this.patients[p];
-        this.patientSelected$.next(this.actualPatient);
+        bool = true;
       }
     }
+    if(bool == false){
+      this.actualPatient = {
+        id: '',
+        firstName: '',
+        lastName: '',
+        pathologie: '',
+        age: 0,
+        stats: {quizStat: []},
+      };
+    }
+    this.patientSelected$.next(this.actualPatient);
   }
 
   deleteSelectedPatient(patient: Patient): void {

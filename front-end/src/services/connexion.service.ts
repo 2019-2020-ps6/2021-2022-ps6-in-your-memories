@@ -1,10 +1,6 @@
 import {Injectable} from '@angular/core'
 import {BehaviorSubject} from "rxjs";
-import {Home} from "../models/home.models";
-import {ConnexionComponent} from "../app/components/connexion/connexion.component";
 import {HttpClient} from "@angular/common/http";
-import {Quiz} from "../models/quiz.model";
-import {serverUrl} from "../configs/server.config";
 
 @Injectable({
   providedIn: "root"

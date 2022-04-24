@@ -13,23 +13,39 @@ import {Router} from "@angular/router";
 
 export class PatientFormComponent implements OnInit{
 
-  public patientForm: FormGroup;
+  patient: Patient = {
+    id: '',
+    firstName: '',
+    lastName: '',
+    pathologie: '',
+    age: 0,
+    stats: { quizStat: [] },
+  }
 
-  constructor(public formBuilder: FormBuilder, public patientService: PatientService, private router: Router) {
-    this.patientForm = this.formBuilder.group({
-      firstName: [''],
-      lastName: [''],
-      pathologie: [''],
-      age:[],
-    });
+  constructor(public patientService: PatientService, private router: Router) {
   }
 
   ngOnInit(): void {
   }
 
   addPatient(): void {
-    const patientToCreate: Patient = this.patientForm.getRawValue() as Patient;
-    this.patientService.addPatient(patientToCreate);
+    this.patientService.addPatient(this.patient);
+  }
+
+  setFirstName(text : string){
+    this.patient.firstName = text;
+  }
+
+  setLastName(text : string){
+    this.patient.lastName = text;
+  }
+
+  setPathologie(text : string){
+    this.patient.pathologie = text;
+  }
+
+  setAge(text : string){
+    this.patient.age = 0;
   }
 
 }

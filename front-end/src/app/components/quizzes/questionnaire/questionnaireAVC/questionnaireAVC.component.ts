@@ -1,13 +1,12 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Quiz} from '../../../../../models/quiz.model';
-import {ActivatedRoute, Router} from "@angular/router";
+import {Router} from "@angular/router";
 import {QuizService} from "../../../../../services/quiz.service";
 import {Answer, Question} from "../../../../../models/question.model";
-import {QUESTION_INDICE} from "../../../../../mocks/quiz-indice.mock";
 import {QUESTION_CORRECT_FIN, QUESTION_CORRECT_INTER} from "../../../../../mocks/quiz-correct.mock";
 import {QUESTION_BAD_FIN, QUESTION_BAD_INTER} from "../../../../../mocks/quiz-bad.mock";
 import {Patient} from "../../../../../models/patient.model";
-import {PatientStat, QuizStat} from "../../../../../models/stat.model";
+import {QuizStat} from "../../../../../models/stat.model";
 import {PatientService} from "../../../../../services/patient.service";
 
 @Component({

@@ -3,25 +3,23 @@
   <a class="navigation" [routerLink]="['/home']">POLYQUIZ</a>
 
   <div class="menu">
-    <div *ngIf="alreadyConnected">
+    <div> <!--*ngIf="alreadyConnected"-->
       <button class="boutonM"><i class="fas fa-user"></i>Menu</button>
       <div class="sous-menu">
         <button class="bouton">Profil</button>
-        <button class="bouton" [routerLink]="['/quiz-list']">Mes Quiz</button>
+        <button class="bouton" (click)="listQuiz()" [routerLink]="['/quiz-list']">Liste des Quiz</button>
         <button class="bouton" [routerLink]="['/patient-list']">Accompagnés</button>
         <button type="submit" class="bouton" [routerLink]="['/home']" (click)="SeDeconnecter()">Déconnexion</button>
       </div>
     </div>
-
-    <div *ngIf="!alreadyConnected">
-      <div class="boutonNotConnected">
-        <button class="bouton" [routerLink]="['/connexion']">Se connecter</button>
-      </div>
-    </div>
-
+    <!--
+        <div *ngIf="!alreadyConnected">
+          <div class="boutonNotConnected">
+            <button class="bouton" [routerLink]="['/connexion']">Se connecter</button>
+          </div>
+        </div>
+     -->
   </div>
-
-
 </div>
 
 

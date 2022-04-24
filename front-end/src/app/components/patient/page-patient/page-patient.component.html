@@ -2,14 +2,10 @@
 <br>
 <h2> {{patient.firstName}} {{patient.lastName}} </h2>
 <div class="container">
-  <br>
-  <input list="pathologie">
+  <div class="pathologie">
+    Pathologie : {{patient.pathologie}}
+  </div>
 
-  <datalist id="pathologie">
-    <option value="AVC">
-    <option value="Alzheimer">
-    <option value="Agnosie">
-  </datalist>
   <h3>Age: {{patient.age}}</h3>
 
   <div class="stats">
@@ -17,10 +13,8 @@
   </div>
 
   <div class="quiz-realises">
-    <h2>Quiz réalisés</h2>
-    <div class="quiz" *ngFor="let quiz of quizList">
-      <app-quiz [quiz]="quiz" (quizSelected)="quizSelected($event)"></app-quiz>
-    </div>
+    <h2>Quiz Stats</h2>
+      <app-quiz-stat-list [patientStat]="patient.stats"></app-quiz-stat-list>
   </div>
 </div>
 

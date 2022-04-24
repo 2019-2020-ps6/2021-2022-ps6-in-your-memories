@@ -1,11 +1,9 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Quiz} from '../../../../models/quiz.model';
-import {ActivatedRoute, Router} from "@angular/router";
+import {Router} from "@angular/router";
 import {QuizService} from "../../../../services/quiz.service";
-import {Answer, Question} from "../../../../models/question.model";
-import {QUESTION_INDICE} from "../../../../mocks/quiz-indice.mock";
-import {QUESTION_CORRECT_FIN, QUESTION_CORRECT_INTER} from "../../../../mocks/quiz-correct.mock";
-import {QUESTION_BAD_FIN, QUESTION_BAD_INTER} from "../../../../mocks/quiz-bad.mock";
+import {Patient} from "../../../../models/patient.model";
+import {PatientService} from "../../../../services/patient.service";
 
 @Component({
   selector: 'app-questionnaire',
@@ -22,13 +20,41 @@ export class QuestionnaireComponent implements OnInit {
     questions: []
   }
 
+  patient: Patient = {
+    id: '',
+    firstName: '',
+    lastName: '',
+    pathologie: '',
+    age: 0,
+    stats: { quizStat: [] },
+  };
 
-  constructor(private router: Router, private quizService: QuizService) {
+  bool : boolean = true;
+
+  constructor(private router: Router, private patientService: PatientService, private quizService: QuizService) {
+    this.patientService.patientSelected$.subscribe((patient: Patient) => {
+      this.patient = patient;
+    });
+    this.quizService.quizSelected$.subscribe((quiz: Quiz) => {
+      this.quiz = quiz;
+    });
   }
 
   ngOnInit(): void {
-    var index = Number(this.quiz.id);
-    this.quiz = this.quizService.quizzes[index];
+    if(this.patient.pathologie != '')
+      this.bool = false;
+  }
+
+  playQuiz(){
+    if(!this.bool){
+      if(this.patient.pathologie === "AVC"){
+        this.router.navigate(['questionnaireAVC']);
+      } else if (this.patient.pathologie === "Agnosie"){
+        this.router.navigate(['questionnaireAgnosie']);
+      } else if (this.patient.pathologie === "Alzheimer"){
+        this.router.navigate(['questionnaireAlzheimer']);
+      }
+    }
   }
 
 }

@@ -1,8 +1,7 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ConnexionService} from "../../../services/connexion.service";
-import {User} from "../../../models/user.model";
 
 @Component({
   selector: 'app-connexion',

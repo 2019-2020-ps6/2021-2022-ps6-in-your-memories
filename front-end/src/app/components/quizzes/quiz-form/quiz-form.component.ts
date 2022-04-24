@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder} from '@angular/forms';
 
-import { QuizService } from '../../../../services/quiz.service';
-import { Quiz } from '../../../../models/quiz.model';
+import {QuizService} from '../../../../services/quiz.service';
+import {Quiz} from '../../../../models/quiz.model';
 import {Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-quiz-form',
@@ -13,23 +14,32 @@ import {Router} from "@angular/router";
 
 export class QuizFormComponent implements OnInit {
 
-  public quizForm: FormGroup;
+
+  quiz : Quiz = {
+    id: "",
+    name: "",
+    theme: "",
+    questions: [],
+  }
+
+  bool : boolean = true;
 
   constructor(public formBuilder: FormBuilder, public quizService: QuizService, private router: Router) {
-    this.quizForm = this.formBuilder.group({
-      name: [''],
-      theme: [''],
-      questions: this.formBuilder.array([]),
-    });
   }
 
   ngOnInit(): void {
   }
 
+  setName(text : string){
+    this.quiz.name = text;
+  }
+
+  setTheme(text:string){
+    this.quiz.theme = text;
+  }
+
   addQuestion() {
-    const quizToCreate: Quiz = this.quizForm.getRawValue() as Quiz;
-    this.quizService.addQuiz(quizToCreate);
-    this.router.navigate(['questions-form']);
+    this.bool = false
   }
 
   OnQuizForm(){

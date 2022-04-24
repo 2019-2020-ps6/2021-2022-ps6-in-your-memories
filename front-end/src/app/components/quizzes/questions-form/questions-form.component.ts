@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormArray, FormBuilder, FormGroup} from "@angular/forms";
 import {QuizService} from "../../../../services/quiz.service";
 import {Router} from "@angular/router";
 import {Question} from "../../../../models/question.model";
@@ -55,8 +55,7 @@ export class QuestionsFormComponent implements OnInit {
 
   addQuestion() {
     if (this.questionForm.valid) {
-      const question = this.questionForm.getRawValue() as Question;
-      this.quizService.addQuestion(question, this.quiz);
+      this.quiz.questions.push(this.questionForm.getRawValue() as Question)
     }
     this.initializeQuestionForm();
   }
@@ -67,9 +66,10 @@ export class QuestionsFormComponent implements OnInit {
 
   addLastQuestion() {
     if (this.questionForm.valid) {
-      const question = this.questionForm.getRawValue() as Question;
-      this.quizService.addQuestion(question, this.quiz);
+      this.quiz.questions.push(this.questionForm.getRawValue() as Question)
     }
+    console.log(this.quiz)
+    this.quizService.addQuiz(this.quiz)
     this.router.navigate(['home']);
   }
 }

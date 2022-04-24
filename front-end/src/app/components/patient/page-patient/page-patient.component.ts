@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {Patient} from "../../../../models/patient.model";
 import {Router} from "@angular/router";
 import {PatientService} from "../../../../services/patient.service";

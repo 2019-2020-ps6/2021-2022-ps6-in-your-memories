@@ -1,6 +1,7 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
-import {ConnexionComponent} from "../connexion/connexion.component";
+import {Component, OnInit} from '@angular/core';
 import {ConnexionService} from "../../../services/connexion.service";
+import {Router} from "@angular/router";
+import {PatientService} from "../../../services/patient.service";
 
 @Component({
   selector: 'app-header',
@@ -10,9 +11,9 @@ import {ConnexionService} from "../../../services/connexion.service";
 
 export class HeaderComponent implements OnInit {
 
-  public alreadyConnected: boolean=false;
+  public alreadyConnected: boolean = false;
 
-  constructor(public connexionService: ConnexionService) {
+  constructor(private router: Router, public connexionService: ConnexionService, public patientService: PatientService) {
   }
 
   ngOnInit() {
@@ -24,7 +25,14 @@ export class HeaderComponent implements OnInit {
   }
 
   SeDeconnecter() {
-    this.alreadyConnected=false;
+    this.alreadyConnected = false;
     this.connexionService.setAlreadyConnected(this.alreadyConnected);
+  }
+
+  listQuiz() {
+    this.patientService.setSelectedPatient("-1");
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+      this.router.navigate(['quiz-list']);
+    });
   }
 }

@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {Quiz} from "../../../../models/quiz.model";
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-quiz-edit',
