@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {FormArray, FormBuilder, FormGroup} from "@angular/forms";
+import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {QuizService} from "../../../../services/quiz.service";
 import {Router} from "@angular/router";
 import {Question} from "../../../../models/question.model";
@@ -13,6 +13,14 @@ import {Quiz} from "../../../../models/quiz.model";
 })
 export class QuestionsFormComponent implements OnInit {
 
+  compteur : number = 0;
+
+  public questionForm: FormGroup = this.formBuilder.group({
+    question: [''],
+    answers: this.formBuilder.array([]),
+    clue: ['']
+  });
+
   @Input()
   quiz: Quiz = {
     id: '',
@@ -20,12 +28,6 @@ export class QuestionsFormComponent implements OnInit {
     theme: '',
     questions: []
   }
-
-  public questionForm: FormGroup = this.formBuilder.group({
-    question: [''],
-    answers: this.formBuilder.array([]),
-    clue: ['']
-  });
 
   constructor(public formBuilder: FormBuilder, private router: Router, public quizService: QuizService) {
     this.initializeQuestionForm();
@@ -36,9 +38,9 @@ export class QuestionsFormComponent implements OnInit {
 
   private initializeQuestionForm(): void {
     this.questionForm = this.formBuilder.group({
-      question: [''],
-      answers: this.formBuilder.array([]),
-      clue: ['']
+      question: ['',Validators.required],
+      answers: this.formBuilder.array([],Validators.required),
+      clue: ['',Validators.required]
     });
   }
 
@@ -58,10 +60,21 @@ export class QuestionsFormComponent implements OnInit {
       this.quiz.questions.push(this.questionForm.getRawValue() as Question)
     }
     this.initializeQuestionForm();
+    this.compteur=0;
   }
 
   addAnswer(): void {
-    this.answers.push(this.createAnswer());
+    if(this.compteur<4) {
+      this.answers.push(this.createAnswer());
+      this.compteur++;
+    }
+  }
+
+  deleteAnswer() : void{
+    if(this.compteur>0) {
+      this.answers.removeAt(length);
+      this.compteur--;
+    }
   }
 
   addLastQuestion() {

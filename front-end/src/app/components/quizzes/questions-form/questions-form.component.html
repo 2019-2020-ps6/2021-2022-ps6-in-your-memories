@@ -8,7 +8,8 @@
       </label>
       <br>
       <br>
-      <button class="button-card" (click)="addAnswer()">Ajouter des réponses</button>
+      <button class="button-card" (click)="addAnswer()">Ajouter une réponse</button>
+      <button class="button-card" (click)="deleteAnswer()">Enlever une réponse</button>
       <div class="answer" formArrayName="answers">
         <div *ngFor="let address of answers.controls; let i=index">
           <div class="answer-form" [formGroupName]="i">
@@ -29,8 +30,8 @@
       <br>
       <br>
       <br>
-      <button type="submit" class="button-card" (click)="addQuestion()">Ajouter une nouvelle question</button>
-      <button type="submit" class="button-card" (click)="addLastQuestion()">Fin</button>
+      <button type="submit" class="button-card" (click)="addQuestion()" [disabled]="questionForm.invalid">Ajouter une nouvelle question</button>
+      <button type="submit" class="button-card" (click)="addLastQuestion()" [disabled]="questionForm.invalid">Fin</button>
     </form>
   </div>
 </div>
