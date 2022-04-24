@@ -27,7 +27,7 @@ export class PatientService {
   private httpOptions = httpOptionsBase;
 
   constructor(private http: HttpClient) {
-    //this.retrievePatient();
+    this.retrievePatient();
   }
 
   retrievePatient(): void {

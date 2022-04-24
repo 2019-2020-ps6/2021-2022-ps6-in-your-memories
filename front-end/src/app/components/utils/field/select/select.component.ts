@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
 
 @Component({
-  selector: 'app-utils-field-input',
+  selector: 'app-utils-field-select',
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.css']
 })

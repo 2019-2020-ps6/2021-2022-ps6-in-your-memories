@@ -25,10 +25,8 @@ import {PagePatientComponent} from "./components/patient/page-patient/page-patie
 import {InscriptionComponent} from "./components/inscription/inscription.component";
 import {ProfilComponent} from "./components/profil/profil.component";
 import {QuizStatComponent} from "./components/statistic/quiz-stat/quiz-stat.component";
-import {InputComponent} from "./components/utils/field/input/input.component";
 
 const routes: Routes = [
-  {path: 'input', component: InputComponent},
   {path: 'quiz-stat', component: QuizStatComponent},
   {path: 'quiz-list', component: QuizListComponent},
   {path: 'edit-quiz', component: QuizEditComponent},
@@ -46,8 +44,8 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'connexion', component: ConnexionComponent},
   {path: 'inscription', component: InscriptionComponent},
-  {path: 'propfil',component: ProfilComponent},
-  {path: '', redirectTo: '/home', pathMatch: 'full' },
+  {path: 'propfil', component: ProfilComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
 ];
 
 @NgModule({

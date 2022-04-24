@@ -1,9 +1,27 @@
 <div class="header">
-  <button class="bouton" onclick="history.back()">Retour</button>
+
+
+  <div class="retour">
+    <button class="bouton" onclick="history.back()">
+      <mat-icon aria-hidden="false">arrow_back</mat-icon>
+      <br>
+      Retour
+    </button>
+  </div>
+
+  <div class="home">
+    <button class="bouton" [routerLink]="['/home']">
+      <mat-icon aria-hidden="false">home</mat-icon>
+      <br>
+      Accueil
+    </button>
+  </div>
+
   <a class="navigation" [routerLink]="['/home']">POLYQUIZ</a>
 
   <div class="menu">
-    <div> <!--*ngIf="alreadyConnected"-->
+    <!--*ngIf="alreadyConnected"
+    <div>
       <button class="boutonM"><i class="fas fa-user"></i>Menu</button>
       <div class="sous-menu">
         <button class="bouton">Profil</button>
@@ -12,6 +30,18 @@
         <button type="submit" class="bouton" [routerLink]="['/home']" (click)="SeDeconnecter()">Déconnexion</button>
       </div>
     </div>
+    -->
+
+    <button mat-button class="bouton" [matMenuTriggerFor]="menu">
+      <mat-icon aria-hidden="false">reorder</mat-icon>
+      <br>
+      Menu
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="listQuiz()" [routerLink]="['/quiz-list']">Liste des Quiz</button>
+      <button mat-menu-item [routerLink]="['/patient-list']">Accompagnés</button>
+    </mat-menu>
+
     <!--
         <div *ngIf="!alreadyConnected">
           <div class="boutonNotConnected">

@@ -22,6 +22,8 @@ export class PatientFormComponent implements OnInit{
     stats: { quizStat: [] },
   }
 
+  pathologies : string[] = ["AVC", "Agnosie", "Alzheimer"]
+
   constructor(public patientService: PatientService, private router: Router) {
   }
 

@@ -1,6 +1,6 @@
 <mat-form-field appearance="fill">
   <mat-label>{{title}}</mat-label>
-  <mat-select #select (change)="select.value">
-    <mat-option *ngFor="let champ of champs" value="champ">champ</mat-option>
+  <mat-select #select (valueChange)="change(select.value)">
+    <mat-option *ngFor="let champ of champs" value="{{champ}}" >{{champ}}</mat-option>
   </mat-select>
 </mat-form-field>

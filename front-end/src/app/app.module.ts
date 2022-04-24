@@ -40,12 +40,16 @@ import {MatSliderModule} from "@angular/material/slider";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
 import {MatInputModule} from "@angular/material/input";
+import {SelectComponent} from "./components/utils/field/select/select.component";
+import {MatMenuModule} from "@angular/material/menu";
+import {MatIconModule} from "@angular/material/icon";
 
 
 
 
 @NgModule({
   declarations: [
+    SelectComponent,
     QuizStatListComponent,
     QuizStatComponent,
     AppComponent,
@@ -86,6 +90,8 @@ import {MatInputModule} from "@angular/material/input";
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
+    MatMenuModule,
+    MatIconModule,
 
   ],
   providers: [],

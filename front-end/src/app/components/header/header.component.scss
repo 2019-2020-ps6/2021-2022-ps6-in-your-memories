@@ -51,7 +51,16 @@ a:link {
 
 .menu {
   position: absolute;
-  right: 5%;
+  right: 1%;
+  display: inline-block;
+}
+
+.retour {
+  left: 1%;
+  display: inline-block;
+}
+
+.home{
   display: inline-block;
 }
 
