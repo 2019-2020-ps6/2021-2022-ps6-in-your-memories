@@ -25,6 +25,7 @@ import {QuizEndComponent} from "./components/quizzes/quiz-end/quiz-end.component
 import {PagePatientComponent} from "./components/patient/page-patient/page-patient.component";
 import {InscriptionComponent} from "./components/inscription/inscription.component";
 import {ProfilComponent} from "./components/profil/profil.component";
+import {ImageComponent} from "./components/image/image.component";
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import {ProfilComponent} from "./components/profil/profil.component";
     InscriptionComponent,
     QuizEndComponent,
     ProfilComponent,
+    ImageComponent,
   ],
     imports: [
         AppRoutingModule,

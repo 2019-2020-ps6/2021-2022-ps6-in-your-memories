@@ -16,6 +16,8 @@
             <label>
               Réponse {{i + 1}}
               <input type="text" [formControlName]="'value'">
+              <br><br> Ajouter une image <br><br>
+              <app-image></app-image>
               <br>
               Vrai ?
               <input type="checkbox" [formControlName]="'isCorrect'">
@@ -23,6 +25,8 @@
           </div>
         </div>
       </div>
+      Indice
+      <input type="text" [formControlName]="'clue'">
       <br>
       <br>
       <br>
