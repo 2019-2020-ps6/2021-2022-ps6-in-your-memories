@@ -16,7 +16,7 @@ export class QuestionsFormComponent implements OnInit {
   compteur : number = 0;
 
   public questionForm: FormGroup = this.formBuilder.group({
-    question: [''],
+    label: [''],
     answers: this.formBuilder.array([]),
     clue: ['']
   });
@@ -38,7 +38,7 @@ export class QuestionsFormComponent implements OnInit {
 
   private initializeQuestionForm(): void {
     this.questionForm = this.formBuilder.group({
-      question: ['',Validators.required],
+      label: ['',Validators.required],
       answers: this.formBuilder.array([],Validators.required),
       clue: ['',Validators.required]
     });
@@ -81,7 +81,7 @@ export class QuestionsFormComponent implements OnInit {
     if (this.questionForm.valid) {
       this.quiz.questions.push(this.questionForm.getRawValue() as Question)
     }
-    console.log(this.quiz)
+    console.log(this.quiz.questions[0].label)
     this.quizService.addQuiz(this.quiz)
     this.router.navigate(['home']);
   }

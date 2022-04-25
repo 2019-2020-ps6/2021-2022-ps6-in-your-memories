@@ -4,7 +4,7 @@
     <form class="quiz-form" [formGroup]="questionForm">
         <mat-form-field appearance="fill">
           <mat-label>Question</mat-label>
-          <input matInput type="text" [formControlName]="'question'" >
+          <input matInput type="text" [formControlName]="'label'" >
         </mat-form-field>
       <br>
       <button mat-raised-button color="primary" (click)="addAnswer()" style="margin: 1em">
