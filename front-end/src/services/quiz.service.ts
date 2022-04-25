@@ -11,7 +11,7 @@ import {Question} from "../models/question.model";
 })
 
 export class QuizService {
-  public quizzes: Quiz[] = QUIZ_LIST;
+  public quizzes: Quiz[] = [];
   public actualQuiz: Quiz = {
     id: '',
     name: '',
@@ -19,10 +19,9 @@ export class QuizService {
     questions: []
   }
   public quizzes$: BehaviorSubject<Quiz[]> = new BehaviorSubject(this.quizzes);
-  public quizSelected$: Subject<Quiz> = new Subject();
+  public quizSelected$: BehaviorSubject<Quiz> = new BehaviorSubject(this.actualQuiz);
 
   private quizUrl = serverUrl + '/quizzes';
-  private questionsPath = 'questions';
   private httpOptions = httpOptionsBase;
 
   constructor(private http: HttpClient) {
@@ -41,22 +40,37 @@ export class QuizService {
   }
 
   setSelectedQuiz(quizId: String): void {
+    /*
     const urlWithId = this.quizUrl + '/' + quizId;
     this.http.get<Quiz>(urlWithId).subscribe((quiz) => {
       this.quizSelected$.next(quiz);
     })
+    */
+
+    var bool : Boolean;
+    bool = false;
+    for (let p in this.quizzes) {
+      if (this.quizzes[p].id == quizId) {
+        this.actualQuiz = this.quizzes[p];
+        bool = true;
+      }
+    }
+    if(bool == false){
+      this.actualQuiz = {
+        id: '',
+        name: '',
+        theme: '',
+        questions: []
+      };
+    }
+    this.quizSelected$.next(this.actualQuiz);
   }
 
   deleteQuiz(quiz: Quiz): void {
     const urlWithId = this.quizUrl + '/' + quiz.id;
     this.http.delete<Quiz>(urlWithId, this.httpOptions).subscribe(() => this.retrieveQuiz());
   }
-
-  addQuestion(question: Question, quiz: Quiz): void {
-    quiz.questions.push(question)
-    const urlWithId = this.quizUrl + '/' + quiz.id;
-    this.http.put<Quiz>(urlWithId, question, this.httpOptions).subscribe(() => this.setSelectedQuiz(quiz.id));
-  }
+  
 
 }
 
