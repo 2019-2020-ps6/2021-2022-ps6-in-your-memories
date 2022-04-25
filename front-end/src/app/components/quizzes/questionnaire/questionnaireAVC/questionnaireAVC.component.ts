@@ -46,12 +46,16 @@ export class QuestionnaireAVCComponent implements OnInit {
   nbFalse: number = 0;
 
   constructor(private router: Router, private patientService: PatientService, private quizService: QuizService) {
+    console.log("test1345")
     this.patientService.patientSelected$.subscribe((patient: Patient) => {
+      console.log("test13")
       this.patient = patient;
+      console.log("test14")
     });
     this.quizService.quizSelected$.subscribe((quiz: Quiz) => {
+      console.log("test1")
       this.quiz = quiz;
-
+      console.log("test2")
     });
   }
 

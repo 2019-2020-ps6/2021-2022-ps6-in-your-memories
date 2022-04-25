@@ -1,8 +1,8 @@
-<div class="header">
+<mat-toolbar class="header" color="primary" style="margin-bottom: 1em">
 
 
   <div class="retour">
-    <button class="bouton" onclick="history.back()">
+    <button mat-button class="bouton" onclick="history.back()">
       <mat-icon aria-hidden="false">arrow_back</mat-icon>
       <br>
       Retour
@@ -10,7 +10,7 @@
   </div>
 
   <div class="home">
-    <button class="bouton" [routerLink]="['/home']">
+    <button mat-button  class="bouton" [routerLink]="['/home']">
       <mat-icon aria-hidden="false">home</mat-icon>
       <br>
       Accueil
@@ -50,7 +50,7 @@
         </div>
      -->
   </div>
-</div>
+</mat-toolbar>
 
 
 

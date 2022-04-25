@@ -2,20 +2,31 @@
   <div class="card">
     <h2>Créer une nouvelle question</h2>
     <form class="quiz-form" [formGroup]="questionForm">
-      <label for="question">
-        Question
-        <input class="input-custom" type="text" id="question" [formControlName]="'question'">
-      </label>
+        <mat-form-field appearance="fill">
+          <mat-label>Question</mat-label>
+          <input matInput type="text" [formControlName]="'question'" >
+        </mat-form-field>
+      <br>
+      <button mat-raised-button color="primary" (click)="addAnswer()" style="margin: 1em">
+        <mat-icon>add_circle</mat-icon>
+        <br>
+        Ajouter une réponse
+      </button>
+      <button mat-raised-button color="primary" (click)="deleteAnswer()" style="margin: 1em">
+        <mat-icon>remove_circle</mat-icon>
+        <br>
+        Enlever une réponse
+      </button>
       <br>
       <br>
-      <button class="button-card" (click)="addAnswer()">Ajouter une réponse</button>
-      <button class="button-card" (click)="deleteAnswer()">Enlever une réponse</button>
       <div class="answer" formArrayName="answers">
         <div *ngFor="let address of answers.controls; let i=index">
           <div class="answer-form" [formGroupName]="i">
             <label>
-              Réponse {{i + 1}}
-              <input type="text" [formControlName]="'value'">
+              <mat-form-field appearance="fill">
+                <mat-label>Réponse {{i + 1}}</mat-label>
+                <input matInput type="text" [formControlName]="'value'" >
+              </mat-form-field>
               <br><br> Ajouter une image <br><br>
               <app-image></app-image>
               <br>
@@ -25,13 +36,13 @@
           </div>
         </div>
       </div>
-      Indice
-      <input type="text" [formControlName]="'clue'">
+      <mat-form-field appearance="fill">
+        <mat-label>Indice</mat-label>
+        <input matInput type="text" [formControlName]="'clue'" >
+      </mat-form-field>
       <br>
-      <br>
-      <br>
-      <button type="submit" class="button-card" (click)="addQuestion()" [disabled]="questionForm.invalid">Ajouter une nouvelle question</button>
-      <button type="submit" class="button-card" (click)="addLastQuestion()" [disabled]="questionForm.invalid">Fin</button>
+      <button type="submit" mat-raised-button color="primary" (click)="addQuestion()" [disabled]="questionForm.invalid">Ajouter une nouvelle question</button>
+      <button type="submit" mat-raised-button color="primary" (click)="addLastQuestion()" [disabled]="questionForm.invalid">Fin</button>
     </form>
   </div>
 </div>

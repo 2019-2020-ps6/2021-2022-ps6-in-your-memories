@@ -70,7 +70,7 @@ export class QuizService {
     const urlWithId = this.quizUrl + '/' + quiz.id;
     this.http.delete<Quiz>(urlWithId, this.httpOptions).subscribe(() => this.retrieveQuiz());
   }
-  
+
 
 }
 

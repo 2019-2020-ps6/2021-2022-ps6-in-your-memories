@@ -5,11 +5,7 @@
       <h2>{{quiz.name}}</h2>
       <h3>Categorie: {{quiz.theme}}</h3>
     </div>
-    <select *ngIf="bool" name="patholigie" id="patholigie-select">
-      <option value="agnosie">Agnosie</option>
-      <option value="alzheimer">Alzheimer</option>
-      <option value="avc">AVC</option>
-    </select>
+    <app-utils-field-select *ngIf="bool" [champs]="pathologies" (outValue)="setPathologie($event)"></app-utils-field-select>
     <button class="button-card" (click)="playQuiz()" >Jouer le quiz</button>
   </div>
 </div>

@@ -26,10 +26,12 @@ export class QuestionnaireComponent implements OnInit {
     lastName: '',
     pathologie: '',
     age: 0,
-    stats: { quizStat: [] },
+    stats: {quizStat: []},
   };
 
-  bool : boolean = true;
+  pathologieSelect: string = ""
+  pathologies: string[] = ["AVC", "Agnosie", "Alzheimer"]
+  bool: boolean = true;
 
   constructor(private router: Router, private patientService: PatientService, private quizService: QuizService) {
     this.patientService.patientSelected$.subscribe((patient: Patient) => {
@@ -41,20 +43,30 @@ export class QuestionnaireComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if(this.patient.pathologie != '')
+    if (this.patient.pathologie != '')
       this.bool = false;
   }
 
-  playQuiz(){
-    if(!this.bool){
-      if(this.patient.pathologie === "AVC"){
-        this.router.navigate(['questionnaireAVC']);
-      } else if (this.patient.pathologie === "Agnosie"){
-        this.router.navigate(['questionnaireAgnosie']);
-      } else if (this.patient.pathologie === "Alzheimer"){
-        this.router.navigate(['questionnaireAlzheimer']);
-      }
+  playQuiz() {
+    let p = ""
+    if (!this.bool) {
+      p = this.patient.pathologie;
+    } else {
+      p = this.pathologieSelect;
     }
+
+    if (p === "AVC") {
+      this.router.navigate(['questionnaireAVC']);
+    } else if (p === "Agnosie") {
+      this.router.navigate(['questionnaireAgnosie']);
+    } else if (p === "Alzheimer") {
+      this.router.navigate(['questionnaireAlzheimer']);
+    }
+
+  }
+
+  setPathologie(text: string) {
+    this.pathologieSelect = text;
   }
 
 }
