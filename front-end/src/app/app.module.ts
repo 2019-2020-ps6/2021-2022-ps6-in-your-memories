@@ -47,6 +47,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 
 
 
@@ -81,27 +82,28 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     ImageComponent,
     InputComponent,
   ],
-    imports: [
-        AppRoutingModule,
-        BrowserModule,
-        AppRoutingModule,
-        BrowserModule,
-        ReactiveFormsModule,
-        FormsModule,
-        HttpClientModule,
-        BrowserAnimationsModule,
-        MatSliderModule,
-        MatFormFieldModule,
-        MatSelectModule,
-        MatInputModule,
-        MatMenuModule,
-        MatIconModule,
-        MatButtonModule,
-        MatCardModule,
-        MatToolbarModule,
-        MatCheckboxModule,
+  imports: [
+    AppRoutingModule,
+    BrowserModule,
+    AppRoutingModule,
+    BrowserModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatSliderModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatCheckboxModule,
+    MatSlideToggleModule,
 
-    ],
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

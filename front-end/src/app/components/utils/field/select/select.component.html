@@ -1,6 +1,6 @@
 <mat-form-field appearance="fill">
-  <mat-label>{{title}}</mat-label>
-  <mat-select #select (valueChange)="change(select.value)">
-    <mat-option *ngFor="let champ of champs" value="{{champ}}" >{{champ}}</mat-option>
+  <mat-label style="font-size: 20px">{{title}}</mat-label>
+  <mat-select #select (valueChange)="change(select.value)" style="font-size: 20px">
+    <mat-option *ngFor="let champ of champs" value="{{champ}}" style="font-size: 20px">{{champ}}</mat-option>
   </mat-select>
 </mat-form-field>

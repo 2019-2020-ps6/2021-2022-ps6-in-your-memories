@@ -39,6 +39,7 @@ export class QuestionnaireAVCComponent implements OnInit {
     indice: ""
   }
 
+  numberAn:number=0
   activeSecondChance : boolean = true;
   numQuestion: number = 1;
   lessQuestion: boolean = false;
@@ -78,12 +79,7 @@ export class QuestionnaireAVCComponent implements OnInit {
       this.nbFalse+=1;
     } else {
       let newQuestion = JSON.parse(JSON.stringify(this.actualQuestion));
-      for(let i = 0; i<newQuestion.answers.length; i++){
-        let tempAnswer = newQuestion.answers[i];
-        if(answer.value === tempAnswer.value){
-          newQuestion.answers.splice(i, 1);
-        }
-      }
+      newQuestion.answers.splice(this.numberAn-1, 1);
       console.log( newQuestion.answers.length)
       this.lessQuestion = true;
       this.actualQuestion = newQuestion;
@@ -122,6 +118,9 @@ export class QuestionnaireAVCComponent implements OnInit {
     this.badAnwser(answer)
   }
 
+  numberA(i:number){
+    this.numberAn = i
+}
   changeQuestion(b: boolean) {
     return this.actualQuestion == QUESTION_BAD_INTER ||
       this.actualQuestion == QUESTION_BAD_FIN ||

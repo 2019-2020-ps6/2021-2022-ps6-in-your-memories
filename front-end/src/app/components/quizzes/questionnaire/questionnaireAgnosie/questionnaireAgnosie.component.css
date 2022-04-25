@@ -23,7 +23,7 @@
 .Quiz {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 0.5fr 1fr;
+  grid-template-rows: 0.5fr 0.5fr;
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
@@ -34,11 +34,11 @@
 
 .Question {
   grid-area: Question;
-  margin-left: auto;
-  margin-right: auto;
+  margin : auto;
+  text-align: center;
 }
 
-.IndiceDiv {
+.IndiceDiv{
   text-align: center;
 }
 
@@ -47,6 +47,7 @@
 }
 
 .Réponse {
+  margin : auto;
   grid-area: Réponse;
   text-align: center;
 }

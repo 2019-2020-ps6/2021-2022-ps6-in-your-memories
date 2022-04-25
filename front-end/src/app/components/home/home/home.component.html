@@ -4,22 +4,22 @@
     <input type="search" [formControlName]="'search'" placeholder="Rechercher">
   </label>
 </form> -->
-<mat-card style="margin: 1em; border: 0.1rem solid #3f51b5;">
+<mat-card style="margin: 1em; border: 0.3rem solid #909DE1;">
   <mat-card-content>
-    <div class="example-card">
-      <p class="titre">Theme</p>
+    <div class="example-card" style="margin: 1em;">
+      <p class="titre">Theme:</p>
     </div>
     <div class="example-card">
-      <button style="margin: 0.3em; font-size: 20px;" mat-raised-button color="primary" *ngFor="let quiz of quizList">
+      <button style="margin: 0.3em; padding: 0.1em 0.3em; font-size: 25px;" mat-raised-button color="primary" *ngFor="let quiz of quizList">
         {{quiz.theme}}
       </button>
     </div>
   </mat-card-content>
 </mat-card>
-<mat-card style="margin: 3em 1em 1em 1em; border: 0.1rem solid #3f51b5;">
+<mat-card style="margin: 3em 1em 1em 1em; border: 0.3rem solid #909DE1;">
   <mat-card-content>
-    <div class="example-card">
-      <p class="titre">Top Quiz</p>
+    <div class="example-card" style="margin: 1em;">
+      <p class="titre">Top Quiz:</p>
     </div>
     <div class="example-card">
       <div class="quiz" *ngFor="let quiz of quizList">

@@ -1,13 +1,11 @@
-<mat-card *ngIf="patient" style="margin: 1em;" >
-  <mat-card-header>
-    <mat-card-title>
-      {{patient.firstName}} {{patient.lastName}}
-    </mat-card-title>
-  </mat-card-header>
+<mat-card *ngIf="patient" style="margin: 1em; border: 0.1rem solid #3f51b5;" >
   <mat-card-content>
-    <button mat-stroked-button color="primary" style="margin-right: 0.5em; border: 0.1rem solid;" (click)="selectPatientFiche()">Infos Accompagné</button>
-    <button mat-stroked-button color="primary" style="margin-right: 0.5em; border: 0.1rem solid;" (click)="selectPatientQuiz()">Mes Quiz</button>
-    <button mat-stroked-button color="primary" style="margin-right: 0.5em; border: 0.1rem solid;" (click)="deletePatient()">Supprimer</button>
+    <div class="example-card">
+      <p class="titre">Accompagné : {{patient.firstName}} {{patient.lastName}}</p>
+    </div>
+    <button mat-stroked-button color="primary" style="margin-right: 0.5em; border: 0.1rem solid; font-size: 20px" (click)="selectPatientFiche()">Infos Accompagné</button>
+    <button mat-stroked-button color="primary" style="margin-right: 0.5em; border: 0.1rem solid; font-size: 20px" (click)="selectPatientQuiz()">Faire Quiz</button>
+    <button mat-stroked-button color="primary" style="margin-right: 0.5em; border: 0.1rem solid; font-size: 20px" (click)="deletePatient()">Supprimer</button>
   </mat-card-content>
 </mat-card>
 

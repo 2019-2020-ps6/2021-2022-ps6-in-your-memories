@@ -1,38 +1,12 @@
-a:link
-{
-  text-decoration:none;
+.example-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.container{
-  text-align: center;
-}
-
-.card {
-  background: white;
-  border-radius: 2px;
-  display: inline-block;
-  margin: 2rem;
-  position: relative;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
-  padding: 1em 1em 1em 1em;
-  display: inline-block;
-
-}
-
-.button-card {
-  background-color: white;
-  border: solid 1px darkseagreen;
-  color: darkseagreen;
+.titre{
+  margin-top: 0.5em;
+  font-size: 25px;
   font-weight: bold;
-  padding: 0.5em 1em;
-  margin: 1em;
+  font-family: Arial;
 }
-
-.button-card:hover {
-  cursor: pointer;
-}
-
-input{
-  margin: 1em;
-}
-

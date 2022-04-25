@@ -16,6 +16,9 @@ export class AnswerComponent implements OnInit {
   @Output()
   awnserSelected:EventEmitter<Answer> = new EventEmitter<Answer>();
 
+  @Output()
+  number:EventEmitter<number> = new EventEmitter<number>();
+
 
 
   constructor(private quizService: QuizService) { }
@@ -23,7 +26,9 @@ export class AnswerComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  select(answer : Answer): void {
+  select(answer : Answer, i : number): void {
     this.awnserSelected.emit(answer);
+    this.number.emit(i)
+
   }
 }

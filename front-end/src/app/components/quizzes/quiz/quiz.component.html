@@ -1,12 +1,10 @@
-<mat-card style="margin: 1em" >
-  <mat-card-header>
-    <mat-card-title>
-      {{quiz.name}}
-    </mat-card-title>
-  </mat-card-header>
+<mat-card style="margin: 1em; border: 0.1rem solid #3f51b5;">
   <mat-card-content>
-    <button mat-stroked-button color="primary" style="margin-right: 0.3em; border: 0.1rem solid;" (click)="selectQuiz()">Sélectionner</button>
-    <button mat-stroked-button color="primary" style="margin-left: 0.3em; border: 0.1rem solid;" (click)="deleteQuiz()">Supprimer</button>
+    <div class="example-card">
+      <p class="titre">Quiz : {{quiz.name}}</p>
+    </div>
+    <button mat-stroked-button color="primary" style="margin-right: 0.3em; border: 0.1rem solid; font-size: 20px" (click)="selectQuiz()">Sélectionner</button>
+    <button mat-stroked-button color="primary" style="margin-left: 0.3em; border: 0.1rem solid; font-size: 20px" (click)="deleteQuiz()">Supprimer</button>
   </mat-card-content>
 </mat-card>
 

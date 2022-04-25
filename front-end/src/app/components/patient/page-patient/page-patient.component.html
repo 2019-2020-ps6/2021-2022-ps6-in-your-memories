@@ -1,21 +1,19 @@
 <app-header></app-header>
-<br>
-<h2> {{patient.firstName}} {{patient.lastName}} </h2>
-<div class="container">
-  <div class="pathologie">
-    Pathologie : {{patient.pathologie}}
-  </div>
-
-  <h3>Age: {{patient.age}}</h3>
-
-  <div class="stats">
-    <h2>Statistiques</h2>
-  </div>
-
-  <div class="quiz-realises">
-    <h2>Quiz Stats</h2>
-      <app-quiz-stat-list [patientStat]="patient.stats"></app-quiz-stat-list>
-  </div>
-</div>
-
+<mat-card style="margin: 1em; border: 0.3rem solid #909DE1;">
+  <mat-card-header>
+    <mat-card-title style="font-size: 25px; color: #3f51b5">{{patient.firstName}} {{patient.lastName}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p style="margin: 2em 1em; font-size: 18px">Pathologie : {{patient.pathologie}}</p>
+    <p style="margin: 2em 1em; font-size: 18px">Age: {{patient.age}}</p>
+    <mat-card style="margin: 1em;">
+      <mat-card-header>
+        <mat-card-title>Statistiques</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <app-quiz-stat-list [patientStat]="patient.stats"></app-quiz-stat-list>
+      </mat-card-content>
+    </mat-card>
+  </mat-card-content>
+</mat-card>
 

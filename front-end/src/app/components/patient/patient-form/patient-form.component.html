@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div class="example-card">
-  <mat-card style="margin: 1em">
+  <mat-card style="margin: 1em; border: 0.1rem solid #3f51b5;">
     <mat-card-content>
       <p class="titre">Ajouter un accompagné</p>
       <br>
@@ -13,7 +13,7 @@
       <app-utils-field-input class="example-card" [title]="'Age'" (outText)="setAge($event)"></app-utils-field-input>
       <br>
       <div class="example-card">
-        <button mat-stroked-button color="primary" (click)="addPatient()" [routerLink]="['/patient-list']" style="margin-right: 0.5em; border: 0.1rem solid;">Ajouter
+        <button mat-stroked-button color="primary" (click)="addPatient()" [routerLink]="['/patient-list']" style=" margin-bottom: 0.5em; border: 0.1rem solid; font-size: 20px">Ajouter
           accompagné
         </button>
       </div>

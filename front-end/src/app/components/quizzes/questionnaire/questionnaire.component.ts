@@ -31,6 +31,7 @@ export class QuestionnaireComponent implements OnInit {
     stats: {quizStat: []},
   };
 
+  titreSelect : string = "Choisir une pathologie"
   pathologieSelect: string = ""
   pathologies: string[] = ["AVC", "Agnosie", "Alzheimer"]
   bool: boolean = true;

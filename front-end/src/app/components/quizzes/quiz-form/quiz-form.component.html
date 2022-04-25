@@ -1,10 +1,28 @@
 <app-header></app-header>
 <div class="container">
-  <div class="card" *ngIf="bool">
-    <h2>Créer un nouveau quiz</h2>
-    <app-utils-field-input [title]="'Nom du quiz'" (outText)="setName($event)"></app-utils-field-input>
-    <app-utils-field-input [title]="'Thème'" (outText)="setTheme($event)" ></app-utils-field-input>
-    <button type="submit" mat-stroked-button color="primary" (click)="addQuestion()" style="margin-right: 0.5em; border: 0.1rem solid;">Ajouter une question</button>
-  </div>
-  <app-questions-form *ngIf="!bool" [quiz]="quiz"></app-questions-form>
+
 </div>
+
+
+<div *ngIf="bool">
+  <div class="example-card">
+    <mat-card style="margin: 1em; border: 0.1rem solid #3f51b5;">
+      <mat-card-content>
+        <p class="titre">Créer un nouveau quiz</p>
+        <br>
+        <app-utils-field-input class="example-card" [title]="'Nom du quiz'"
+                               (outText)="setName($event)"></app-utils-field-input>
+        <app-utils-field-input class="example-card" [title]="'Thème'"
+                               (outText)="setTheme($event)"></app-utils-field-input>
+        <br>
+        <div class="example-card">
+          <button type="submit" mat-stroked-button color="primary" (click)="addQuestion()"
+                  style=" margin-bottom: 0.5em; border: 0.1rem solid; font-size: 20px">Ajouter une question
+          </button>
+        </div>
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+<app-questions-form *ngIf="!bool" [quiz]="quiz"></app-questions-form>

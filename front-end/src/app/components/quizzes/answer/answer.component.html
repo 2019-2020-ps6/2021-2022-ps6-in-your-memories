@@ -1,9 +1,10 @@
-<div>
-<div class="quiz" *ngFor="let anwser of anwserList">
-  <button mat-stroked-button color="primary" style="font-size: 25px; padding: 10px 20px 10px 20px; border: 0.1rem solid;"
-          type="button" (click)="select(anwser)">
-    {{anwser.value}}
-  </button>
-</div>
+<div class="example-card">
+  <div class="quiz" *ngFor="let anwser of anwserList; let index = index" >
+    <button mat-stroked-button color="primary"
+            style="font-size: 25px; margin: 0.3em; padding: 10px 20px 10px 20px; border: 0.1rem solid;"
+            type="button" (click)="select(anwser, index)">
+      {{anwser.value}}
+    </button>
+  </div>
 </div>
 

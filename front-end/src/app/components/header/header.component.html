@@ -2,7 +2,7 @@
 
 
   <div class="retour">
-    <button mat-button class="bouton" onclick="history.back()">
+    <button mat-button class="bouton" onclick="history.back()" style="font-size: 20px">
       <mat-icon aria-hidden="false">arrow_back</mat-icon>
       <br>
       Retour
@@ -10,7 +10,7 @@
   </div>
 
   <div class="home">
-    <button mat-button  class="bouton" [routerLink]="['/home']">
+    <button mat-button  class="bouton" [routerLink]="['/home']" style="font-size: 20px">
       <mat-icon aria-hidden="false">home</mat-icon>
       <br>
       Accueil
@@ -32,14 +32,14 @@
     </div>
     -->
 
-    <button mat-button class="bouton" [matMenuTriggerFor]="menu">
+    <button mat-button class="bouton" [matMenuTriggerFor]="menu" style="font-size: 20px">
       <mat-icon aria-hidden="false">reorder</mat-icon>
       <br>
       Menu
     </button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="listQuiz()" [routerLink]="['/quiz-list']">Liste des Quiz</button>
-      <button mat-menu-item [routerLink]="['/patient-list']">Accompagnés</button>
+    <mat-menu #menu="matMenu" >
+      <button mat-menu-item (click)="listQuiz()" [routerLink]="['/quiz-list']" style="font-size: 20px">Liste des Quiz</button>
+      <button mat-menu-item [routerLink]="['/patient-list']" style="font-size: 20px">Accompagnés</button>
     </mat-menu>
 
     <!--

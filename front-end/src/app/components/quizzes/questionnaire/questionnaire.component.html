@@ -5,7 +5,7 @@
       <h2>{{quiz.name}}</h2>
       <h3>Categorie: {{quiz.theme}}</h3>
     </div>
-    <app-utils-field-select *ngIf="bool" [champs]="pathologies" (outValue)="setPathologie($event)"></app-utils-field-select>
+    <app-utils-field-select *ngIf="bool"  [title]="titreSelect" [champs]="pathologies" (outValue)="setPathologie($event)"></app-utils-field-select>
     <div class="ShowAnswer" [style.visibility]="notSelected ? 'visible' : 'hidden'">
       <h4 class="Alert">Choisissez une pathologie pour jouer au quiz !</h4>
     </div>
