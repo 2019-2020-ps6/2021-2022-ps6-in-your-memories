@@ -1,6 +1,6 @@
 <div>
 <div class="quiz" *ngFor="let anwser of anwserList">
-  <button class="btn"
+  <button mat-stroked-button color="primary" style="font-size: 25px; padding: 10px 20px 10px 20px; border: 0.1rem solid;"
           type="button" (click)="select(anwser)">
     {{anwser.value}}
   </button>

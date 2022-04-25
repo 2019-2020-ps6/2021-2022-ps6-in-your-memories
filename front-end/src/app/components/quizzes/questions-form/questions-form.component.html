@@ -2,10 +2,10 @@
   <div class="card">
     <h2>Créer une nouvelle question</h2>
     <form class="quiz-form" [formGroup]="questionForm">
-        <mat-form-field appearance="fill">
-          <mat-label>Question</mat-label>
-          <input matInput type="text" [formControlName]="'label'" >
-        </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Question</mat-label>
+        <input matInput type="text" [formControlName]="'label'">
+      </mat-form-field>
       <br>
       <button mat-raised-button color="primary" (click)="addAnswer()" style="margin: 1em">
         <mat-icon>add_circle</mat-icon>
@@ -17,32 +17,40 @@
         <br>
         Enlever une réponse
       </button>
-      <br>
-      <br>
       <div class="answer" formArrayName="answers">
         <div *ngFor="let address of answers.controls; let i=index">
-          <div class="answer-form" [formGroupName]="i">
+          <div class="answer-form" [formGroupName]="i"
+               style="border: 0.1rem solid #3f51b5; margin-bottom: 2em; margin-top: 2em; padding: 1em">
             <label>
               <mat-form-field appearance="fill">
                 <mat-label>Réponse {{i + 1}}</mat-label>
-                <input matInput type="text" [formControlName]="'value'" >
+                <input matInput type="text" [formControlName]="'value'">
               </mat-form-field>
+              <!--
               <br><br> Ajouter une image <br><br>
               <app-image></app-image>
+              -->
               <br>
-              Vrai ?
-              <input type="checkbox" [formControlName]="'isCorrect'">
+              <mat-checkbox class="example-margin" color="primary" [formControlName]="'isCorrect'"> Est correct
+              </mat-checkbox>
+              <!--
+               <input type="checkbox" [formControlName]="'isCorrect'">
+               -->
             </label>
           </div>
         </div>
       </div>
       <mat-form-field appearance="fill">
         <mat-label>Indice</mat-label>
-        <input matInput type="text" [formControlName]="'indice'" >
+        <input matInput type="text" [formControlName]="'indice'">
       </mat-form-field>
       <br>
-      <button type="submit" mat-raised-button color="primary" (click)="addQuestion()" [disabled]="questionForm.invalid">Ajouter une nouvelle question</button>
-      <button type="submit" mat-raised-button color="primary" (click)="addLastQuestion()" [disabled]="questionForm.invalid">Fin</button>
+      <button type="submit" mat-stroked-button color="primary" (click)="addQuestion()" [disabled]="questionForm.invalid"
+              style="margin-left: 0.3em; border: 0.1rem solid;">Ajouter une nouvelle question
+      </button>
+      <button type="submit" mat-stroked-button color="primary" (click)="addLastQuestion()"
+              [disabled]="questionForm.invalid" style="margin-left: 0.3em; border: 0.1rem solid;">Fin
+      </button>
     </form>
   </div>
 </div>
