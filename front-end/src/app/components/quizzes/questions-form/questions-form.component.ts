@@ -18,7 +18,7 @@ export class QuestionsFormComponent implements OnInit {
   public questionForm: FormGroup = this.formBuilder.group({
     label: [''],
     answers: this.formBuilder.array([]),
-    clue: ['']
+    indice: [''],
   });
 
   @Input()
@@ -40,7 +40,7 @@ export class QuestionsFormComponent implements OnInit {
     this.questionForm = this.formBuilder.group({
       label: ['',Validators.required],
       answers: this.formBuilder.array([],Validators.required),
-      clue: ['',Validators.required]
+      indice: ['',Validators.required]
     });
   }
 
@@ -72,7 +72,7 @@ export class QuestionsFormComponent implements OnInit {
 
   deleteAnswer() : void{
     if(this.compteur>0) {
-      this.answers.removeAt(length);
+      this.answers.removeAt(length-1);
       this.compteur--;
     }
   }

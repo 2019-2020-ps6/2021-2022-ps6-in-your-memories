@@ -2,13 +2,12 @@
 <div class="container">
   <div class="QuizInfo">
     <h2>{{quiz.name}}</h2>
-    <h3>Categorie : {{quiz.theme}}</h3>
+    <h3>Catégorie : {{quiz.theme}}</h3>
   </div>
-  <div class="quiz" *ngFor="let question of quiz.questions">
-    <hr/>
-    <h3>{{question.id}}/{{quiz.questions.length}} - {{question.label}}</h3>
+  <div class="card" *ngFor="let question of quiz.questions;let i = index;">
+    <h4>{{i+1}}/{{quiz.questions.length}} - {{question.label}}</h4>
     <div class="answer" *ngFor="let answer of question.answers">
-       <ng-container *ngIf="answer.isCorrect">{{answer.value}}</ng-container>
+       <ng-container *ngIf="answer.isCorrect" color="primary">Réponse : {{answer.value}}</ng-container>
     </div>
 
   </div>

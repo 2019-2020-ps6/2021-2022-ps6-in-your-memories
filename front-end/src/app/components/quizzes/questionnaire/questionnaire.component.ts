@@ -12,6 +12,8 @@ import {PatientService} from "../../../../services/patient.service";
 })
 export class QuestionnaireComponent implements OnInit {
 
+  notSelected : boolean = false;
+
   @Input()
   quiz: Quiz = {
     id: '',
@@ -61,6 +63,9 @@ export class QuestionnaireComponent implements OnInit {
       this.router.navigate(['questionnaireAgnosie']);
     } else if (p === "Alzheimer") {
       this.router.navigate(['questionnaireAlzheimer']);
+    }
+    else {
+      this.notSelected=true;
     }
 
   }
