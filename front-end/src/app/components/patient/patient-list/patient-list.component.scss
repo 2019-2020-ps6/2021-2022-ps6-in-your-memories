@@ -1,3 +1,38 @@
+.card {
+  background: white;
+  border-radius: 2px;
+  margin-top: 2rem;
+  margin-left: 50%;
+  transform: translate(-50%, -50%);
+
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+  padding: 1em 1em 1em 1em;
+  display: inline-block;
+
+}
+
+.buttonCreat {
+  border-radius: 2px;
+  margin-top: 2rem;
+  margin-left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1em 1em 1em 1em;
+  display: inline-block;
+}
+
+.button-card {
+  background-color: white;
+  border: solid 1px darkseagreen;
+  color: darkseagreen;
+  font-weight: bold;
+  padding: 0.5em 1em;
+  font-size: 1em;
+}
+
+.button-card:hover {
+  cursor: pointer;
+}
+
 .add {
   position: absolute;
   left: 50%;
@@ -8,10 +43,8 @@
 
 }
 
-.button-card:hover {
-  cursor: pointer;
-}
-
-.patients {
-  padding-top: 2rem;
+.example-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

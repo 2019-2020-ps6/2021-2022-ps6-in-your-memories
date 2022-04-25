@@ -6,6 +6,6 @@
       <h3>Categorie: {{quiz.theme}}</h3>
     </div>
     <app-utils-field-select *ngIf="bool" [champs]="pathologies" (outValue)="setPathologie($event)"></app-utils-field-select>
-    <button class="button-card" (click)="playQuiz()" >Jouer le quiz</button>
+    <button mat-stroked-button color="primary" (click)="playQuiz()" >Jouer le quiz</button>
   </div>
 </div>

@@ -1,7 +1,10 @@
 <app-header></app-header>
-<div class="quiz" *ngFor="let quiz of quizList">
-  <app-quiz [quiz]="quiz" (quizSelected)="quizSelected($event)" (editQuiz)="quizEdit($event)"></app-quiz>
+<div class="example-card">
+  <div class="quiz" *ngFor="let quiz of quizList">
+    <app-quiz [quiz]="quiz" (quizSelected)="quizSelected($event)" (editQuiz)="quizEdit($event)"></app-quiz>
+  </div>
 </div>
-<button class="add" *ngIf="bool" mat-raised-button color="primary" [routerLink]="['/quiz-form']" >Créer un nouveau quiz</button>
+<button class="add" *ngIf="bool" mat-raised-button color="primary" [routerLink]="['/quiz-form']">Créer un nouveau quiz
+</button>
 
 

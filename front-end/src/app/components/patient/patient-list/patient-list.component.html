@@ -1,8 +1,11 @@
 <app-header></app-header>
-<div>
-  <button mat-raised-button color="primary" class="add" routerLink="/patient-form">Ajouter un accompagné</button>
+<div class="example-card">
+  <div *ngFor="let patient of patientList" >
+    <app-patient  [patient]="patient" (patientSelectedFiche)="patientSelectedFiche($event)"
+                  (patientSelectedQuiz)="patientSelectedQuiz($event)"
+                  (patientSelectedDelete)="patientSelectedDelete($event)"></app-patient>
+  </div>
 </div>
-<br>
-<div class = "patients" *ngFor="let patient of patientList">
-  <app-patient [patient]="patient" (patientSelectedFiche)="patientSelectedFiche($event)"  (patientSelectedQuiz)="patientSelectedQuiz($event)" (patientSelectedDelete)="patientSelectedDelete($event)"></app-patient>
-</div>
+<button mat-raised-button color="primary" class="add" routerLink="/patient-form">Ajouter un accompagné</button>
+
+

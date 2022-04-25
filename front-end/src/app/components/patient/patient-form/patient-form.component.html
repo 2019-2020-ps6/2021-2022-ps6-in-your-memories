@@ -1,12 +1,22 @@
 <app-header></app-header>
-
-<div class="container">
-  <div class="card">
-    <h1>Ajouter un accompagné</h1>
-    <app-utils-field-input [title]="'Prenom'" (outText)="setFirstName($event)"></app-utils-field-input>
-    <app-utils-field-input [title]="'Nom'" (outText)="setLastName($event)"></app-utils-field-input>
-    <app-utils-field-select [title]="'Pathologie'" [champs]="pathologies" (outValue)="setPathologie($event)"></app-utils-field-select>
-    <app-utils-field-input [title]="'Age'" (outText)="setAge($event)"></app-utils-field-input>
-    <button type="button" class="button-card" (click)="addPatient()" [routerLink]="['/patient-list']">Add</button>
-  </div>
+<div class="example-card">
+  <mat-card style="margin: 1em">
+    <mat-card-content>
+      <p class="titre">Ajouter un accompagné</p>
+      <br>
+      <app-utils-field-input class="example-card" [title]="'Prenom'"
+                             (outText)="setFirstName($event)"></app-utils-field-input>
+      <app-utils-field-input class="example-card" [title]="'Nom'"
+                             (outText)="setLastName($event)"></app-utils-field-input>
+      <app-utils-field-select class="example-card" [title]="'Pathologie'" [champs]="pathologies"
+                              (outValue)="setPathologie($event)"></app-utils-field-select>
+      <app-utils-field-input class="example-card" [title]="'Age'" (outText)="setAge($event)"></app-utils-field-input>
+      <br>
+      <div class="example-card">
+        <button mat-stroked-button color="primary" (click)="addPatient()" [routerLink]="['/patient-list']">Ajouter
+          accompagné
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
 </div>
