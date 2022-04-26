@@ -10,7 +10,10 @@
                              (outText)="setLastName($event)"></app-utils-field-input>
       <app-utils-field-select class="example-card" [title]="'Pathologie'" [champs]="pathologies"
                               (outValue)="setPathologie($event)"></app-utils-field-select>
-      <app-utils-field-input class="example-card" [title]="'Age'" (outText)="setAge($event)"></app-utils-field-input>
+      <mat-form-field appearance="fill" class="example-card">
+        <mat-label style="font-size: 20px">Age</mat-label>
+        <input matInput type="number" #input (keyup)="setAge(input.value)" style="font-size: 20px">
+      </mat-form-field>
       <br>
       <div class="example-card">
         <button mat-stroked-button color="primary" (click)="addPatient()" [routerLink]="['/patient-list']" style=" margin-bottom: 0.5em; border: 0.1rem solid; font-size: 20px">Ajouter

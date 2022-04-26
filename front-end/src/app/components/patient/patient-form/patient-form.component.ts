@@ -46,8 +46,8 @@ export class PatientFormComponent implements OnInit{
     this.patient.pathologie = text;
   }
 
-  setAge(text : string){
-    this.patient.age = 0;
+  setAge(num : string){
+    this.patient.age = parseInt(num);
   }
 
 }

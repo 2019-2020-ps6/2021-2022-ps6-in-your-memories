@@ -99,7 +99,7 @@ export class QuestionnaireAVCComponent implements OnInit {
       nbFalse: this.nbFalse,
     }
     this.patient.stats.quizStat.push(stat);
-    console.log(this.patient)
+    this.patientService.majPatient(this.patient)
     this.router.navigate(['quiz-end']);
   }
 

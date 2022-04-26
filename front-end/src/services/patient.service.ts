@@ -4,6 +4,7 @@ import {BehaviorSubject} from "rxjs";
 import {PATIENT_LIST} from "../mocks/patient-list.mock";
 import {httpOptionsBase, serverUrl} from "../configs/server.config";
 import {HttpClient} from '@angular/common/http'
+import {QuizStat} from "../models/stat.model";
 
 @Injectable({
   providedIn: "root"
@@ -76,5 +77,12 @@ export class PatientService {
   deleteSelectedPatient(patient: Patient): void {
     const urlWithId = this.patientUrl + '/' + patient.id;
     this.http.delete<Patient>(urlWithId, this.httpOptions).subscribe(() => this.retrievePatient());
+  }
+
+  majPatient(patient : Patient){
+    const urlWithId = this.patientUrl + '/' + patient.id;
+    this.http.put<Patient>(urlWithId, this.httpOptions).subscribe(() => this.retrievePatient());
+
+
   }
 }
