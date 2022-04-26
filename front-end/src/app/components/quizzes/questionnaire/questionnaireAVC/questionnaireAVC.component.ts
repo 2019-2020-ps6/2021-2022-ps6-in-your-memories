@@ -79,8 +79,12 @@ export class QuestionnaireAVCComponent implements OnInit {
       this.nbFalse+=1;
     } else {
       let newQuestion = JSON.parse(JSON.stringify(this.actualQuestion));
-      newQuestion.answers.splice(this.numberAn-1, 1);
-      console.log( newQuestion.answers.length)
+      for(let i = 0; i<newQuestion.answers.length; i++){
+        let tempAnswer = newQuestion.answers[i];
+        if(answer.value === tempAnswer.value){
+          newQuestion.answers.splice(i, 1);
+        }
+      }
       this.lessQuestion = true;
       this.actualQuestion = newQuestion;
     }
