@@ -7,6 +7,9 @@
         <input matInput type="text" [formControlName]="'label'">
       </mat-form-field>
       <br>
+      <div class="example-card" [style.visibility]="maxAnswers ? 'visible' : 'hidden'">
+        <h4>Vous ne pouvez pas ajouter plus de 4 réponses !</h4>
+      </div>
       <button mat-raised-button color="primary" (click)="addAnswer()" style="margin: 1em">
         <mat-icon>add_circle</mat-icon>
         <br>
@@ -40,6 +43,10 @@
           </div>
         </div>
       </div>
+
+
+
+
       <mat-form-field appearance="fill">
         <mat-label>Indice</mat-label>
         <input matInput type="text" [formControlName]="'indice'">
