@@ -22,4 +22,22 @@ router.get('/:id', (req, res) => {
     }
 })
 
+router.post('/', (req, res) => {
+    try {
+        if (User.get().find((i) => i.firstName === req.body.firstName && i.lastName === req.body.lastName)) {
+            throw new ValidationError("Erreur l'utilisateur existe déjà", "Erreur l'utilisateur existe déjà");
+        }
+
+        if (!req.body.email || !req.body.mdp) {
+            throw new ValidationError("L'utilisateur doit avoir un mdp et un email",
+                "L'utilisateur doit avoir un mdp et un email");
+        }
+        const user = User.create({...req.body})
+        res.status(201).json(user);
+    } catch (err) {
+        manageAllErrors(res, err)
+    }
+})
+
+
 module.exports = router

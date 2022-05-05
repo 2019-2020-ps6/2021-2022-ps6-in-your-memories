@@ -33,10 +33,10 @@ export class UserService {
   }
 
 
-  addUser(user: User) {
-    this.users.push(user);
-    this.emitUserSubject();
-    this.saveUserToServer()
+  addUser(user: User): void {
+    this.http.post<User>(this.userUrl, user, this.httpOptions).subscribe(
+      () => this.retrieveUser(),
+      () => alert('L\'utilisateur est a déjà un compte'));
   }
 
   saveUserToServer() {
