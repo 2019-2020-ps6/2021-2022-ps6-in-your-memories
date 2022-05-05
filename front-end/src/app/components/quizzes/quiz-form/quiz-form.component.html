@@ -14,7 +14,9 @@
                                (outText)="setName($event)"></app-utils-field-input>
         <app-utils-field-input class="example-card" [title]="'Thème'"
                                (outText)="setTheme($event)"></app-utils-field-input>
-        <br>
+        <div class="example-card" [style.visibility]="missArgument ? 'visible' : 'hidden'">
+          <h4>Il faut remplir tous les champs afin de créer un nouveau quiz !</h4>
+        </div>
         <div class="example-card">
           <button type="submit" mat-stroked-button color="primary" (click)="addQuestion()"
                   style=" margin-bottom: 0.5em; border: 0.1rem solid; font-size: 20px">Ajouter une question

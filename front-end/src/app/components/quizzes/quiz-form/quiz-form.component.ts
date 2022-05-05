@@ -14,7 +14,6 @@ import {Router} from "@angular/router";
 
 export class QuizFormComponent implements OnInit {
 
-
   quiz : Quiz = {
     id: "",
     name: "",
@@ -23,6 +22,7 @@ export class QuizFormComponent implements OnInit {
   }
 
   bool : boolean = true;
+  missArgument: boolean = false;
 
   constructor(public formBuilder: FormBuilder, public quizService: QuizService, private router: Router) {
   }
@@ -35,11 +35,16 @@ export class QuizFormComponent implements OnInit {
   }
 
   setTheme(text:string){
-    this.quiz.theme = text;
+      this.quiz.theme = text;
   }
 
   addQuestion() {
-    this.bool = false
+    if(this.quiz.name=="" || this.quiz.theme==""){
+      this.missArgument=true;
+    }
+    else{
+      this.bool = false
+    }
   }
 
   OnQuizForm(){

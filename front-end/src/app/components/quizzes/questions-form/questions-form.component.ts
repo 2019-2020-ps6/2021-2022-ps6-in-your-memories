@@ -14,6 +14,7 @@ import {Quiz} from "../../../../models/quiz.model";
 export class QuestionsFormComponent implements OnInit {
 
   compteur : number = 0;
+  maxAnswers : boolean = false;
 
   public questionForm: FormGroup = this.formBuilder.group({
     label: [''],
@@ -68,12 +69,16 @@ export class QuestionsFormComponent implements OnInit {
       this.answers.push(this.createAnswer());
       this.compteur++;
     }
+    else{
+      this.maxAnswers=true;
+    }
   }
 
   deleteAnswer() : void{
     if(this.compteur>0) {
       this.answers.removeAt(length-1);
       this.compteur--;
+      this.maxAnswers=false;
     }
   }
 
