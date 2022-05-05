@@ -1,11 +1,7 @@
-<input type="file" class="file-input"
-       (change)="onFileSelected($event)" #fileUpload>
-
-<div class="file-upload">
-
-  {{fileName || "No file uploaded yet."}}
-
-  <button mat-mini-fab color="primary" class="upload-btn"
-          (click)="fileUpload.click()">
-  </button>
-</div>
+<label class="image-upload-container btn btn-bwm">
+  <span>Ajouter une image</span>
+  <input #imageInput
+         type="file"
+         accept="image/*"
+         (change)="processFile(imageInput)">
+</label>

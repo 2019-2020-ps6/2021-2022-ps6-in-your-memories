@@ -2,6 +2,7 @@ export interface Answer {
     type?: string;
     value: string;
     isCorrect: boolean;
+    image?: File;
 }
 
 export interface Question {

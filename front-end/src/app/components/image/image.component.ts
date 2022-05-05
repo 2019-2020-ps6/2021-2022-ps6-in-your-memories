@@ -1,6 +1,14 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {HttpClient, HttpEventType} from "@angular/common/http";
 import {finalize, Subscription} from "rxjs";
+import {ImageService} from "../../../services/image.service";
+
+class ImageSnippet {
+  pending: boolean = false;
+  status: string = 'init';
+
+  constructor(public src: string, public file: File) {}
+}
 
 @Component({
   selector: 'app-image',
@@ -9,47 +17,34 @@ import {finalize, Subscription} from "rxjs";
 })
 export class ImageComponent implements OnInit {
 
-  @Input()
-  requiredFileType:string="";
+  selectedFile!: ImageSnippet;
 
-  fileName = '';
-  uploadProgress:number=0;
-  uploadSub!: Subscription;
+  constructor(private imageService: ImageService){}
 
-  constructor(private http: HttpClient) {}
-
-  onFileSelected(event: any) {
-    const file:File = event.target.files[0];
-
-    if (file) {
-      this.fileName = file.name;
-      const formData = new FormData();
-      formData.append("thumbnail", file);
-
-      const upload$ = this.http.post("/api/thumbnail-upload", formData, {
-        reportProgress: true,
-        observe: 'events'
-      })
-        .pipe(
-          finalize(() => this.reset())
-        );
-
-      this.uploadSub = upload$.subscribe(event => {
-        if (event.type == HttpEventType.UploadProgress) {
-          //this.uploadProgress = Math.round(100 * (event.loaded / event.total));
-        }
-      })
-    }
+  private onSuccess() {
+    this.selectedFile.pending = false;
+    this.selectedFile.status = 'ok';
   }
 
-  cancelUpload() {
-    this.uploadSub.unsubscribe();
-    this.reset();
+  private onError() {
+    this.selectedFile.pending = false;
+    this.selectedFile.status = 'fail';
+    this.selectedFile.src = '';
   }
 
-  reset() {
-    this.uploadProgress = 0;
-    this.uploadSub = new Subscription();
+  processFile(imageInput: any) {
+    const file: File = imageInput.files[0];
+    const reader = new FileReader();
+
+    reader.addEventListener('load', (event: any) => {
+
+      this.selectedFile = new ImageSnippet(event.target.result, file);
+
+      this.selectedFile.pending = true;
+      this.imageService.uploadImage(this.selectedFile.file);
+    });
+
+    reader.readAsDataURL(file);
   }
 
   ngOnInit(): void {
