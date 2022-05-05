@@ -44,7 +44,7 @@ export class InscriptionComponent implements OnInit {
     );
     this.userService.addUser(newUser)
 
-    this.alreadyConnected=true;
+    this.alreadyConnected = true;
     this.connexionService.setAlreadyConnected(this.alreadyConnected);
     this.router.navigate(['/home'])
 

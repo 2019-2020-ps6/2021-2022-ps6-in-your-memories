@@ -25,6 +25,7 @@ export class HeaderComponent implements OnInit {
   }
 
   SeDeconnecter() {
+    this.connexionService.disconnect();
     this.alreadyConnected = false;
     this.connexionService.setAlreadyConnected(this.alreadyConnected);
   }

@@ -1,8 +1,6 @@
 import {Injectable} from '@angular/core'
 import {BehaviorSubject} from "rxjs";
 import {HttpClient} from "@angular/common/http";
-import {Patient} from "../models/patient.model";
-import {PATIENT_LIST} from "../mocks/patient-list.mock";
 import {User} from "../models/user.model";
 import {httpOptionsBase, serverUrl} from "../configs/server.config";
 import {USER_LIST} from "../mocks/user-list.mock";
@@ -77,14 +75,19 @@ export class ConnexionService{
     this.userSelected$.next(this.actualUser);
   }
 
-  logIn(userToLog: User): void {
-    const userDatabase = this.users.find(u => u.firstName.toLowerCase() === userToLog.firstName.toLowerCase()
-      && u.lastName.toLowerCase() === userToLog.lastName.toLowerCase());
+  isSameUser(user: User, userToLog: User) {
+    return (user.email === userToLog.email);
+  }
+
+  logIn(userToLog: User): boolean {
+    const userDatabase = this.users.find(u => this.isSameUser(userToLog,u));
 
     if (userDatabase !== undefined && userDatabase.mdp === userToLog.mdp) {
       this.setLogIn(userDatabase);
+      return true;
     }
     console.log(this.actualUser)
+    return false;
   }
 
   private setLogIn(user: User): void {
@@ -92,5 +95,10 @@ export class ConnexionService{
     this.userSelected$.next(user);
   }
 
+  disconnect() {
+    this.setAlreadyConnected(false);
+    this.actualUser = new User(0,'','','','',);
+    this.userSelected$.next(this.actualUser);
+  }
 
 }

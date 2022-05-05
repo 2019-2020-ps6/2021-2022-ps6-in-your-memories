@@ -19,9 +19,16 @@
 
   <a class="navigation" [routerLink]="['/home']">POLYQUIZ</a>
 
-  <div class="menu">
-    <!--*ngIf="alreadyConnected"
-    <div>
+  <!--<div *ngIf="!alreadyConnected" class="boutonNotConnected">
+      <button mat-button class="bouton" [routerLink]="['/connexion']" style="font-size: 20px">
+        <mat-icon aria-hidden="false">save</mat-icon>
+        <br>
+        Se connecter
+      </button>
+  </div>
+
+  <div class="menu" *ngIf="alreadyConnected">-->
+    <!--<div>
       <button class="boutonM"><i class="fas fa-user"></i>Menu</button>
       <div class="sous-menu">
         <button class="bouton">Profil</button>
@@ -32,6 +39,7 @@
     </div>
     -->
 
+  <div class="menu">
     <button mat-button class="bouton" [matMenuTriggerFor]="menu" style="font-size: 20px">
       <mat-icon aria-hidden="false">reorder</mat-icon>
       <br>
@@ -40,15 +48,9 @@
     <mat-menu #menu="matMenu" >
       <button mat-menu-item (click)="listQuiz()" [routerLink]="['/quiz-list']" style="font-size: 20px">Liste des Quiz</button>
       <button mat-menu-item [routerLink]="['/patient-list']" style="font-size: 20px">Accompagnés</button>
+      <!--<button mat-menu-item (click)="SeDeconnecter()" [routerLink]="['/home']" style="font-size: 20px">Se Déconnecter</button>-->
     </mat-menu>
 
-    <!--
-        <div *ngIf="!alreadyConnected">
-          <div class="boutonNotConnected">
-            <button class="bouton" [routerLink]="['/connexion']">Se connecter</button>
-          </div>
-        </div>
-     -->
   </div>
 </mat-toolbar>
 
