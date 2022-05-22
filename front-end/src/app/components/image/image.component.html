@@ -1,7 +1,20 @@
-<label class="image-upload-container btn btn-bwm">
-  <span>Ajouter une image</span>
-  <input #imageInput
-         type="file"
-         accept="image/*"
-         (change)="processFile(imageInput)">
-</label>
+<div class="text-center">
+  <input class="form-control" type="file"
+         (change)="onChange($event)">
+
+  <button (click)="onUpload()"
+          class="btn btn-success">
+    Upload
+  </button>
+</div>
+
+<!-- Shareable short link of  uoloaded file -->
+<div class="container text-center jumbotron"
+     *ngIf="shortLink">
+  <h2> Upload ok </h2>
+</div>
+
+<!--Flag variable is used here-->
+<div class="container" *ngIf="loading">
+  <h3>Loading ...</h3>
+</div>

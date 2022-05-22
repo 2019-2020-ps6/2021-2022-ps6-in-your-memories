@@ -19,6 +19,7 @@ export class QuestionsFormComponent implements OnInit {
   public questionForm: FormGroup = this.formBuilder.group({
     label: [''],
     answers: this.formBuilder.array([]),
+    image: [''],
     indice: [''],
   });
 
@@ -41,6 +42,7 @@ export class QuestionsFormComponent implements OnInit {
     this.questionForm = this.formBuilder.group({
       label: ['',Validators.required],
       answers: this.formBuilder.array([],Validators.required),
+      image: [''],
       indice: ['',Validators.required]
     });
   }

@@ -17,36 +17,36 @@ class ImageSnippet {
 })
 export class ImageComponent implements OnInit {
 
-  selectedFile!: ImageSnippet;
+  shortLink: string = "";
+  loading: boolean = false; // Flag variable
+  file!: File; // Variable to store file
 
-  constructor(private imageService: ImageService){}
-
-  private onSuccess() {
-    this.selectedFile.pending = false;
-    this.selectedFile.status = 'ok';
-  }
-
-  private onError() {
-    this.selectedFile.pending = false;
-    this.selectedFile.status = 'fail';
-    this.selectedFile.src = '';
-  }
-
-  processFile(imageInput: any) {
-    const file: File = imageInput.files[0];
-    const reader = new FileReader();
-
-    reader.addEventListener('load', (event: any) => {
-
-      this.selectedFile = new ImageSnippet(event.target.result, file);
-
-      this.selectedFile.pending = true;
-      this.imageService.uploadImage(this.selectedFile.file);
-    });
-
-    reader.readAsDataURL(file);
-  }
+  // Inject service
+  constructor(private fileUploadService: ImageService) { }
 
   ngOnInit(): void {
+  }
+
+  // On file Select
+  onChange(event: Event) {
+    // @ts-ignore
+    this.file = event.target.files[0];
+  }
+
+  // OnClick of button Upload
+  onUpload() {
+    this.loading = !this.loading;
+    console.log(this.file);
+    this.fileUploadService.upload({file: this.file}).subscribe(
+      (event: any) => {
+        if (typeof (event) === 'object') {
+
+          // Short link via api response
+          this.shortLink = event.link;
+
+          this.loading = false; // Flag variable
+        }
+      }
+    );
   }
 }

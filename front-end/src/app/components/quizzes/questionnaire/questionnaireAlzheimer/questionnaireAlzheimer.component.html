@@ -11,6 +11,7 @@
     <div class="Quiz">
       <div class="Question">
         <h2 style="font-size: 25px">{{actualQuestion.label}}</h2>
+        <img src="{{actualQuestion.image}}" alt="image" width="200" *ngIf="actualQuestion.image">
       </div>
       <div class="Réponse">
         <app-answer [anwserList]="actualQuestion.answers" (awnserSelected)="answerSelected()"></app-answer>

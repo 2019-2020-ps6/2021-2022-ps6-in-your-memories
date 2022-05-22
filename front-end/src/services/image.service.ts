@@ -7,13 +7,21 @@ import {httpOptionsBase, serverUrl} from "../configs/server.config";
 })
 export class ImageService {
 
-  private quizUrl = serverUrl + '/quizzes';
-  private httpOptions = httpOptionsBase;
+  baseApiUrl = ""
 
-  constructor(private http: HttpClient) {}
+  constructor(private http:HttpClient) { }
 
+  // Returns an observable
+  upload({file}: { file: any }):Observable<any> {
 
-  public uploadImage(image: File): void {
-    this.http.post(this.quizUrl, image, this.httpOptions);
+    // Create form data
+    const formData = new FormData();
+
+    // Store form name as "file" with file data
+    formData.append("file", file, file.name);
+
+    // Make http post request over api
+    // with formData as req
+    return this.http.post(this.baseApiUrl, formData)
   }
 }

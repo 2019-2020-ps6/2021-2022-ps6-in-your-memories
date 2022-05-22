@@ -12,6 +12,7 @@
     <div class="Quiz">
       <div class="Question">
         <h2 style="font-size: 25px">{{actualQuestion.label}}</h2>
+        <img src="{{actualQuestion.image}}" alt="image" width="200" *ngIf="actualQuestion.image">
         <div class="IndiceDiv" [style.visibility]="indiceVisibility ? 'visible' : 'hidden'">
           <h3 class="Indice">Indice : {{actualQuestion.indice}}</h3>
         </div>
