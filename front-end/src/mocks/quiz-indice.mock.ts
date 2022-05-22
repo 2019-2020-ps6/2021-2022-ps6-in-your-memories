@@ -13,6 +13,7 @@ export const QUESTION_INDICE: Question = {
       isCorrect: false,
     }
   ],
+  image : '',
   indice : ''
 };
 

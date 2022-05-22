@@ -6,16 +6,14 @@
         <mat-label>Question</mat-label>
         <input matInput type="text" [formControlName]="'label'">
       </mat-form-field>
-      <br>
       <div class="example-card" [style.visibility]="maxAnswers ? 'visible' : 'hidden'">
         <h4>Vous ne pouvez pas ajouter plus de 4 réponses !</h4>
       </div>
+      <mat-form-field appearance="fill">
+        <mat-label>Lien d'une image</mat-label>
+        <input matInput type="text" [formControlName]="'image'">
+      </mat-form-field>
       <br>
-      <label for="image">
-        <mat-label>Image sous la forme http...</mat-label>
-        <input class="input-custom" type="text" id="image" [formControlName]="'image'" maxlength="200">
-        <br>
-      </label>
       <button mat-raised-button color="primary" (click)="addAnswer()" style="margin: 1em">
         <mat-icon>add_circle</mat-icon>
         <br>
@@ -35,14 +33,10 @@
                 <mat-label>Réponse {{i + 1}}</mat-label>
                 <input matInput type="text" [formControlName]="'value'">
               </mat-form-field>
-              <!--<br><br> Ajouter une image <br><br>
-              <app-image></app-image>
 
               <br>
               <mat-checkbox class="example-margin" color="primary" [formControlName]="'isCorrect'"> Est correct
-              </mat-checkbox>-->
-
-               <input type="checkbox" [formControlName]="'isCorrect'">
+              </mat-checkbox>
 
             </label>
           </div>

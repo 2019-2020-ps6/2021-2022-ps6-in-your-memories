@@ -9,6 +9,7 @@ export const QUESTION_CORRECT_INTER: Question = {
       isCorrect: true,
     },
   ],
+  image : '',
   indice : ''
 };
 
@@ -21,5 +22,6 @@ export const QUESTION_CORRECT_FIN: Question = {
       isCorrect: true,
     },
   ],
+  image : '',
   indice : ''
 };

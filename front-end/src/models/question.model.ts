@@ -1,5 +1,4 @@
 export interface Answer {
-    type?: string;
     value: string;
     isCorrect: boolean;
 }
@@ -9,5 +8,5 @@ export interface Question {
     label: string;
     answers: Answer[];
     indice: string;
-  image?: string;
+    image?: string;
 }

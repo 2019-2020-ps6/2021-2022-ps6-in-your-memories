@@ -19,6 +19,7 @@ export const QUESTION_EAU: Question = {
     }
 
   ],
+  image : '',
   indice : 'le nombre d\'hydrogène est paire'
 };
 
@@ -40,6 +41,7 @@ export const QUESTION_CHUTE: Question = {
     }
 
   ],
+  image : '',
   indice : 'E=mc^2'
 };
 

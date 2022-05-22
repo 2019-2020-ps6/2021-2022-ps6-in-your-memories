@@ -3,9 +3,8 @@
     <button mat-stroked-button color="primary"
             style="font-size: 25px; margin: 0.3em; padding: 10px 20px 10px 20px; border: 0.1rem solid;"
             type="button" (click)="select(anwser, index)">
-      {{anwser.value}}
+      <img src="{{anwser.value}}" alt="{{anwser.value}}" width="200" *ngIf="anwser.value">
     </button>
-    <!--<img [src]='anwser.image'>-->
   </div>
 </div>
 

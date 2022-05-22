@@ -5,9 +5,11 @@
     <h3>Catégorie : {{quiz.theme}}</h3>
   </div>
   <div class="card" *ngFor="let question of quiz.questions;let i = index;">
-    <h4>{{i+1}}/{{quiz.questions.length}} - {{question.label}}</h4>
+    <h4>{{i+1}}/{{quiz.questions.length}} - {{question.label}}
+      <img src="{{question.image}}" alt="" width="200" *ngIf="question.image"></h4>
     <div class="answer" *ngFor="let answer of question.answers">
-       <ng-container *ngIf="answer.isCorrect" color="primary">Réponse : {{answer.value}}</ng-container>
+       <ng-container *ngIf="answer.isCorrect" color="primary">Réponse :
+         <img src="{{answer.value}}" alt="{{answer.value}}" width="200" *ngIf="answer.value"></ng-container>
     </div>
 
   </div>
