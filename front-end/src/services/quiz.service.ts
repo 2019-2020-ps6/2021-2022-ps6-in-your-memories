@@ -60,7 +60,7 @@ export class QuizService {
         id: '',
         name: '',
         theme: '',
-        questions: []
+        questions: [],
       };
     }
     this.quizSelected$.next(this.actualQuiz);

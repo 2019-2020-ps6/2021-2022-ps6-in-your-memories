@@ -9,7 +9,8 @@
       <img src="{{question.image}}" alt="" width="200" *ngIf="question.image"></h4>
     <div class="answer" *ngFor="let answer of question.answers">
        <ng-container *ngIf="answer.isCorrect" color="primary">Réponse :
-         <img src="{{answer.value}}" alt="{{answer.value}}" width="200" *ngIf="answer.value"></ng-container>
+         {{answer.value}}
+         <img src="{{answer.imageAns}}" alt="" width="200" *ngIf="answer.imageAns"></ng-container>
     </div>
 
   </div>

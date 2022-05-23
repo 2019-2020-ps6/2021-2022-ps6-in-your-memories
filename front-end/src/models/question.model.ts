@@ -1,6 +1,7 @@
 export interface Answer {
     value: string;
     isCorrect: boolean;
+    imageAns?: string;
 }
 
 export interface Question {

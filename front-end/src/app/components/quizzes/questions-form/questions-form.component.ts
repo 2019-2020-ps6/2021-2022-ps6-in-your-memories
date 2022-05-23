@@ -55,6 +55,7 @@ export class QuestionsFormComponent implements OnInit {
     return this.formBuilder.group({
       value: '',
       isCorrect: false,
+      imageAns: '',
     });
   }
 
