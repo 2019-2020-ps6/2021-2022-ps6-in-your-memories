@@ -16,6 +16,7 @@ export class QuizStatComponent implements OnInit {
       name: "",
       theme: "",
       questions: [],
+      nbPlay: 0,
     },
     nbTrue: 0,
     nbFalse: 0,

@@ -19,7 +19,8 @@ export class QuestionnaireComponent implements OnInit {
     id: '',
     name: '',
     theme: '',
-    questions: []
+    questions: [],
+    nbPlay: 0,
   }
 
   patient: Patient = {
@@ -42,15 +43,21 @@ export class QuestionnaireComponent implements OnInit {
     });
     this.quizService.quizSelected$.subscribe((quiz: Quiz) => {
       this.quiz = quiz;
+      console.log("nbPlay :" + this.quiz.nbPlay)
+      console.log("nom :" + this.quiz.name)
     });
+
   }
 
   ngOnInit(): void {
+
     if (this.patient.pathologie != '')
       this.bool = false;
   }
 
   playQuiz() {
+    this.quiz.nbPlay += 1
+    this.quizService.updateQuiz(this.quiz)
     let p = ""
     if (!this.bool) {
       p = this.patient.pathologie;
@@ -68,11 +75,9 @@ export class QuestionnaireComponent implements OnInit {
     else {
       this.notSelected=true;
     }
-
   }
 
   setPathologie(text: string) {
     this.pathologieSelect = text;
   }
-
 }
