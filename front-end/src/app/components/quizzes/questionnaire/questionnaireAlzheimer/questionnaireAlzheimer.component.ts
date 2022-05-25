@@ -39,6 +39,7 @@ export class QuestionnaireAlzheimerComponent implements OnInit {
 
   numQuestion: number = 1;
   showAnswer : boolean = false;
+  correctAnswer: string = "";
 
   constructor(private router: Router,  private patientService: PatientService, private quizService: QuizService) {
     this.patientService.patientSelected$.subscribe((patient: Patient) => {
@@ -60,11 +61,17 @@ export class QuestionnaireAlzheimerComponent implements OnInit {
       this.showAnswer = false;
       return
     }
-    this.actualQuestion.label = "La bonne réponse est :"
+    this.actualQuestion.label = "La bonne réponse est : "
     this.actualQuestion.indice = " ";
     for(let i = 0; i< this.actualQuestion.answers.length; i++ ){
-      if(this.actualQuestion.answers[i].isCorrect)
+      if(this.actualQuestion.answers[i].isCorrect){
         this.actualQuestion.indice += this.actualQuestion.answers[i].value + " ";
+        if(this.actualQuestion.answers[i].imageAns == undefined)
+          this.actualQuestion.label = this.actualQuestion.label + this.actualQuestion.answers[i].value;
+        else
+          this.actualQuestion.label = this.actualQuestion.label + this.actualQuestion.answers[i].imageAns;
+      }
+
     }
     this.showAnswer = true;
     if (this.quiz.questions.length > this.numQuestion) {
