@@ -1,11 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {Quiz} from '../../../../../models/quiz.model';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {QuizService} from "../../../../../services/quiz.service";
-import {Question} from "../../../../../models/question.model";
+import {Answer, Question} from "../../../../../models/question.model";
 import {QUESTION_CORRECT_FIN, QUESTION_CORRECT_INTER} from "../../../../../mocks/quiz-correct.mock";
 import {Patient} from "../../../../../models/patient.model";
 import {PatientService} from "../../../../../services/patient.service";
+import {QuizStat} from "../../../../../models/stat.model";
+import {Filter} from "../../../filter/filter";
 
 @Component({
   selector: 'app-questionnaire',
@@ -41,11 +43,11 @@ export class QuestionnaireAlzheimerComponent implements OnInit {
   numQuestion: number = 1;
   showAnswer : boolean = false;
   correctAnswer: string = "";
+  nbTrue: number = 0;
+  nbFalse: number = 0;
 
-  constructor(private router: Router,  private patientService: PatientService, private quizService: QuizService) {
-    this.patientService.patientSelected$.subscribe((patient: Patient) => {
-      this.patient = patient;
-    });
+
+  constructor(private router: Router,  private patientService: PatientService, private quizService: QuizService, private filter : Filter, private activatedRouter : ActivatedRoute) {
     this.quizService.quizSelected$.subscribe((quiz: Quiz) => {
       this.quiz = quiz;
 
@@ -53,11 +55,18 @@ export class QuestionnaireAlzheimerComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.filter.reset()
+    this.filter.setFilter(this.activatedRouter.snapshot.paramMap.get('filter'))
+    this.patient = this.patientService.getPatient(this.filter.data);
     Object.assign(this.actualQuestion, this.quiz.questions[this.numQuestion - 1]);
   }
 
-  answerSelected() {
+  answerSelected(answer: Answer) {
     if(this.showAnswer){
+      if (answer.isCorrect)
+        this.nbTrue+=1
+      else
+        this.nbFalse+=1;
       this.questionSuivante();
       this.showAnswer = false;
       return
@@ -88,7 +97,13 @@ export class QuestionnaireAlzheimerComponent implements OnInit {
       Object.assign(this.actualQuestion, this.quiz.questions[this.numQuestion - 1]);
       return;
     }
-    //dernier
+    let stat : QuizStat = {
+      quiz: this.quiz,
+      nbTrue: this.nbTrue,
+      nbFalse: this.nbFalse,
+    }
+    this.patient.stats.quizStat.push(stat);
+    this.patientService.majPatient(this.patient)
     this.router.navigate(['quiz-end']);
   }
 

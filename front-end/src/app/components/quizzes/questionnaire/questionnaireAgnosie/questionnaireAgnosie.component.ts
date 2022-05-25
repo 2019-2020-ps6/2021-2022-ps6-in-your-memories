@@ -1,12 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {Quiz} from '../../../../../models/quiz.model';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {QuizService} from "../../../../../services/quiz.service";
 import {Answer, Question} from "../../../../../models/question.model";
 import {QUESTION_CORRECT_FIN, QUESTION_CORRECT_INTER} from "../../../../../mocks/quiz-correct.mock";
 import {QUESTION_BAD_FIN, QUESTION_BAD_INTER} from "../../../../../mocks/quiz-bad.mock";
 import {Patient} from "../../../../../models/patient.model";
 import {PatientService} from "../../../../../services/patient.service";
+import {QuizStat} from "../../../../../models/stat.model";
+import {Filter} from "../../../filter/filter";
 
 @Component({
   selector: 'app-questionnaire',
@@ -41,11 +43,10 @@ export class QuestionnaireAgnosieComponent implements OnInit {
   addIndices : boolean = true;
   numQuestion: number = 1;
   indiceVisibility: boolean = false;
+  nbTrue: number = 0;
+  nbFalse: number = 0;
 
-  constructor(private router: Router,  private patientService: PatientService, private quizService: QuizService) {
-    this.patientService.patientSelected$.subscribe((patient: Patient) => {
-      this.patient = patient;
-    });
+  constructor(private router: Router,  private patientService: PatientService, private quizService: QuizService, private filter : Filter, private activatedRouter : ActivatedRoute) {
     this.quizService.quizSelected$.subscribe((quiz: Quiz) => {
       this.quiz = quiz;
 
@@ -53,6 +54,9 @@ export class QuestionnaireAgnosieComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.filter.reset()
+    this.filter.setFilter(this.activatedRouter.snapshot.paramMap.get('filter'))
+    this.patient = this.patientService.getPatient(this.filter.data);
     this.majQuestion();
   }
 
@@ -85,6 +89,13 @@ export class QuestionnaireAgnosieComponent implements OnInit {
       this.majQuestion()
       return;
     }
+    let stat : QuizStat = {
+      quiz: this.quiz,
+      nbTrue: this.nbTrue,
+      nbFalse: this.nbFalse,
+    }
+    this.patient.stats.quizStat.push(stat);
+    this.patientService.majPatient(this.patient)
     this.router.navigate(['quiz-end']);
   }
 
@@ -97,9 +108,11 @@ export class QuestionnaireAgnosieComponent implements OnInit {
       this.questionSuivante();
       return;
     } else if (answer.isCorrect) {
+      this.nbTrue+=1
       this.goodAnswer();
       return;
     }
+    this.nbFalse+=1;
     this.badAnwser()
   }
 

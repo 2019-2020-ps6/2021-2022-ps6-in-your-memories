@@ -12,16 +12,7 @@ import {QuizStat} from "../models/stat.model";
 
 export class PatientService {
   public patients: Patient[] = PATIENT_LIST;
-  public actualPatient: Patient = {
-    id: '',
-    firstName: '',
-    lastName: '',
-    pathologie: '',
-    age: 0,
-    stats: {quizStat: []},
-  };
   public patients$: BehaviorSubject<Patient[]> = new BehaviorSubject(this.patients);
-  public patientSelected$: BehaviorSubject<Patient> = new BehaviorSubject(this.actualPatient);
 
 
   private patientUrl = serverUrl + '/patient';
@@ -46,45 +37,34 @@ export class PatientService {
     this.http.post<Patient>(this.patientUrl, patient, this.httpOptions).subscribe(() => this.retrievePatient());
   }
 
-  setSelectedPatient(patientId: String): void {
-
-    const urlWithId = this.patientUrl + '/' + patientId;
-    this.http.get<Patient>(urlWithId).subscribe((patient) => {
-      this.patientSelected$.next(patient);
-      console.log("OK2")
-    })
-
-    /*
-    var bool : Boolean;
-    bool = false;
-    for (let p in this.patients) {
-      if (this.patients[p].id == patientId) {
-        this.actualPatient = this.patients[p];
-        bool = true;
-      }
-    }
-    if(bool == false){
-      this.actualPatient = {
-        id: '',
-        firstName: '',
-        lastName: '',
-        pathologie: '',
-        age: 0,
-        stats: {quizStat: []},
-      };
-    }
-    this.patientSelected$.next(this.actualPatient);
-    */
-
-  }
-
   deleteSelectedPatient(patient: Patient): void {
     const urlWithId = this.patientUrl + '/' + patient.id;
     this.http.delete<Patient>(urlWithId, this.httpOptions).subscribe(() => this.retrievePatient());
   }
 
-  majPatient(patient : Patient){
+  majPatient(patient: Patient) {
     const urlWithId = this.patientUrl + '/' + patient.id;
-    this.http.put<Patient>(urlWithId, this.httpOptions).subscribe(() => this.retrievePatient());
+    console.log(patient)
+    this.http.put<Patient>(urlWithId, patient, this.httpOptions).subscribe(() => this.retrievePatient());
   }
+
+  getPatient(patientId: String): Patient {
+    this.retrievePatient()
+    for (var i = 0; i < this.patients.length; i++) {
+      if (this.patients[i].id ==  patientId) {
+        return this.patients[i];
+      }
+    }
+
+    return {
+      id: '',
+      firstName: '',
+      lastName: '',
+      pathologie: '',
+      age: 0,
+      stats: {quizStat: []},
+    };
+    ;
+  }
+
 }

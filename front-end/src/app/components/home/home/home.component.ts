@@ -55,8 +55,11 @@ export class HomeComponent implements OnInit {
       monNouvelObjet.splice(x, 1);
       i++;
     }
-
     return topQuiz;
+  }
+
+  selectTheme(title? : String){
+    this.router.navigate(['/quiz-list/theme='  +  title]);
   }
 
 }

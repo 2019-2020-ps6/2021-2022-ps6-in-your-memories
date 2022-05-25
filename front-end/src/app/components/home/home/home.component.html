@@ -10,7 +10,7 @@
       <p class="titre">Thème :</p>
     </div>
     <div class="example-card">
-      <button style="margin: 0.3em; padding: 0.1em 0.3em; font-size: 25px;" mat-raised-button color="primary" *ngFor="let quiz of quizList">
+      <button style="margin: 0.3em; padding: 0.1em 0.3em; font-size: 25px;" mat-raised-button color="primary" *ngFor="let quiz of quizList" (click)="selectTheme(quiz.theme)">
         {{quiz.theme}}
       </button>
     </div>

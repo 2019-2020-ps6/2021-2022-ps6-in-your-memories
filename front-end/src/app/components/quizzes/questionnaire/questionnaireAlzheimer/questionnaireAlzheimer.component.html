@@ -12,9 +12,12 @@
       <div class="Question">
         <h2 style="font-size: 25px">{{actualQuestion.label}}</h2>
         <img src="{{actualQuestion.image}}" alt="" width="200" *ngIf="actualQuestion.image">
+        <div class="IndiceDiv" [style.visibility]="showAnswer ? 'visible' : 'hidden'">
+          <h3 class="Indice">{{actualQuestion.indice}}</h3>
+        </div>
       </div>
       <div class="Réponse">
-        <app-answer [anwserList]="actualQuestion.answers" (awnserSelected)="answerSelected()"></app-answer>
+        <app-answer [anwserList]="actualQuestion.answers" (awnserSelected)="answerSelected($event)"></app-answer>
       </div>
     </div>
   </div>

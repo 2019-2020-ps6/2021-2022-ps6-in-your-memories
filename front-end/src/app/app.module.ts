@@ -49,6 +49,7 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {Router} from "@angular/router";
+import {Filter} from "./components/filter/filter";
 
 
 
@@ -105,7 +106,7 @@ import {Router} from "@angular/router";
     MatSlideToggleModule,
 
   ],
-  providers: [],
+  providers: [Filter],
   bootstrap: [AppComponent]
 })
 export class AppModule {
