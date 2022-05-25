@@ -22,7 +22,7 @@
       <p class="titre">Top Quiz :</p>
     </div>
     <div class="example-card">
-      <div class="quiz" *ngFor="let quiz of quizList">
+      <div class="quiz" *ngFor="let quiz of getTopQuiz()">
         <app-quiz [quiz]="quiz" (quizSelected)="quizSelected($event)" (editQuiz)="quizEdit($event)"></app-quiz>
       </div>
     </div>

@@ -47,12 +47,14 @@ export class PatientService {
   }
 
   setSelectedPatient(patientId: String): void {
-    /*
+
     const urlWithId = this.patientUrl + '/' + patientId;
     this.http.get<Patient>(urlWithId).subscribe((patient) => {
       this.patientSelected$.next(patient);
+      console.log("OK2")
     })
-    */
+
+    /*
     var bool : Boolean;
     bool = false;
     for (let p in this.patients) {
@@ -72,6 +74,8 @@ export class PatientService {
       };
     }
     this.patientSelected$.next(this.actualPatient);
+    */
+
   }
 
   deleteSelectedPatient(patient: Patient): void {
@@ -82,7 +86,5 @@ export class PatientService {
   majPatient(patient : Patient){
     const urlWithId = this.patientUrl + '/' + patient.id;
     this.http.put<Patient>(urlWithId, this.httpOptions).subscribe(() => this.retrievePatient());
-
-
   }
 }

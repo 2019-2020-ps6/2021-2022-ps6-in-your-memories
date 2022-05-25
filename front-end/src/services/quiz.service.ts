@@ -16,7 +16,8 @@ export class QuizService {
     id: '',
     name: '',
     theme: '',
-    questions: []
+    questions: [],
+    nbPlay: 0,
   }
   public quizzes$: BehaviorSubject<Quiz[]> = new BehaviorSubject(this.quizzes);
   public quizSelected$: BehaviorSubject<Quiz> = new BehaviorSubject(this.actualQuiz);
@@ -28,26 +29,26 @@ export class QuizService {
     this.retrieveQuiz();
   }
 
-  retrieveQuiz(): void{
+  retrieveQuiz(): void {
     this.http.get<Quiz[]>(this.quizUrl).subscribe((quizList) => {
       this.quizzes = quizList;
       this.quizzes$.next(this.quizzes);
     });
   }
 
-  addQuiz(quiz: Quiz): void{
+  addQuiz(quiz: Quiz): void {
     this.http.post<Quiz>(this.quizUrl, quiz, this.httpOptions).subscribe(() => this.retrieveQuiz());
   }
 
-  setSelectedQuiz(quizId: String): void {
-    /*
-    const urlWithId = this.quizUrl + '/' + quizId;
+  setSelectedQuiz(quiz: Quiz): void {
+    const urlWithId = this.quizUrl + '/' + quiz.id;
     this.http.get<Quiz>(urlWithId).subscribe((quiz) => {
       this.quizSelected$.next(quiz);
+      console.log("OK")
     })
-    */
 
-    var bool : Boolean;
+    /*
+    var bool: Boolean;
     bool = false;
     for (let p in this.quizzes) {
       if (this.quizzes[p].id == quizId) {
@@ -55,15 +56,17 @@ export class QuizService {
         bool = true;
       }
     }
-    if(bool == false){
+    if (bool == false) {
       this.actualQuiz = {
         id: '',
         name: '',
         theme: '',
         questions: [],
+        nbPlay: 0,
       };
     }
-    this.quizSelected$.next(this.actualQuiz);
+
+     */
   }
 
   deleteQuiz(quiz: Quiz): void {
@@ -71,6 +74,10 @@ export class QuizService {
     this.http.delete<Quiz>(urlWithId, this.httpOptions).subscribe(() => this.retrieveQuiz());
   }
 
+  updateQuiz(quiz: Quiz): void {
+    const urlWithId = this.quizUrl + '/' + quiz.id;
+    this.http.put<Quiz>(urlWithId, quiz, this.httpOptions).subscribe(() => this.retrieveQuiz());
+  }
 
 }
 

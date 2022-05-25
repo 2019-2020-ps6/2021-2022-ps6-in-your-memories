@@ -19,6 +19,7 @@ export class QuizFormComponent implements OnInit {
     name: "",
     theme: "",
     questions: [],
+    nbPlay: 0,
   }
 
   bool : boolean = true;

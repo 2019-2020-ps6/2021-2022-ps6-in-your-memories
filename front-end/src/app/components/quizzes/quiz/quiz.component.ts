@@ -15,7 +15,8 @@ export class QuizComponent implements OnInit {
     id: '',
     name: '',
     theme: '',
-    questions: []
+    questions: [],
+    nbPlay: 0,
   }
 
   public alreadyConnected: boolean=false;
@@ -36,13 +37,12 @@ export class QuizComponent implements OnInit {
     this.alreadyConnected = this.connexionService.alreadyConnected;
     this.connexionService.alreadyConnected$.subscribe((bool) => {
       this.alreadyConnected = bool;
-      console.log('boolean', this.alreadyConnected);
     });
   }
 
   selectQuiz(): void {
     this.quizSelected.emit(this.quiz);
-    this.quizService.setSelectedQuiz(this.quiz.id);
+    this.quizService.setSelectedQuiz(this.quiz);
   }
 
   edit(): void {

@@ -20,7 +20,8 @@ export class QuestionnaireAVCComponent implements OnInit {
     id: '',
     name: '',
     theme: '',
-    questions: []
+    questions: [],
+    nbPlay: 0,
   }
 
   patient: Patient = {

@@ -28,7 +28,8 @@ export class QuestionsFormComponent implements OnInit {
     id: '',
     name: '',
     theme: '',
-    questions: []
+    questions: [],
+    nbPlay: 0,
   }
 
   constructor(public formBuilder: FormBuilder, private router: Router, public quizService: QuizService) {

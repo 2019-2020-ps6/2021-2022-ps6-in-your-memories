@@ -41,14 +41,14 @@ export class QuizListComponent implements OnInit {
   }
 
   quizSelected(quiz: Quiz): void {
-    this.quizService.setSelectedQuiz(quiz.id);
+    this.quizService.setSelectedQuiz(quiz);
 
     console.log("select :" + quiz.id)
     this.router.navigate(['questionnaire']);
   }
 
   quizEdit(quiz: Quiz): void {
-    this.quizService.setSelectedQuiz(quiz.id);
+    this.quizService.setSelectedQuiz(quiz);
     this.router.navigate(['edit-quiz']);
   }
 

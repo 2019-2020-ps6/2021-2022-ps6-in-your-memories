@@ -51,6 +51,7 @@ export const QUIZ_LIST: Quiz[] = [
     name: 'Physique pour les nuls', // What's happening if I change this value..?
     theme: 'Physique',
     questions: [QUESTION_EAU, QUESTION_CHUTE],
+    nbPlay: 0,
   }
 ];
 

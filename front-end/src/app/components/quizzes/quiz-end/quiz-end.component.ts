@@ -23,7 +23,8 @@ export class QuizEndComponent implements OnInit {
     id: '',
     name: '',
     theme: '',
-    questions: []
+    questions: [],
+    nbPlay: 0,
   }
 
   Question: Question = {
