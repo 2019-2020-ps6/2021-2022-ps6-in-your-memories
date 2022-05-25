@@ -6,7 +6,7 @@
         <mat-label>Question</mat-label>
         <input matInput type="text" [formControlName]="'label'">
       </mat-form-field>
-      <div class="example-card" [style.visibility]="maxAnswers ? 'visible' : 'hidden'">
+      <div class="example-card" [style.visibility]="(maxAnswers && minAnswers) ? 'visible' : 'hidden'">
         <h4>Vous ne pouvez pas ajouter plus de 4 réponses !</h4>
       </div>
       <mat-form-field appearance="fill">

@@ -15,6 +15,7 @@ export class QuestionsFormComponent implements OnInit {
 
   compteur : number = 0;
   maxAnswers : boolean = false;
+  minAnswers : boolean = false;
 
   public questionForm: FormGroup = this.formBuilder.group({
     label: [''],
@@ -76,6 +77,9 @@ export class QuestionsFormComponent implements OnInit {
     else{
       this.maxAnswers=true;
     }
+    if(this.compteur>=2){
+      this.minAnswers = true;
+    }
   }
 
   deleteAnswer() : void{
@@ -83,6 +87,9 @@ export class QuestionsFormComponent implements OnInit {
       this.answers.removeAt(length-1);
       this.compteur--;
       this.maxAnswers=false;
+    }
+    if(this.compteur<2){
+      this.minAnswers = false;
     }
   }
 

@@ -71,7 +71,7 @@ export class QuestionnaireAVCComponent implements OnInit {
   }
 
   badAnwser(answer: Answer) {
-    if (this.lessQuestion || !this.activeSecondChance) {
+    if (this.lessQuestion || !this.activeSecondChance || this.actualQuestion.answers.length<=2) {
       if (this.quiz.questions.length > this.numQuestion)
         this.actualQuestion = QUESTION_BAD_INTER;
       else
