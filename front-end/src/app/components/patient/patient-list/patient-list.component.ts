@@ -19,13 +19,12 @@ export class PatientListComponent {
 
 
   patientSelectedFiche(patient: Patient): void {
-    this.patientService.setSelectedPatient(patient.id);
-    this.router.navigate(['page-patient']);
+    this.router.navigate(['/page-patient/accomp='  +  patient.id]);
   }
 
   patientSelectedQuiz(patient: Patient): void {
-    this.patientService.setSelectedPatient(patient.id);
-    this.router.navigate(['quiz-list']);
+    //this.patientService.setSelectedPatient(patient.id);
+    this.router.navigate(['/quiz-list/accomp='  +  patient.id]);
   }
 
   patientSelectedDelete(patient: Patient): void{

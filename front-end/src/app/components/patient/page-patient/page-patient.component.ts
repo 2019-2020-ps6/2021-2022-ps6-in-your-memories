@@ -1,9 +1,10 @@
 import {Component, OnInit} from "@angular/core";
 import {Patient} from "../../../../models/patient.model";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {PatientService} from "../../../../services/patient.service";
 import {Quiz} from "../../../../models/quiz.model";
 import {QuizService} from "../../../../services/quiz.service";
+import {Filter} from "../../filter/filter";
 
 @Component({
   selector: 'app-page-patient',
@@ -24,16 +25,15 @@ export class PagePatientComponent implements OnInit {
 
   public quizList: Quiz[] = [];
 
-  constructor(private router: Router, private patientService: PatientService, public quizService: QuizService) {
+  constructor(private router: Router, private patientService: PatientService, public quizService: QuizService, private activatedRouter : ActivatedRoute, private filter : Filter) {
     this.quizService.quizzes$.subscribe((quizzes: Quiz[]) => {
       this.quizList = quizzes;
-    });
-    this.patientService.patientSelected$.subscribe((patient: Patient) => {
-      this.patient = patient;
     });
   }
 
   ngOnInit(): void {
+    this.filter.setFilter(this.activatedRouter.snapshot.paramMap.get('filter'))
+    this.patient = this.patientService.getPatient(this.filter.data);
   }
 
   quizSelected(quiz: Quiz): void {

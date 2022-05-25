@@ -1,9 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Quiz} from '../../../../models/quiz.model';
+import { ActivatedRoute } from '@angular/router';
 import {Router} from "@angular/router";
 import {QuizService} from "../../../../services/quiz.service";
 import {Patient} from "../../../../models/patient.model";
 import {PatientService} from "../../../../services/patient.service";
+import {Filter} from "../../filter/filter";
 
 @Component({
   selector: 'app-questionnaire',
@@ -32,25 +34,27 @@ export class QuestionnaireComponent implements OnInit {
     stats: {quizStat: []},
   };
 
+
   titreSelect : string = "Choisir une pathologie"
   pathologieSelect: string = ""
   pathologies: string[] = ["AVC", "Agnosie", "Alzheimer"]
   bool: boolean = true;
 
-  constructor(private router: Router, private patientService: PatientService, private quizService: QuizService) {
-    this.patientService.patientSelected$.subscribe((patient: Patient) => {
-      this.patient = patient;
-    });
+  constructor(private router: Router, private patientService: PatientService, private quizService: QuizService, private activatedRouter : ActivatedRoute, private filter : Filter) {
+
     this.quizService.quizSelected$.subscribe((quiz: Quiz) => {
       this.quiz = quiz;
-      console.log("nbPlay :" + this.quiz.nbPlay)
-      console.log("nom :" + this.quiz.name)
+
     });
 
   }
 
   ngOnInit(): void {
-
+    this.filter.reset()
+    this.filter.setFilter(this.activatedRouter.snapshot.paramMap.get('filter'))
+    console.log(this.filter)
+    this.patient = this.patientService.getPatient(this.filter.data);
+    console.log(this.filter.data)
     if (this.patient.pathologie != '')
       this.bool = false;
   }
@@ -66,11 +70,11 @@ export class QuestionnaireComponent implements OnInit {
     }
 
     if (p === "AVC") {
-      this.router.navigate(['questionnaireAVC']);
+      this.router.navigate(['/questionnaireAVC/' + this.activatedRouter.snapshot.paramMap.get('filter')]);
     } else if (p === "Agnosie") {
-      this.router.navigate(['questionnaireAgnosie']);
+      this.router.navigate(['/questionnaireAgnosie/' + this.activatedRouter.snapshot.paramMap.get('filter')]);
     } else if (p === "Alzheimer") {
-      this.router.navigate(['questionnaireAlzheimer']);
+      this.router.navigate(['/questionnaireAlzheimer/' + this.activatedRouter.snapshot.paramMap.get('filter')]);
     }
     else {
       this.notSelected=true;

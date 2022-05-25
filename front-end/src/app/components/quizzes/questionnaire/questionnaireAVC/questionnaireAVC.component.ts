@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Quiz} from '../../../../../models/quiz.model';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {QuizService} from "../../../../../services/quiz.service";
 import {Answer, Question} from "../../../../../models/question.model";
 import {QUESTION_CORRECT_FIN, QUESTION_CORRECT_INTER} from "../../../../../mocks/quiz-correct.mock";
@@ -8,6 +8,7 @@ import {QUESTION_BAD_FIN, QUESTION_BAD_INTER} from "../../../../../mocks/quiz-ba
 import {Patient} from "../../../../../models/patient.model";
 import {QuizStat} from "../../../../../models/stat.model";
 import {PatientService} from "../../../../../services/patient.service";
+import {Filter} from "../../../filter/filter";
 
 @Component({
   selector: 'app-questionnaire',
@@ -47,16 +48,16 @@ export class QuestionnaireAVCComponent implements OnInit {
   nbTrue: number = 0;
   nbFalse: number = 0;
 
-  constructor(private router: Router, private patientService: PatientService, private quizService: QuizService) {
-    this.patientService.patientSelected$.subscribe((patient: Patient) => {
-      this.patient = patient;
-    });
+  constructor(private router: Router, private patientService: PatientService, private quizService: QuizService, private filter : Filter, private activatedRouter : ActivatedRoute) {
     this.quizService.quizSelected$.subscribe((quiz: Quiz) => {
       this.quiz = quiz;
     });
   }
 
   ngOnInit(): void {
+    this.filter.reset()
+    this.filter.setFilter(this.activatedRouter.snapshot.paramMap.get('filter'))
+    this.patient = this.patientService.getPatient(this.filter.data);
     this.majQuestion();
   }
 

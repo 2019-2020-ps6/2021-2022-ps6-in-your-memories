@@ -14,7 +14,7 @@
         <img src="{{actualQuestion.image}}" alt="" width="200" *ngIf="actualQuestion.image">
       </div>
       <div class="Réponse">
-        <app-answer [anwserList]="actualQuestion.answers" (awnserSelected)="answerSelected()"></app-answer>
+        <app-answer [anwserList]="actualQuestion.answers" (awnserSelected)="answerSelected($event)"></app-answer>
       </div>
     </div>
   </div>

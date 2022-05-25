@@ -31,9 +31,6 @@ export class HeaderComponent implements OnInit {
   }
 
   listQuiz() {
-    this.patientService.setSelectedPatient("-1");
-    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
-      this.router.navigate(['quiz-list']);
-    });
+    this.router.navigate(['quiz-list']);
   }
 }
